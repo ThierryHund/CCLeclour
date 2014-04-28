@@ -1,0 +1,22 @@
+/* Feuille de style s'appliquant à l'ensemble des pages de l'application Leclour
+créee le 28/04/2014 à 5h08 du matin, oui, ça bosse.
+*/
+
+/*Pour avoir des formulaires bien alignés nous nous servons d'une technique qui consiste à faire flotter des labels devant les champs associés,
+puis trouver une valeur de largeur pour laquelle l'ensemble du texte est bien visible. Nous nous laissons la possibilité de gérer plusieurs tailles
+de formulaires avec l'ajout potentiel d'un id par formulaire.
+*/
+
+label
+{
+    display:block;
+    width:160px;
+    float:left;
+}
+
+#id_form label
+{
+    display:block;
+    width:100px;
+    float:left;
+}
