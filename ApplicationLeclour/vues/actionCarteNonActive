@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 	<link rel="stylesheet" href="../css/MainStyleSheet.css">
-<title id="pageAction"> Opération à effectuer sur une Carte Non active</title>
+<title id="CNA"> Opération à effectuer sur une Carte Non active</title>
 </head>
 <body>
 <header>
