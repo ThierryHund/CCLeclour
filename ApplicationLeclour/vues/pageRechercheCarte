@@ -10,7 +10,7 @@
 <h1>Recherche de Carte</h1>
 </header>
 <br/>
-<form id="formulaire" action="gestionUtilisateur_Confirm.html">
+<form>
 	<div>
  	<label for="numAl" >Numéro Aléatoire du Code Barre :</label> 
 
