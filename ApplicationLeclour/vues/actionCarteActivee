@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+	<link rel="stylesheet" href="../css/MainStyleSheet.css">
+<title id="CA"> Opération à effectuer sur une Carte Activée</title>
+</head>
+<body>
+<header>
+<h1>Opération à effectuer sur une Carte Activée</h1>
+
+</header>
+<br/>
+<?php
+
+	echo "<h2>Carte B2C Activée en date du " . $_POST["date d'activation de la carte a ajouter proprement depuis la bdd"] . "</h2>";
+
+	?>
+</br>
+</br>
+<?php	
+	echo "<h2>Crédit Originel de la carte : " . $_POST["montant d'origine de la carte a ajouter proprement depuis la bdd"] . "</h2>";
+	?>
+</br>
+</br>
+<?php
+
+	echo "<h2>Crédit restant sur la carte " . $_POST["Crédit restant de la carte a ajouter proprement depuis la bdd"] . "</h2>";
+
+	?>
+</br>
+</br>
+</br>
+
+	
+	<h2>Voulez-vous désactiver cette carte ?</h2>
+	<input type="submit" value="Désactiver"/>
+	
+</body>
+</html>
