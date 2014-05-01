@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 $test;
@@ -12,3 +13,11 @@ public $test;
 
 >>>>>>> branch 'master' of git@github.com:YacineKhamis/CCLeclour.git
 ?>
+=======
+<?php
+
+public $test;
+
+
+?>
+>>>>>>> branch 'master' of git@github.com:YacineKhamis/CCLeclour.git
