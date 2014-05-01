@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+	<link rel="stylesheet" href="../css/MainStyleSheet.css">
+<title id="pageRecherche"> Recherche d'une Carte</title>
+</head>
+<body>
+<header>
+<h1>Recherche de Carte</h1>
+</header>
+<br/>
+<form>
+	<div>
+ 	<label for="numAl" >Numéro Aléatoire du Code Barre :</label> 
+
+	<input type="text" id="numAl" />
+	</div>
+	
+	<br/>
+	
+	<div>
+	<label for="numSerie" >Numéro de Série de la Carte :</label> 
+
+	<input type="text" id="numSerie" />
+	</div>
+	
+	<br/>
+	<input type="submit" value="Valider"/>
+	<br/>
+</form>
+</body>
+</html>
