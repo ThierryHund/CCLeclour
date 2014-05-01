@@ -1,6 +1,6 @@
 <?php
 
-public $test;
+$test;
 
 
 ?>
