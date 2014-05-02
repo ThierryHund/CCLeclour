@@ -1,21 +1,16 @@
-<html>
-	<head>
-	<link rel="stylesheet" href="../../css/MainStyleSheet.css">
-	</head>
-	
-	<body>
+<?php include '../header.php'; ?>
 		<div>
 
 			<H1>Création d'un utilisateur</H1>
 				
 			<div>
-				<form id="formulaire" action="gestionUtilisateur_Confirm.html">
+				<form id="formulaire" action="creationUtilisateur_Confirm.html">
 					<label for="nom" >Nom :</label> 
-					<input type="text" id="nom" value="Dupont" /><br/>
+					<input type="text" id="nom"/><br/>
 					<label for="prenom" >Prenom :</label> 
-					<input type="text" id="prenom" value="Pierre"/><br/>
+					<input type="text" id="prenom"/><br/>
 					<label for="login" >Login :</label> 
-					<input type="text" id="login" value="Dupont46"/><br/>
+					<input type="text" id="login"/><br/>
 					<label for="mdp" >Mot de passe :</label> 
 					<input type="password" id="mdp" /><br/>
 					<label for="entite" >Entité de rattachement :</label>
@@ -37,6 +32,5 @@
 				</form>
 			</div>
 		</div>
-	</body>
-
-</html>
+		
+<?php include '../footer.php'; ?>
