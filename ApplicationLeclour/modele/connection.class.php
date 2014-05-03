@@ -2,10 +2,10 @@
 class Connection
 {
   private static $connection = false;
-  private static $host = "infodb2.iut.univ-metz.fr";
-  private static $dbname = "hund1u_db";
-  private static $user = "hund1u";
-  private static $pwd = "xxxxxxx";
+  private static $host = "localhost";
+  private static $dbname = "_projet_carte";
+  private static $user = "tyery1";
+  private static $pwd = "t061276yy";
   
 
   public static function get()

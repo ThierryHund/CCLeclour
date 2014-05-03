@@ -1,13 +1,45 @@
 <?php
-require_once "usager.class.php";
-require_once "depot.class.php";
-require_once "tarif.class.php";
-require_once "smarty_iut.php";
+require_once "modele/utilisateur.class.php";
+require_once "modele/smarty_iut.php";
 
 
 session_start();
 $parameters = array();
 $parameters['connection'] = false;
+
+////////////////////////////////
+//acces page de connection
+////////////////////////////////
+if (!isset($_SESSION['connecte']))
+{
+	$smarty = new smartyIUT();
+	$smarty->display("connexion.tpl");
+}
+
+////////////////////////////////
+//creation de la session connection et acces a page d'acceuil 
+////////////////////////////////
+if((!empty($_POST['login']) && !empty($_POST['pswd'])) or isset($_SESSION['connecte']))
+{
+	if(!empty($_POST['login']) && !empty($_POST['pswd']))
+	{
+		if($_POST['login']=='admin' && $_POST['pswd']=='password')
+		{
+			$_SESSION['login']= $_POST['login'];
+			$_SESSION['pswd'] = $_POST['pswd'];
+			$_SESSION['connecte']=true;
+			$parameters['login'] = $_SESSION['login'];
+			$parameters['pswd'] = $_SESSION['pswd'];
+			$parameters['connection'] = true;
+		}
+	}else
+	{
+		$parameters['login'] = $_SESSION['login'];
+		$parameters['pswd'] = $_SESSION['pswd'];
+		$parameters['connection'] = true;
+	}
+}
+
 
 
 
@@ -17,7 +49,7 @@ $parameters['connection'] = false;
 if (isset($_GET['key']))
 {
 	$nav = $_GET ['key'];
-}
+}else $nav=null;
 
 
 
@@ -30,43 +62,11 @@ if($nav=='out')
   session_destroy();
 }
 
+
 ////////////////////////////////
-//connection
+// page d'accueil poste connection
 ////////////////////////////////
-if((!empty($_POST['login']) && !empty($_POST['pswd'])) or isset($_SESSION['connecte']))
-{
-  if(!empty($_POST['login']) && !empty($_POST['pswd']))
-  {
-    if($_POST['login']=='admin' && $_POST['pswd']=='password')
-	{
-		$_SESSION['login']= $_POST['login'];
-		$_SESSION['pswd'] = $_POST['pswd'];
-		$_SESSION['connecte']=true;
-		$parameters['login'] = $_SESSION['login'];
-		$parameters['pswd'] = $_SESSION['pswd'];
-		$parameters['connection'] = true;
-	}
-  }else
-  {
-	$parameters['login'] = $_SESSION['login'];
-	$parameters['pswd'] = $_SESSION['pswd'];
-	$parameters['connection'] = true;
-  }
-}
-////////////////////////////////
-//page de connection
-////////////////////////////////
-if (!$parameters['connection'])
-{
-	$usagers=null;
-	$smarty = new smartyIUT();
-	$smarty->assign('parameters', $usagers);
-	$smarty->display("connexion.tpl");
-}
-////////////////////////////////
-// Liste des usagers
-////////////////////////////////
-else if($nav=="liste" && $parameters['connection'])
+else if($parameters['connection'])
 {	$usager=null;
 	try
 	{
