@@ -57,10 +57,11 @@ body{
 }
 
 .corpsmenu{
-	background: url(sources/case.png);
-	width: 235px;
+	background: url(sources/case.png) no-repeat;
+	width: 210px;
 	height: 30px;
-	text-align: center;
+	padding-left:25px;
+	text-align: left;
 	margin: 0px;
 	background-repeat: inherit;
 }
