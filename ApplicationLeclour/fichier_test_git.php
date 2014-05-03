@@ -1,23 +1,11 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 <?php
 
-$test;
+echo "popopopo"
 
 
-=======
-<?php
 
-public $test;
-
-
->>>>>>> branch 'master' of git@github.com:YacineKhamis/CCLeclour.git
-?>
-=======
-<?php
-
-public $test;
 
 
 ?>
->>>>>>> branch 'master' of git@github.com:YacineKhamis/CCLeclour.git
+
