@@ -7,6 +7,18 @@ session_start();
 $parameters = array();
 $parameters['connection'] = false;
 
+//Modification faite par Yacine le 03/05 pour commencer à avoir une version fonctionnelle de l'application
+//Pour l'instant on ne gère pas l'accès à la base et les controleurs ne sont pas opérationnels
+//On va utiliser le controleur.php pour faire une première redirection et pouvoir inclure le header et le footer
+if (!isset($_SESSION['connecte']))
+{
+	$smarty = new smartyIUT();
+	$smarty->display("header.tpl");
+	$smarty->display("administrateur/creationUtilisateur.tpl");
+	$smarty->display("footer.tpl");
+}
+
+
 ////////////////////////////////
 //acces page de connection
 ////////////////////////////////

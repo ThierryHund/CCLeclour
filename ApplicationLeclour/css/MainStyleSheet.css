@@ -14,10 +14,10 @@ label
     float:left;
 }
 
-#id_form label
+#connexion label
 {
     display:block;
-    width:100px;
+    width:130px;
     float:left;
 }
 
@@ -29,13 +29,17 @@ ont une facon un peu étrange de gerer la tailes des éléments de la liste (et ca 
 */
 
 html{
-	background: url(sources/fondglobal.jpg) no-repeat;
-	
+	background: url(sources/bg.png);
+	width:100%;
 }
 
 body{
-	background-color: gray;
-	background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
+	background-color:white;
+	float:left;
+	margin:50px 10%;
+	width:80%;
+	box-shadow: 0 0 10px #000;
+	border-radius:5px;
 }
 
 .listemenu{
@@ -55,7 +59,7 @@ body{
 .corpsmenu{
 	background: url(sources/case.png);
 	width: 235px;
-	height: 42px;
+	height: 30px;
 	text-align: center;
 	margin: 0px;
 	background-repeat: inherit;
@@ -71,7 +75,64 @@ body{
 }
 
 
-div:contenu{
+div.header{
+	background : url(sources/banniere.jpg);
+	height:43px;
+	margin-bottom:40px;
+}
+
+div.footer{
 	float:left;
-	margin:100px 50px;
+	background : url(sources/foot.png) no-repeat;
+	height:126px;
+	width:100%;
+}
+
+div.contenu{
+	padding-left:20px;
+	height:auto;
+	float:left;
+	width:70%;
+	padding-bottom:50px;
+	/* Nous donnons ici un aspect professionel et fini à notre application
+	Ce code a été copié depuis le site www.debray-jerome.fr qui fournit un outil
+	de génération de code pour simplifier la création de styles d'ombres sur nos div
+	*/
+	-moz-box-shadow: 0px 5px 10px 0px #9698ed;
+	-webkit-box-shadow: 0px 5px 10px 0px #9698ed;
+	-o-box-shadow: 0px 5px 10px 0px #9698ed;
+	box-shadow: 0px 5px 10px 0px #9698ed;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#9698ed, Direction=180, Strength=10);
+}
+
+div.menu{
+	
+	width:25%;
+	height:400px;
+	float:left;
+	
+}
+
+div.centre{
+	margin:auto;
+	width:80%;
+}
+
+div.entreHeaderFooter{
+	width:100%;
+	float:left;
+	height:auto;
+}
+
+input[type="submit"]
+{
+	margin:10px 10px;
+}
+
+#menu a{
+	
+}
+
+h1{
+	text-align:center;
 }
