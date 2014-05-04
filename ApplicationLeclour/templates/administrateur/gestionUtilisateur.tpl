@@ -1,14 +1,6 @@
-<html>
-	<head>
-	<link rel="stylesheet" href="../../css/MainStyleSheet.css">
-	</head>
-	
-	<body>
-		<div>
-
 			<H1>Gestion des utilisateurs</H1>
 			<div>
-				<form id="formulaire" action="gestionUtilisateur.html">
+				<form action="gestionUtilisateur.html">
 				<input type="text" id="nom" value="nom"/>
 				<input type="text" id="prenom" value="prenom"/>
 				<input type="text" id="login" value="login"/>
@@ -24,7 +16,7 @@
 				</form>
 			</div>
 			<div>
-				<TABLE BORDER="1" style=" width:60%;"> 
+				<TABLE BORDER="1" style=" width:90%;"> 
 					 
 					<TR>
 						<TH></TH>
@@ -71,7 +63,3 @@
 				<input id="selectionner" type="submit" value="Selectionner"/>
 				</form>
 			</div>
-		</div>
-	</body>
-
-</html>
