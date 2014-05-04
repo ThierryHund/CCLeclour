@@ -37,12 +37,13 @@ if((!empty($_POST['login']) && !empty($_POST['pswd'])) or isset($_SESSION['conne
 	{
 		$listeUtil = Utilisateurs::getUtilisateurs();
 		foreach ($listeUtil as $value) {
-			if($value['login']=$_POST['login'] && $value['mdp']=$_POST['pswd'] )
+			if($value['login']==$_POST['login'] && $value['mdp']==$_POST['pswd'] )
 			{
-				$_SESSION['login']= $_POST['login'];
-				$_SESSION['pswd'] = $_POST['pswd'];
-				
+	
 				$_SESSION['connecte']=true;
+				$_SESSION['utilisateur'] = Utilisateurs::get($value['login']);
+				
+				//var_dump($_SESSION['grp']);
 // 				$parameters['login'] = $_SESSION['login'];
 // 				$parameters['pswd'] = $_SESSION['pswd'];
 // 				$parameters['connection'] = true;

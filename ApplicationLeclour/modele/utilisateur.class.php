@@ -9,18 +9,18 @@ class Utilisateurs
   private $password;
   private $statut;
   private $groupe;
-  private $magasin;
+  private $id_mag;
   
-  public function __construct($nom, $prenom, $id, $login, $password, $statut, $groupe, $magasin)
+  public function __construct($nom, $prenom, $id, $login, $password, $statut, $groupe, $id_mag)
   {
     $this->nom = $nom;
-    $this->prenom = prenom;
+    $this->prenom = $prenom;
     $this->id = $id;
     $this->login= $login;
 	$this->password= $password;
 	$this->statut= $statut;
 	$this->groupe= $groupe;
-	$this->magasin= $magasin;
+	$this->id_mag= $id_mag;
   }
   
  ////////////////////////////////
@@ -101,23 +101,29 @@ class Utilisateurs
   ////////////////////////////////
   //retourne un usager
   ////////////////////////////////
-  public static function get($num_carte)
+  public static function get($login)
   {
 
 	//verification a faire
     $conn = Connection::get();
+    $result=null;
     
 	//requete sql preparé
-    $request = $conn->prepare("SELECT num_carte, nom, lib_categ, mt_caution, date_carte FROM usager, categorie WHERE num_carte=:num_carte AND usager.num_categ=categorie.num_categ");
-    $request->execute(array('num_carte' => $num_carte));
+    $request = $conn->prepare("SELECT id_user, login, mdp, nom, prenom ,statut,lib_grp, magasin.id_mag FROM utilisateur, groupe, magasin WHERE login=:login AND utilisateur.id_grp=groupe.id_grp AND utilisateur.id_mag=magasin.id_mag");
+    $request->execute(array('login' => $login));
+    
     
 		while( $row = $request->fetch())
 	{
 		$result[] = $row;
+		
 	}
+	
 
-	return new Usagers($result[0]['nom'], $result[0]['num_carte'], $result[0]['lib_categ'], $result[0]['date_carte'], $result[0]['mt_caution']);
- 
+	return new Utilisateurs($result[0]['nom'], $result[0]['prenom'], $result[0]['id_user'], $result[0]['login'], $result[0]['mdp'], $result[0]['statut'], $result[0]['lib_grp'], $result[0]['id_mag']);
+	
+	//return $result[0][0];
+	
   }
   ////////////////////////////////
   //retourne nom
@@ -128,19 +134,43 @@ class Utilisateurs
   }
   
   ////////////////////////////////
-  //retourne numero de carte
+  //retourne prenom
   ////////////////////////////////
-  public function getNumCarte()
+  public function getPrenom()
   {
-	return $this->num_carte;
+  	return $this->Prenom;
   }
   
   ////////////////////////////////
-  //retourne la categorie
+  //retourne login
   ////////////////////////////////
-  public function getCategorie()
+  public function getLogin()
   {
-	$this->lib_categ;
+	return $this->login;
+  }
+  
+  ////////////////////////////////
+  //retourne le groupe
+  ////////////////////////////////
+  public function getGroupe()
+  {
+	return $this->groupe;
+  }
+  
+  ////////////////////////////////
+  //retourne le statut
+  ////////////////////////////////
+  public function getstatut()
+  {
+  	return $this->statut;
+  }
+  
+  ////////////////////////////////
+  //retourne le id magasin
+  ////////////////////////////////
+  public function getIdMag()
+  {
+  	return $this->id_mag;
   }
   
 
