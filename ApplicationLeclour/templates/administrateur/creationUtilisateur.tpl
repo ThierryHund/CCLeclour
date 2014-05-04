@@ -1,9 +1,8 @@
-<?php include '../header.php'; ?>
-		<div>
+		<div class="contenu">
 
 			<H1>Création d'un utilisateur</H1>
 				
-			<div>
+			<div class="centre">
 				<form id="formulaire" action="creationUtilisateur_Confirm.html">
 					<label for="nom" >Nom :</label> 
 					<input type="text" id="nom"/><br/>
@@ -32,5 +31,3 @@
 				</form>
 			</div>
 		</div>
-		
-<?php include '../footer.php'; ?>
