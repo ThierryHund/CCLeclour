@@ -1,5 +1,3 @@
-		<div class="contenu">
-
 			<H1>Création d'un utilisateur</H1>
 				
 			<div class="centre">
@@ -30,4 +28,3 @@
 					<input type="submit" value="Valider"/>
 				</form>
 			</div>
-		</div>

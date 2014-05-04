@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.17, created on 2014-05-04 21:39:39
+<?php /* Smarty version Smarty-3.1.17, created on 2014-05-04 23:06:55
          compiled from "templates\footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:121135365110544ffc1-75362635%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ab7755c9dae14f847e3cac29631cc2ab39d09ffd' => 
     array (
       0 => 'templates\\footer.tpl',
-      1 => 1399149695,
+      1 => 1399244728,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_53651105452f65_01037374',
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_53651105452f65_01037374')) {function content_53651105452f65_01037374($_smarty_tpl) {?>		</div>
+<?php if ($_valid && !is_callable('content_53651105452f65_01037374')) {function content_53651105452f65_01037374($_smarty_tpl) {?>				</div>
+			</div>
 		<div class="footer">
 			
 		</div>
