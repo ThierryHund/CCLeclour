@@ -1,6 +1,6 @@
 <?php
 require_once "connection.class.php";
-class Usagers
+class Utilisateurs
 {
   private $nom;
   private $prenom;
@@ -79,12 +79,14 @@ class Usagers
   ////////////////////////////////
   //retourne un tableau  d'usager
   ////////////////////////////////
-  public static function getUsagers()
+  public static function getUtilisateurs()
   {
 
     $conn = Connection::get();
-    $select = $conn->query("SELECT id, nom, prenom, groupe, magasin FROM usager");
+    
+    $select = $conn->query("SELECT id_user,login, mdp, nom, prenom, prem_connex, id_grp, id_mag FROM utilisateur");
 	$result = array();
+
 	
 	
 	while( $row = $select->fetch())

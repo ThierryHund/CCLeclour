@@ -6,6 +6,7 @@ require_once "modele/smarty_iut.php";
 	// Si on a pas ces infos, rien ne peut fonctionner : die
 	if (!isset($_SERVER['DOCUMENT_ROOT']))
 		die();
+	
 
 	// Define de la racine du site
 	define('_PATH_', $_SERVER['DOCUMENT_ROOT'].'CCLeclour/ApplicationLeclour/');
@@ -30,7 +31,6 @@ $smarty->display("header.tpl");
 ////////////////////////////////
 if (!isset($_SESSION['connecte']))
 {
-	
 	$smarty->display("connexion.tpl");
 }
 
@@ -41,24 +41,26 @@ if((!empty($_POST['login']) && !empty($_POST['pswd'])) or isset($_SESSION['conne
 {
 	if(!empty($_POST['login']) && !empty($_POST['pswd']))
 	{
-		if($_POST['login']=='admin' && $_POST['pswd']=='password')
-		{
-			$_SESSION['login']= $_POST['login'];
-			$_SESSION['pswd'] = $_POST['pswd'];
-			$_SESSION['connecte']=true;
-			$parameters['login'] = $_SESSION['login'];
-			$parameters['pswd'] = $_SESSION['pswd'];
-			$parameters['connection'] = true;
+		$listeUtil = Utilisateurs::getUtilisateurs();
+		foreach ($listeUtil as $value) {
+			if($value['login']=$_POST['login'] && $value['mdp']=$_POST['pswd'] )
+			{
+				$_SESSION['login']= $_POST['login'];
+				$_SESSION['pswd'] = $_POST['pswd'];
+				$_SESSION['connecte']=true;
+// 				$parameters['login'] = $_SESSION['login'];
+// 				$parameters['pswd'] = $_SESSION['pswd'];
+// 				$parameters['connection'] = true;
+			}else
+			{
+// 				$parameters['login'] = $_SESSION['login'];
+// 				$parameters['pswd'] = $_SESSION['pswd'];
+// 				$parameters['connection'] = true;
+			}
 		}
-	}else
-	{
-		$parameters['login'] = $_SESSION['login'];
-		$parameters['pswd'] = $_SESSION['pswd'];
-		$parameters['connection'] = true;
 	}
 }
-
-
+var_dump($_SESSION['login']);
 
 
 ////////////////////////////////
