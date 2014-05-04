@@ -21,6 +21,7 @@
 					<li class="corpsmenu"><a href="index.php?section=comptable&page=envoiFormulaire">Envoie formulaire sur-perso</a></li>
 					<li class="corpsmenu"><a href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
 					<li class="corpsmenu"><a href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
+					<li class="corpsmenu"><a href="index.php?key=out">Deconnexion</a></li>
 					<li class="botmenu"></li>
 				</ul>
 			</nav>
