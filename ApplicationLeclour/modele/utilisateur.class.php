@@ -51,9 +51,9 @@ class Utilisateurs
 	}
 	
 	//verification du groupe // a adpter
-	if($groupe="caisse" && $groupe!="comptable" && $groupe!="secours" && $groupe!="administrateur")
+	if($groupe!=("caisse" || "comptable" || "secours" || "administrateur"))
 	{
-		throw new Exception("categorie manquante");
+		throw new Exception("groupe incorrect");
     }
 	
 	//verification du login
@@ -69,11 +69,11 @@ class Utilisateurs
     	// 	}
 	
 	//tableau de avec les infos de l'usager
-    $save = array( "nom" => $nom,"prenom" => $prenom, "login" => $login, "mpassword" => $password, "statut" => $statut, "groupe" => $groupe, "magasin" => $magasin);
+    $save = array( "nom" => $nom,"prenom" => $prenom, "login" => $login, "password" => $password, "statut" => $statut, "groupe" => $groupe, "magasin" => $magasin);
       
 	//requete d'insertion		
-    $request = $conn->prepare("INSERT INTO usager (num_carte, nom, num_categ, mt_caution, date_carte, solde) VALUES (:num_carte , :nom , :num_categ , :mt_caution , :date_carte, 0)");
-	$request->execute(array('num_carte' => $num_carte, 'nom' => $nom ,'num_categ' => $num_categ ,'mt_caution' => $mt_caution ,'date_carte' => $date_carte));
+    $request = $conn->prepare("INSERT INTO utilisateur (nom, prenom, login, password, statut, groupe, magasin) VALUES (:nom , :prenom , :login , :password , :statut, :groupe, :magasin)");
+	$request->execute(array('nom' => $nom, 'prenom' => $prenom ,'login' => $login ,'password' => $password ,'statut' => $statut,'groupe' => $groupe,'magasin' => $magasin));
   }
 
   ////////////////////////////////

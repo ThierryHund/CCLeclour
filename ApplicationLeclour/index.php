@@ -9,7 +9,7 @@ require_once "modele/smarty_iut.php";
 	
 
 	// Define de la racine du site
-	define('_PATH_', $_SERVER['DOCUMENT_ROOT'].'CCLeclour/ApplicationLeclour/');
+	define('_PATH_', $_SERVER['DOCUMENT_ROOT'].'/webprojet/CCLeclour/ApplicationLeclour/');
 
 	// Define du dossier des Controleurs
 	define('_CTRL_', _PATH_ . 'controlleurs/');
@@ -26,13 +26,7 @@ $parameters['connection'] = false;
 $smarty = new smartyIUT();
 $smarty->display("header.tpl");
 
-////////////////////////////////
-//acces page de connection
-////////////////////////////////
-if (!isset($_SESSION['connecte']))
-{
-	$smarty->display("connexion.tpl");
-}
+
 
 ////////////////////////////////
 //creation de la session connection et acces a page d'acceuil 
@@ -47,6 +41,7 @@ if((!empty($_POST['login']) && !empty($_POST['pswd'])) or isset($_SESSION['conne
 			{
 				$_SESSION['login']= $_POST['login'];
 				$_SESSION['pswd'] = $_POST['pswd'];
+				
 				$_SESSION['connecte']=true;
 // 				$parameters['login'] = $_SESSION['login'];
 // 				$parameters['pswd'] = $_SESSION['pswd'];
@@ -60,7 +55,7 @@ if((!empty($_POST['login']) && !empty($_POST['pswd'])) or isset($_SESSION['conne
 		}
 	}
 }
-var_dump($_SESSION['login']);
+
 
 
 ////////////////////////////////
@@ -84,18 +79,28 @@ if($nav=='out')
 
 
 ////////////////////////////////
-// page d'accueil poste connection
+// page d'accueil post connection
 ////////////////////////////////
 else if($parameters['connection'])
 {	
 
 }
 
+////////////////////////////////
+//acces page de connection
+////////////////////////////////
+if (!isset($_SESSION['connecte']))
+{
+	$smarty->display("connexion.tpl");
+}
+
 //Navigation entre les différentes pages
 if (isset($_GET['page']) && isset($_GET['section']))
 			$smarty->display(_TPL_.$_GET['section'].'/'.$_GET['page'].'.tpl');
-		else
+		else if(isset($_SESSION['connecte']))
+		{
 			$smarty->display(_TPL_ . 'accueil.tpl');
+		}
 			
 //Et on ajoutera toujours le footer en fin de page
 $smarty->display("footer.tpl");
