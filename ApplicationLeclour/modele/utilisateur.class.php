@@ -27,7 +27,7 @@ class Utilisateurs
  //Permet de créer un usager dans la base
  ////////////////////////////////
  
-  public static function creer($nom, $prenom, $login, $password, $statut, $groupe, $magasin)
+  public static function creer($nom, $prenom, $login, $password, $groupe, $magasin)
   {
 
     $conn = Connection::get();
@@ -42,7 +42,7 @@ class Utilisateurs
 	}
 	
 	//verification du prenom
-	if(!preg_match("/^[A-Z][a-zA-Z]* [a-zA-Z]\.$/",$prenomnom))
+	if(!preg_match("/^[A-Z][a-zA-Z]* [a-zA-Z]\.$/",$prenom))
 	{
 		throw new Exception("nom incorrect");
 	}else
