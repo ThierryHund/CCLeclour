@@ -84,7 +84,7 @@ class Utilisateurs
 
     $conn = Connection::get();
     
-    $select = $conn->query("SELECT id_user,login, mdp, nom, prenom, prem_connex, id_grp, id_mag FROM utilisateur");
+    $select = $conn->query("SELECT id_utilisateur,login, mdp, nom, prenom, prem_connex, id_profil, id_mag FROM utilisateur");
 	$result = array();
 
 	
@@ -109,7 +109,7 @@ class Utilisateurs
     $result=null;
     
 	//requete sql preparé
-    $request = $conn->prepare("SELECT id_user, login, mdp, nom, prenom ,statut,lib_grp, magasin.id_mag FROM utilisateur, groupe, magasin WHERE login=:login AND utilisateur.id_grp=groupe.id_grp AND utilisateur.id_mag=magasin.id_mag");
+    $request = $conn->prepare("SELECT id_utilisateur, login, mdp, nom, prenom ,statut,lib_profil, entite.id_mag FROM utilisateur, groupe, entite WHERE login=:login AND utilisateur.id_profil=groupe.id_profil AND utilisateur.id_mag=entite.id_mag");
     $request->execute(array('login' => $login));
     
     
@@ -120,7 +120,7 @@ class Utilisateurs
 	}
 	
 
-	return new Utilisateurs($result[0]['nom'], $result[0]['prenom'], $result[0]['id_user'], $result[0]['login'], $result[0]['mdp'], $result[0]['statut'], $result[0]['lib_grp'], $result[0]['id_mag']);
+	return new Utilisateurs($result[0]['nom'], $result[0]['prenom'], $result[0]['id_utilisateur'], $result[0]['login'], $result[0]['mdp'], $result[0]['statut'], $result[0]['lib_profil'], $result[0]['id_mag']);
 	
 	//return $result[0][0];
 	
