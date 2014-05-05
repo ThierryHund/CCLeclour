@@ -1,7 +1,5 @@
 <?php
 require_once "connection.class.php";
-require_once "groupe.class.php";
-require_once "magasin.class.php";
 class Utilisateurs
 {
   private $nom;
@@ -11,9 +9,9 @@ class Utilisateurs
   private $password;
   private $statut;
   private $groupe;
-  private $lib_mag;
+  private $id_mag;
   
-  public function __construct($nom, $prenom, $id, $login, $password, $statut, $lib_grp, $lib_mag)
+  public function __construct($nom, $prenom, $id, $login, $password, $statut, $groupe, $id_mag)
   {
     $this->nom = $nom;
     $this->prenom = $prenom;
@@ -21,15 +19,15 @@ class Utilisateurs
     $this->login= $login;
 	$this->password= $password;
 	$this->statut= $statut;
-	$this->groupe= $lib_grp;
-	$this->lib_mag= $lib_mag;
+	$this->groupe= $groupe;
+	$this->id_mag= $id_mag;
   }
   
  ////////////////////////////////
  //Permet de créer un usager dans la base
  ////////////////////////////////
  
-  public static function creer($nom, $prenom, $login, $password, $id_grp, $id_mag)
+  public static function creer($nom, $prenom, $login, $password, $groupe, $magasin)
   {
 
     $conn = Connection::get();
@@ -52,11 +50,11 @@ class Utilisateurs
 		$nom=str_replace("  "," ",trim($nom));
 	}
 	
-	/*//verification du groupe // a adpter
+	//verification du groupe // a adpter
 	if($groupe!=("caisse" || "comptable" || "secours" || "administrateur"))
 	{
 		throw new Exception("groupe incorrect");
-    }*/
+    }
 	
 	//verification du login
 // 	else if(!is_numeric($mt_caution))
@@ -74,19 +72,19 @@ class Utilisateurs
     $save = array( "nom" => $nom,"prenom" => $prenom, "login" => $login, "password" => $password, "statut" => $statut, "groupe" => $groupe, "magasin" => $magasin);
       
 	//requete d'insertion		
-    $request = $conn->prepare("INSERT INTO utilisateur (nom, prenom, login, password, statut,prem,connex, groupe, magasin) VALUES (:nom , :prenom , :login , :password , 1, 1, :groupe, :magasin)");
+    $request = $conn->prepare("INSERT INTO utilisateur (nom, prenom, login, password, statut, groupe, magasin) VALUES (:nom , :prenom , :login , :password , :statut, :groupe, :magasin)");
 	$request->execute(array('nom' => $nom, 'prenom' => $prenom ,'login' => $login ,'password' => $password ,'statut' => $statut,'groupe' => $groupe,'magasin' => $magasin));
   }
 
   ////////////////////////////////
-  //retourne un tableau  d'utilisateurs
+  //retourne un tableau  d'usager
   ////////////////////////////////
   public static function getUtilisateurs()
   {
 
     $conn = Connection::get();
     
-    $select = $conn->query("SELECT id_utilisateur,login, mdp, nom, prenom, prem_connex, id_profil, id_mag FROM utilisateur");
+    $select = $conn->query("SELECT id_user,login, mdp, nom, prenom, prem_connex, id_grp, id_mag FROM utilisateur");
 	$result = array();
 
 	
@@ -111,7 +109,7 @@ class Utilisateurs
     $result=null;
     
 	//requete sql preparé
-    $request = $conn->prepare("SELECT id_utilisateur, login, mdp, nom, prenom ,statut, lib_profil, entite.lib_mag  FROM utilisateur, groupe, entite WHERE login=:login AND utilisateur.id_profil=groupe.id_profil AND utilisateur.id_mag=entite.id_mag");
+    $request = $conn->prepare("SELECT id_user, login, mdp, nom, prenom ,statut,lib_grp, magasin.id_mag FROM utilisateur, groupe, magasin WHERE login=:login AND utilisateur.id_grp=groupe.id_grp AND utilisateur.id_mag=magasin.id_mag");
     $request->execute(array('login' => $login));
     
     
@@ -122,7 +120,7 @@ class Utilisateurs
 	}
 	
 
-	return new Utilisateurs($result[0]['nom'], $result[0]['prenom'], $result[0]['id_utilisateur'], $result[0]['login'], $result[0]['mdp'], $result[0]['statut'], $result[0]['lib_profil'], $result[0]['lib_mag']);
+	return new Utilisateurs($result[0]['nom'], $result[0]['prenom'], $result[0]['id_user'], $result[0]['login'], $result[0]['mdp'], $result[0]['statut'], $result[0]['lib_grp'], $result[0]['id_mag']);
 	
 	//return $result[0][0];
 	
