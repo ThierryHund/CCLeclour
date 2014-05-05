@@ -106,7 +106,13 @@ if (!isset($_SESSION['connecte']))
 		
 //Navigation 2.0 ! On charge nos controleurs et les controleurs s'occupent d'afficher les bon templates		
 if (isset($_GET['page']) && isset($_GET['section']))
-			include(_CTRL_.$_GET['section'].'/'.$_GET['page'].'.php');
+{
+	include(_CTRL_.$_GET['section'].'/'.$_GET['page'].'.php');
+}
+else if(isset($_SESSION['connecte']))
+{
+	$smarty->display(_TPL_ . 'accueil.tpl');
+}
 
 			
 //Et on ajoutera toujours le footer en fin de page
