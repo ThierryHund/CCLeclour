@@ -18,7 +18,7 @@
 					<li class="corpsmenu"><a href="index.php?section=chefCaisse&page=gestionCommandes">Gestion des commandes B2C</a></li>
 					<li class="corpsmenu"><a href="index.php?section=comptable&page=commandeCarte">Commande carte B2B</a></li>
 					<li class="corpsmenu"><a href="index.php?section=comptable&page=gestionCommandes">Gestion des commandes B2B</a></li>
-					<li class="corpsmenu"><a href="index.php?section=comptable&page=envoiFormulaire">Envoie formulaire sur-perso</a></li>
+					<li class="corpsmenu"><a href="index.php?section=comptable&page=envoiFormulaire">Envoi formulaire sur-perso</a></li>
 					<li class="corpsmenu"><a href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
 					<li class="corpsmenu"><a href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					<li class="corpsmenu"><a href="index.php?key=out">Deconnexion</a></li>

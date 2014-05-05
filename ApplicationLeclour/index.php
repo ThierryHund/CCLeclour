@@ -12,7 +12,7 @@ require_once "modele/smarty_iut.php";
 	define('_PATH_', $_SERVER['DOCUMENT_ROOT'].'/webprojet/CCLeclour/ApplicationLeclour/');
 
 	// Define du dossier des Controleurs
-	define('_CTRL_', _PATH_ . 'controlleurs/');
+	define('_CTRL_', _PATH_ . 'controleurs/');
 
 	// Define du dossier des TPL
 	define('_TPL_', _PATH_ . 'templates/');
@@ -84,7 +84,7 @@ if($nav=='out')
 ////////////////////////////////
 else if($parameters['connection'])
 {	
-
+	$smarty->display(_TPL_ . 'accueil.tpl');
 }
 
 ////////////////////////////////
@@ -96,12 +96,18 @@ if (!isset($_SESSION['connecte']))
 }
 
 //Navigation entre les différentes pages
-if (isset($_GET['page']) && isset($_GET['section']))
+/*if (isset($_GET['page']) && isset($_GET['section']))
 			$smarty->display(_TPL_.$_GET['section'].'/'.$_GET['page'].'.tpl');
 		else if(isset($_SESSION['connecte']))
 		{
 			$smarty->display(_TPL_ . 'accueil.tpl');
 		}
+*/		
+		
+//Navigation 2.0 ! On charge nos controleurs et les controleurs s'occupent d'afficher les bon templates		
+if (isset($_GET['page']) && isset($_GET['section']))
+			include(_CTRL_.$_GET['section'].'/'.$_GET['page'].'.php');
+
 			
 //Et on ajoutera toujours le footer en fin de page
 $smarty->display("footer.tpl");

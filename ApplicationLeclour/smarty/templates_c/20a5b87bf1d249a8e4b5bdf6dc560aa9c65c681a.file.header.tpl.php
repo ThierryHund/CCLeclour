@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.17, created on 2014-05-04 23:25:56
+<?php /* Smarty version Smarty-3.1.17, created on 2014-05-05 00:06:24
          compiled from "templates\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:226435366cc844f5193-70304104%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '20a5b87bf1d249a8e4b5bdf6dc560aa9c65c681a' => 
     array (
       0 => 'templates\\header.tpl',
-      1 => 1399245893,
+      1 => 1399248027,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.17',
   'unifunc' => 'content_5366cc84538106_38389011',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5366cc84538106_38389011')) {function content_5366cc84538106_38389011($_smarty_tpl) {?><html>
 	<header>
@@ -39,7 +39,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<li class="corpsmenu"><a href="index.php?section=chefCaisse&page=gestionCommandes">Gestion des commandes B2C</a></li>
 					<li class="corpsmenu"><a href="index.php?section=comptable&page=commandeCarte">Commande carte B2B</a></li>
 					<li class="corpsmenu"><a href="index.php?section=comptable&page=gestionCommandes">Gestion des commandes B2B</a></li>
-					<li class="corpsmenu"><a href="index.php?section=comptable&page=envoiFormulaire">Envoie formulaire sur-perso</a></li>
+					<li class="corpsmenu"><a href="index.php?section=comptable&page=envoiFormulaire">Envoi formulaire sur-perso</a></li>
 					<li class="corpsmenu"><a href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
 					<li class="corpsmenu"><a href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					<li class="corpsmenu"><a href="index.php?key=out">Deconnexion</a></li>
