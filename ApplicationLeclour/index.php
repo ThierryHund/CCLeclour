@@ -117,7 +117,6 @@ $smarty->display(_TPL_ . 'accueil.tpl');
 */
 
 
-var_dump($_SESSION);
 	
 
 //Navigation 2.0 ! On charge nos controleurs et les controleurs s'occupent d'afficher les bon templates		
