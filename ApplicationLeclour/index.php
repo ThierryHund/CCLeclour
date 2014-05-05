@@ -83,7 +83,7 @@ if($nav=='out')
 ////////////////////////////////
 // page d'accueil post connection
 ////////////////////////////////
-<<<<<<< HEAD
+
 if((!empty($_POST['login']) && !empty($_POST['pswd'])) or isset($_SESSION['connecte']))
 {
 	if(!empty($_POST['login']) && !empty($_POST['pswd']))
@@ -104,24 +104,11 @@ if((!empty($_POST['login']) && !empty($_POST['pswd'])) or isset($_SESSION['conne
 	}
 }
 
-=======
-else if($parameters['connection'])
-{	
-	$smarty->display(_TPL_ . 'accueil.tpl');
-}
->>>>>>> branch 'master' of ssh://git@github.com/YacineKhamis/CCLeclour.git
 
-////////////////////////////////
-//acces page de connection
-////////////////////////////////
-if (!isset($_SESSION['connecte']))
-{
-	$smarty->display("connexion.tpl");
-}
 
 //Navigation entre les différentes pages
 /*if (isset($_GET['page']) && isset($_GET['section']))
-<<<<<<< HEAD
+
  $smarty->display(_TPL_.$_GET['section'].'/'.$_GET['page'].'.tpl');
 else if(isset($_SESSION['connecte']))
 {
@@ -132,15 +119,7 @@ $smarty->display(_TPL_ . 'accueil.tpl');
 
 var_dump($_SESSION);
 	
-=======
-			$smarty->display(_TPL_.$_GET['section'].'/'.$_GET['page'].'.tpl');
-		else if(isset($_SESSION['connecte']))
-		{
-			$smarty->display(_TPL_ . 'accueil.tpl');
-		}
-*/		
-		
->>>>>>> branch 'master' of ssh://git@github.com/YacineKhamis/CCLeclour.git
+
 //Navigation 2.0 ! On charge nos controleurs et les controleurs s'occupent d'afficher les bon templates		
 if (isset($_GET['page']) && isset($_GET['section']) && isset($_SESSION['connecte']))
 {
