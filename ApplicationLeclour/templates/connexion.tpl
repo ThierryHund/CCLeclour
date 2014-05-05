@@ -1,4 +1,3 @@
-<div class="contenu">
 	<h1>Connexion</h1>
 	<div class="centre">
 		<form id="connexion" method="post" action="index.php">
@@ -9,4 +8,3 @@
 			<input type="submit" value="Connexion" />
 		</form>
 	</div>
-</div>
