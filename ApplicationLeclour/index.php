@@ -19,6 +19,7 @@ require_once "modele/smarty_iut.php";
 	
 	
 session_start();
+
 $parameters = array();
 
 
@@ -71,7 +72,7 @@ if((!empty($_POST['login']) && !empty($_POST['pswd'])) or isset($_SESSION['conne
 			}
 		}
 	}
-}else $smarty->display(_TPL_ . 'connexion.tpl');
+}
 
 
 ////////////////////////////////
@@ -89,18 +90,17 @@ $smarty->display(_TPL_ . 'accueil.tpl');
 */
 
 
-
-
+var_dump($_SESSION);
 	
 //Navigation 2.0 ! On charge nos controleurs et les controleurs s'occupent d'afficher les bon templates		
-if (isset($_GET['page']) && isset($_GET['section']))
+if (isset($_GET['page']) && isset($_GET['section']) && isset($_SESSION['connecte']))
 {
 	include(_CTRL_.$_GET['section'].'/'.$_GET['page'].'.php');
 }
 else if(isset($_SESSION['connecte']))
 {
 	$smarty->display(_TPL_ . 'accueil.tpl');
-}
+}else $smarty->display(_TPL_ . 'connexion.tpl');
 
 			
 //Et on ajoutera toujours le footer en fin de page
