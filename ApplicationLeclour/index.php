@@ -20,42 +20,12 @@ require_once "modele/smarty_iut.php";
 	
 session_start();
 $parameters = array();
-$parameters['connection'] = false;
+
 
 //On ajoute toujours le header
 $smarty = new smartyIUT();
 $smarty->display("header.tpl");
 
-
-
-////////////////////////////////
-//creation de la session connection et acces a page d'acceuil 
-////////////////////////////////
-if((!empty($_POST['login']) && !empty($_POST['pswd'])) or isset($_SESSION['connecte']))
-{
-	if(!empty($_POST['login']) && !empty($_POST['pswd']))
-	{
-		$listeUtil = Utilisateurs::getUtilisateurs();
-		foreach ($listeUtil as $value) {
-			if($value['login']==$_POST['login'] && $value['mdp']==$_POST['pswd'] )
-			{
-	
-				$_SESSION['connecte']=true;
-				$_SESSION['utilisateur'] = Utilisateurs::get($value['login']);
-				
-				//var_dump($_SESSION['grp']);
-// 				$parameters['login'] = $_SESSION['login'];
-// 				$parameters['pswd'] = $_SESSION['pswd'];
-// 				$parameters['connection'] = true;
-			}else
-			{
-// 				$parameters['login'] = $_SESSION['login'];
-// 				$parameters['pswd'] = $_SESSION['pswd'];
-// 				$parameters['connection'] = true;
-			}
-		}
-	}
-}
 
 
 
@@ -79,31 +49,49 @@ if($nav=='out')
 }
 
 
+
 ////////////////////////////////
-// page d'accueil post connection
+//creation de la session connection et acces a page d'acceuil
 ////////////////////////////////
-else if($parameters['connection'])
-{	
-	$smarty->display(_TPL_ . 'accueil.tpl');
-}
+if((!empty($_POST['login']) && !empty($_POST['pswd'])) or isset($_SESSION['connecte']))
+{
+	if(!empty($_POST['login']) && !empty($_POST['pswd']))
+	{
+		$listeUtil = Utilisateurs::getUtilisateurs();
+		
+		foreach ($listeUtil as $value) {
+			if($value['login']==$_POST['login'] && $value['mdp']==$_POST['pswd'] )
+			{
+
+				$_SESSION['connecte']=true;
+				$_SESSION['utilisateur'] = Utilisateurs::get($value['login']);
+				
+
+
+			}
+		}
+	}
+}else $smarty->display(_TPL_ . 'connexion.tpl');
+
 
 ////////////////////////////////
 //acces page de connection
 ////////////////////////////////
-if (!isset($_SESSION['connecte']))
-{
-	$smarty->display("connexion.tpl");
-}
+
 
 //Navigation entre les différentes pages
 /*if (isset($_GET['page']) && isset($_GET['section']))
-			$smarty->display(_TPL_.$_GET['section'].'/'.$_GET['page'].'.tpl');
-		else if(isset($_SESSION['connecte']))
-		{
-			$smarty->display(_TPL_ . 'accueil.tpl');
-		}
-*/		
-		
+ $smarty->display(_TPL_.$_GET['section'].'/'.$_GET['page'].'.tpl');
+else if(isset($_SESSION['connecte']))
+{
+$smarty->display(_TPL_ . 'accueil.tpl');
+}
+*/
+
+
+
+
+	
 //Navigation 2.0 ! On charge nos controleurs et les controleurs s'occupent d'afficher les bon templates		
 if (isset($_GET['page']) && isset($_GET['section']))
 {

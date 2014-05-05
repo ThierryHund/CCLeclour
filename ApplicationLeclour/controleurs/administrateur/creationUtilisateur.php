@@ -1,7 +1,9 @@
 <?php
+require_once _PATH_.'modele/groupe.class.php';
+require_once _PATH_.'modele/magasin.class.php';
 
-
-if (! empty ( $_POST )) {
+if (! empty ( $_POST ))
+ {
 	$nom = $_POST ['nom'];
 	$prenom = $_POST ['prenom'];
 	$login = $_POST ['login'];
@@ -16,8 +18,14 @@ if (! empty ( $_POST )) {
 		$smarty->assign ( 'parameters', $parameters );
 		$smarty->display ( $_SERVER ['DOCUMENT_ROOT'] . '/webprojet/CCLeclour/ApplicationLeclour/templates/administrateur/creationUtilisateur_Confirm.tpl' );
 	} catch ( Exception $e ) {
-		$parameters ['error'] = ($e->getMessage ());
+	$parameters ['error'] = ($e->getMessage ());
 	}
+}else
+{
+	$parameters['groupes']=Groupe::getGroupes();
+	$parameters['magasins']=Magasin::getMagasins();
+	$smarty->assign ( 'parameters', $parameters );
+	$smarty->display ( $_SERVER ['DOCUMENT_ROOT'] . '/webprojet/CCLeclour/ApplicationLeclour/templates/administrateur/creationUtilisateur.tpl' );
+	
 }
-$smarty->display ( $_SERVER ['DOCUMENT_ROOT'] . '/webprojet/CCLeclour/ApplicationLeclour/templates/administrateur/creationUtilisateur.tpl' );
 ?>

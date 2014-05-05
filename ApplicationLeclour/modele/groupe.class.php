@@ -36,7 +36,7 @@ class Groupe
 	
 		$conn = Connection::get();
 	
-		$select = $conn->query("SELECT id_grp, lib_grp FROM groupe");
+		$select = $conn->query("SELECT id_profil, lib_profil FROM groupe");
 		$result = array();
 	
 	
@@ -45,8 +45,13 @@ class Groupe
 		{
 			$result[] = $row;
 		}
-	
-		return $result;
+		
+		foreach($result as $value)
+		{
+			$return[]=array($value['id_profil'],$value['lib_profil']);
+		}
+
+		return $return;
 	
 	}
 	

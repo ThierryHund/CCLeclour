@@ -43,7 +43,7 @@ class Magasin
 
 		$conn = Connection::get();
 
-		$select = $conn->query("SELECT id_mag, ville_mag FROM magasin");
+		$select = $conn->query("SELECT id_mag, ville_mag FROM entite");
 		$result = array();
 
 
@@ -53,7 +53,12 @@ class Magasin
 			$result[] = $row;
 		}
 
-		return $result;
+		foreach($result as $value)
+		{
+			$return[]=array($value['id_mag'],$value['ville_mag']);
+		}
+
+		return $return;
 
 	}
 
