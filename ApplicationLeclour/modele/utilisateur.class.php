@@ -84,7 +84,7 @@ class Utilisateurs
 
     $conn = Connection::get();
     
-    $select = $conn->query("SELECT id_user,login, mdp, nom, prenom, prem_connex, id_grp, id_mag FROM utilisateur");
+    $select = $conn->query("SELECT id_utilisateur,login, mdp, nom, prenom, prem_connex, id_profil, id_mag FROM utilisateur");
 	$result = array();
 
 	

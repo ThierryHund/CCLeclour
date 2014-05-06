@@ -1,4 +1,4 @@
-<div class="contenu">
+
 	<h1>Page d'accueil</h1>
 	<div class="centre">
 		<p>
@@ -8,4 +8,3 @@
 		Choisissez ce que vous souhaitez faire au moyen du menu
 		</p>
 	</div>
-</div>

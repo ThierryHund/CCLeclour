@@ -1,6 +1,7 @@
 <?php
 require_once "modele/utilisateur.class.php";
 require_once "modele/smarty_iut.php";
+require_once "modele/carte.class.php";
 
 //Definition de quelques variables globales nécéssaire à un fonctionnement plus propre de système de routine
 	// Si on a pas ces infos, rien ne peut fonctionner : die
@@ -108,6 +109,7 @@ if (!isset($_SESSION['connecte']))
 if (isset($_GET['page']) && isset($_GET['section']))
 {
 	include(_CTRL_.$_GET['section'].'/'.$_GET['page'].'.php');
+	$smarty->display(_TPL_.$_GET['section'].'/'.$_GET['page'].'.tpl');
 }
 else if(isset($_SESSION['connecte']))
 {
