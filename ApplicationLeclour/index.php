@@ -20,6 +20,7 @@ require_once "modele/carte.class.php";
 	
 	
 session_start();
+
 $parameters = array();
 $parameters['connection'] = false;
 
@@ -83,30 +84,44 @@ if($nav=='out')
 ////////////////////////////////
 // page d'accueil post connection
 ////////////////////////////////
-else if($parameters['connection'])
-{	
-	$smarty->display(_TPL_ . 'accueil.tpl');
+
+if((!empty($_POST['login']) && !empty($_POST['pswd'])) or isset($_SESSION['connecte']))
+{
+	if(!empty($_POST['login']) && !empty($_POST['pswd']))
+	{
+		$listeUtil = Utilisateurs::getUtilisateurs();
+		
+		foreach ($listeUtil as $value) {
+			if($value['login']==$_POST['login'] && $value['mdp']==$_POST['pswd'] )
+			{
+
+				$_SESSION['connecte']=true;
+				$_SESSION['utilisateur'] = Utilisateurs::get($value['login']);
+				
+
+
+			}
+		}
+	}
 }
 
-////////////////////////////////
-//acces page de connection
-////////////////////////////////
-if (!isset($_SESSION['connecte']))
-{
-	$smarty->display("connexion.tpl");
-}
+
 
 //Navigation entre les différentes pages
 /*if (isset($_GET['page']) && isset($_GET['section']))
-			$smarty->display(_TPL_.$_GET['section'].'/'.$_GET['page'].'.tpl');
-		else if(isset($_SESSION['connecte']))
-		{
-			$smarty->display(_TPL_ . 'accueil.tpl');
-		}
-*/		
-		
+
+ $smarty->display(_TPL_.$_GET['section'].'/'.$_GET['page'].'.tpl');
+else if(isset($_SESSION['connecte']))
+{
+$smarty->display(_TPL_ . 'accueil.tpl');
+}
+*/
+
+
+	
+
 //Navigation 2.0 ! On charge nos controleurs et les controleurs s'occupent d'afficher les bon templates		
-if (isset($_GET['page']) && isset($_GET['section']))
+if (isset($_GET['page']) && isset($_GET['section']) && isset($_SESSION['connecte']))
 {
 	include(_CTRL_.$_GET['section'].'/'.$_GET['page'].'.php');
 	$smarty->display(_TPL_.$_GET['section'].'/'.$_GET['page'].'.tpl');
@@ -114,7 +129,7 @@ if (isset($_GET['page']) && isset($_GET['section']))
 else if(isset($_SESSION['connecte']))
 {
 	$smarty->display(_TPL_ . 'accueil.tpl');
-}
+}else $smarty->display(_TPL_ . 'connexion.tpl');
 
 			
 //Et on ajoutera toujours le footer en fin de page

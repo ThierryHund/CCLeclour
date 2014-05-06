@@ -5,7 +5,7 @@ class Connection
   private static $host = "localhost";
   private static $dbname = "_projet_carte";
   private static $user = "tyery1";
-  private static $pwd = "xxxxxx";
+  private static $pwd = "xxxxxxx";
   
 
   public static function get()

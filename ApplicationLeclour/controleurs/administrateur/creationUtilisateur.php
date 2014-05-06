@@ -20,8 +20,7 @@
 	$smarty = new smartyIUT();
 	$smarty->assign('parameters', $parameters);
 	//$smarty->assign('usagers', $usagers);
-	$smarty->assign('login', $parameters['login']);
-	$smarty->display("ajout.tpl");
+
 
 
 
