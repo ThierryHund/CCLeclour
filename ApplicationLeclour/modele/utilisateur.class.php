@@ -27,7 +27,7 @@ class Utilisateurs
  //Permet de créer un usager dans la base
  ////////////////////////////////
  
-  public static function creer($nom, $prenom, $login, $password, $groupe, $magasin)
+  public static function creer($nom, $prenom, $login, $password, $groupe, $id_mag)
   {
 
     $conn = Connection::get();
@@ -49,13 +49,13 @@ class Utilisateurs
 	{
 		$nom=str_replace("  "," ",trim($nom));
 	}
-	
+	/*
 	//verification du groupe // a adpter
 	if($groupe!=("caisse" || "comptable" || "secours" || "administrateur"))
 	{
 		throw new Exception("groupe incorrect");
     }
-	
+	*/
 	//verification du login
 // 	else if(!is_numeric($mt_caution))
 // 	{
@@ -69,11 +69,11 @@ class Utilisateurs
     	// 	}
 	
 	//tableau de avec les infos de l'usager
-    $save = array( "nom" => $nom,"prenom" => $prenom, "login" => $login, "password" => $password, "statut" => $statut, "groupe" => $groupe, "magasin" => $magasin);
+    $save = array( "nom" => $nom,"prenom" => $prenom, "login" => $login, "password" => $password, "statut" => $statut, "groupe" => $groupe, "magasin" => $id_mag);
       
 	//requete d'insertion		
-    $request = $conn->prepare("INSERT INTO utilisateur (nom, prenom, login, password, statut, groupe, magasin) VALUES (:nom , :prenom , :login , :password , :statut, :groupe, :magasin)");
-	$request->execute(array('nom' => $nom, 'prenom' => $prenom ,'login' => $login ,'password' => $password ,'statut' => $statut,'groupe' => $groupe,'magasin' => $magasin));
+    $request = $conn->prepare("INSERT INTO utilisateur (nom, prenom, login, password, statut, groupe, id_mag) VALUES (:nom , :prenom , :login , :password , :statut, :groupe, :magasin)");
+	$request->execute(array('nom' => $nom, 'prenom' => $prenom ,'login' => $login ,'password' => $password ,'statut' => 1,'groupe' => $groupe,'magasin' => $id_mag));
   }
 
   ////////////////////////////////
