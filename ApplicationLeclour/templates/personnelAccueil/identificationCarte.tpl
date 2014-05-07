@@ -6,13 +6,13 @@
 					<input type="radio" name="choix" value="serie" onchange="submit(this.form)">Numéro de série
 				</form>
 				{if ($recherche == 'alea')}
-					<form id="rechercheNumAleatoire" action="././index.php?section=personnelAccueil&page=identificationCarte_Select" method="post">
+				<form id="rechercheNumAleatoire" action="././index.php?section=personnelAccueil&page=identificationCarte_Select" method="post">
 					<label for="numAleatoire" >Code barre :</label> 
 					<input type="text" id="numAleatoire" name="numAleatoire"/><br/>
 					<input type="submit" value="Rechercher"/>
 				</form>
 				{else if ($recherche == 'serie')}
-					<form id="rechercheNumSere" action="././index.php?section=personnelAccueil&page=identificationCarte_Select" method="post">
+				<form id="rechercheNumSere" action="././index.php?section=personnelAccueil&page=identificationCarte_Select" method="post">
 					<label for="numSerie" >Numéro de série :</label> 
 					<input type="text" id="numSerie" name="numSerie"/><br/>
 					<input type="submit" value="Rechercher"/>

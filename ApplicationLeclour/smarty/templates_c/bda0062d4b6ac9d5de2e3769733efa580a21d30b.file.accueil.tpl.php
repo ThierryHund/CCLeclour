@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.17, created on 2014-05-06 01:14:47
+<?php /* Smarty version Smarty-3.1.17, created on 2014-05-07 14:25:52
          compiled from "C:\wamp\www\\webprojet\CCLeclour\ApplicationLeclour\templates\accueil.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:94245367d27e943449-58719850%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bda0062d4b6ac9d5de2e3769733efa580a21d30b' => 
     array (
       0 => 'C:\\wamp\\www\\\\webprojet\\CCLeclour\\ApplicationLeclour\\templates\\accueil.tpl',
-      1 => 1399338886,
+      1 => 1399408484,
       2 => 'file',
     ),
   ),
