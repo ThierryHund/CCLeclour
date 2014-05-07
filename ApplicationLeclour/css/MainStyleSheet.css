@@ -41,6 +41,26 @@ html{
 	width:100%;
 }
 
+/* Le myriad pro, c'est bon, mangez-en*/
+@font-face{
+	font-family: "Myriad Pro";
+	src: url(sources/MyriadPro-Regular.otf);
+}
+@font-face{
+	font-family: "Myriad Pro";
+	font-style: bold;
+	src: url(sources/MyriadPro-Bold.otf);
+}
+@font-face{
+	font-family: "Myriad Pro";
+	font-style: italic;
+	src: url(sources/MyriadPro-It.otf);
+}
+@font-face{
+	font-family: "Myriad Pro Cond";
+	src: url(sources/MyriadPro-Cond.otf);
+}
+
 body{
 	background-color:white;
 	float:left;
@@ -48,6 +68,7 @@ body{
 	width:80%;
 	box-shadow: 0 0 10px #000;
 	border-radius:5px;
+	font-family: "Myriad Pro";
 }
 
 .listemenu{
@@ -82,6 +103,28 @@ body{
 	margin: 0px;
 	background-repeat: inherit;
 }
+
+a.lienmenu{
+	text-decoration: none;
+	font-family: "Myriad Pro";
+	/*font-weight: bold;*/
+	letter-spacing: 0px;
+}
+
+a.lienmenu:link{
+	color: black;
+	font-size: 13px;
+}
+
+a.lienmenu:visited{
+	color: black;
+	/*color: rgb(255, 145, 13);*/
+}
+
+a.lienmenu:hover{
+	color: rgb(30, 80, 193) ;
+}
+
 
 
 div.header{

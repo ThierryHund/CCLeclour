@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.17, created on 2014-05-07 14:17:48
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-07 18:03:51
          compiled from "C:\wamp\www\\webprojet\CCLeclour\ApplicationLeclour\templates\connexion.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:15115536a408ccf7c83-55002393%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a581cfabbf9d5578910d858f3c8ff024407d94e6' => 
     array (
       0 => 'C:\\wamp\\www\\\\webprojet\\CCLeclour\\ApplicationLeclour\\templates\\connexion.tpl',
-      1 => 1399312601,
+      1 => 1399371340,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.17',
+  'version' => 'Smarty-3.1.18',
   'unifunc' => 'content_536a408ccfb6b0_10684072',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_536a408ccfb6b0_10684072')) {function content_536a408ccfb6b0_10684072($_smarty_tpl) {?>	<h1>Connexion</h1>
 	<div class="centre">
