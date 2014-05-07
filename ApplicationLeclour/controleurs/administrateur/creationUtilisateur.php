@@ -18,9 +18,7 @@ require_once _PATH_."modele/magasin.class.php";
 		}catch(Exception $e){ $parameters['error'] = ($e->getMessage());}
 	}
 
-	//$smarty->assign('usagers', $usagers);
 	$parameters['groupes'] = Groupe::getGroupes();
 	$parameters['magasins'] = Magasin::getMagasins();
-	$smarty = new smartyIUT();
 	$smarty->assign('parameters', $parameters);
 ?>

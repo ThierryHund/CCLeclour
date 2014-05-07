@@ -4,13 +4,17 @@
 				<input type="text" id="nom" value="nom"/>
 				<input type="text" id="prenom" value="prenom"/>
 				<input type="text" id="login" value="login"/>
-				<select id="age">
-					<option>Leclour Informatique</option>
-					<option>Technopole</option>
+				
+      			<select name="entite" id="entite">
+				{foreach $parameters.magasins as $params}
+					<option VALUE={$params[0]}>{$params[1]}</option>
+				{/foreach} 
 				</select>
-				<select id="age">
-					<option>Personnel d'accueil</option>
-					<option>Chef de caisse</option>
+				
+      			<select name="profil" id="profil">
+				{foreach $parameters.groupes as $params}
+					<option VALUE={$params[0]}>{$params[1]}</option>
+				{/foreach}
 				</select></br>
 				<input id="rechercher" type="submit" value="Rechercher"/>
 				</form>
