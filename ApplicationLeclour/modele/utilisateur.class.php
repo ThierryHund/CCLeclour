@@ -31,7 +31,7 @@ class Utilisateurs
   {
 
     $conn = Connection::get();
-	
+	/*
 	//verification du nom
 	if(!preg_match("/^[A-Z][a-zA-Z]* [a-zA-Z]\.$/",$nom))
 	{
@@ -67,13 +67,14 @@ class Utilisateurs
     	// 	{
     	// 		throw new Exception("password non conforme");
     	// 	}
+    	
+    
 	
 	//tableau de avec les infos de l'usager
-    $save = array( "nom" => $nom,"prenom" => $prenom, "login" => $login, "password" => $password, "statut" => $statut, "groupe" => $groupe, "magasin" => $id_mag);
-      
+    
 	//requete d'insertion		
-    $request = $conn->prepare("INSERT INTO utilisateur (nom, prenom, login, password, prem_connex, statut, id_profil, id_mag) VALUES (:nom , :prenom , :login , :password ,:prem_connex, :statut, :groupe, :magasin)");
-	$request->execute(array('nom' => $nom, 'prenom' => $prenom ,'login' => $login ,'password' => $password ,'statut' => 1,'prem_connex' => 1 ,'groupe' => $groupe,'magasin' => $id_mag));
+    $request = $conn->prepare("INSERT INTO utilisateur (nom, prenom, login, mdp, prem_connex, statut, id_profil, id_mag) VALUES (:nom , :prenom , :login , :password ,:prem_connex, :statut, :groupe, :magasin)");
+	$request->execute(array('nom' => $nom, 'prenom' => $prenom ,'login' => $login ,'password' => $password ,'prem_connex' => 1, 'statut' => "actif" ,'groupe' => $groupe,'magasin' => $id_mag));
   }
 
   ////////////////////////////////
