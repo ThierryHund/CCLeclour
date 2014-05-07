@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-07 18:03:51
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-07 18:13:27
          compiled from "templates\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:226435366cc844f5193-70304104%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '20a5b87bf1d249a8e4b5bdf6dc560aa9c65c681a' => 
     array (
       0 => 'templates\\header.tpl',
-      1 => 1399371340,
+      1 => 1399478391,
       2 => 'file',
     ),
   ),
@@ -32,17 +32,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<nav>
 				<ul class="listemenu">
 					<li class="topmenu"></li>
-					<li class="corpsmenu"><a href="index.php?section=administrateur&page=creationUtilisateur">Création utilisateur</a></li>
-					<li class="corpsmenu"><a href="index.php?section=administrateur&page=gestionUtilisateur">Gestion des utilisateurs</a></li>
-					<li class="corpsmenu"><a href="index.php?section=administrateur&page=parametrageTarif">Paramètrage des tarifs</a></li>
-					<li class="corpsmenu"><a href="index.php?section=chefCaisse&page=commandeCarte">Commande carte B2C</a></li>
-					<li class="corpsmenu"><a href="index.php?section=chefCaisse&page=gestionCommandes">Gestion des commandes B2C</a></li>
-					<li class="corpsmenu"><a href="index.php?section=comptable&page=commandeCarte">Commande carte B2B</a></li>
-					<li class="corpsmenu"><a href="index.php?section=comptable&page=gestionCommandes">Gestion des commandes B2B</a></li>
-					<li class="corpsmenu"><a href="index.php?section=comptable&page=envoiFormulaire">Envoi formulaire sur-perso</a></li>
-					<li class="corpsmenu"><a href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
-					<li class="corpsmenu"><a href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
-					<li class="corpsmenu"><a href="index.php?key=out">Deconnexion</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=creationUtilisateur">Création utilisateur</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=gestionUtilisateur">Gestion des utilisateurs</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=parametrageTarif">Paramètrage des tarifs</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=chefCaisse&page=commandeCarte">Commande carte B2C</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=chefCaisse&page=gestionCommandes">Gestion des commandes B2C</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=commandeCarte">Commande carte B2B</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=gestionCommandes">Gestion des commandes B2B</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=envoiFormulaire">Envoi formulaire sur-perso</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?key=out">Deconnexion</a></li>
 					<li class="botmenu"></li>
 				</ul>
 			</nav>
