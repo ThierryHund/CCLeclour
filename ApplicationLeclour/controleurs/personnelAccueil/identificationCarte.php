@@ -1,10 +1,10 @@
 <?php
 
-	if (isset ($_POST['numAleatoire'])){
-	$var = $_POST['numAleatoire'];
-	$smarty->assign('numero', $var);
-	$smarty->display($_SERVER['DOCUMENT_ROOT'].'/webprojet/CCLeclour/ApplicationLeclour/templates/personnelAccueil/identificationCarte.tpl');
+//Ici on teste si l'utilisateur souhaite faire une recherche sur le code barre ou bien le numero de serie
+	if( isset($_POST['choix'])){
+	$smarty->assign('recherche', $_POST['choix']);
 	}
-$smarty->assign('numero', null);
-$smarty->display($_SERVER['DOCUMENT_ROOT'].'/webprojet/CCLeclour/ApplicationLeclour/templates/personnelAccueil/identificationCarte.tpl');
+	else{
+	$smarty->assign('recherche', 'nul');
+	}
 ?>
