@@ -1,6 +1,7 @@
 <?php
 require_once _PATH_."modele/groupe.class.php";
 require_once _PATH_."modele/magasin.class.php";
+require_once _PATH_."modele/utilisateur.class.php";
 
 
 if(!empty($post))
@@ -9,13 +10,14 @@ if(!empty($post))
 	$nom = $post[ 'nom' ] ;
 	$prenom = $post[ 'prenom' ] ;
 	$login= $post[ 'login' ] ;
-	$mdp = $post[ 'mdp' ] ;
-	$groupe = intval($post[ 'profil' ]);
-	$magasin = intval($post[ 'entite' ]);
+	$lib_profil = $post[ 'profil' ];
+	$lib_mag =$post[ 'entite' ];
 
 
 	try
-	{	Utilisateurs::creer($nom, $prenom, $login, $mdp, $groupe, $magasin);
+	{	$listeUtil = Utilisateurs::getUtilisateursBy($nom, $prenom, $login, $lib_mag, $lib_profil);
+		var_dump($listeUtil);
+		var_dump($post);
 	}catch(Exception $e){ $parameters['error'] = ($e->getMessage());}
 }
 

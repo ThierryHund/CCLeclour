@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-07 21:13:07
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-07 22:38:31
          compiled from "C:\wamp\www\webprojet\CCLeclour\ApplicationLeclour\templates\administrateur\gestionUtilisateur.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:237845368045173f906-91246166%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '108863bcbd4f469c6756f00e06b9ab26ca240beb' => 
     array (
       0 => 'C:\\wamp\\www\\webprojet\\CCLeclour\\ApplicationLeclour\\templates\\administrateur\\gestionUtilisateur.tpl',
-      1 => 1399497184,
+      1 => 1399502308,
       2 => 'file',
     ),
   ),
@@ -26,10 +26,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5368045181fec2_89555913')) {function content_5368045181fec2_89555913($_smarty_tpl) {?>			<H1>Gestion des utilisateurs</H1>
 			<div>
-				<form action="gestionUtilisateur.html">
-				<input type="text" id="nom" value="nom"/>
-				<input type="text" id="prenom" value="prenom"/>
-				<input type="text" id="login" value="login"/>
+				<form method="post" action="././index.php?section=administrateur&page=gestionUtilisateur">
+				<input type="text" name="nom" id="nom" value="nom"/>
+				<input type="text" name="prenom" id="prenom" value="prenom"/>
+				<input type="text" name="login" id="login" value="login"/>
 				
       			<select name="entite" id="entite">
 				<?php  $_smarty_tpl->tpl_vars['params'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['params']->_loop = false;
@@ -37,8 +37,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 foreach ($_from as $_smarty_tpl->tpl_vars['params']->key => $_smarty_tpl->tpl_vars['params']->value) {
 $_smarty_tpl->tpl_vars['params']->_loop = true;
 ?>
-					<option VALUE=<?php echo $_smarty_tpl->tpl_vars['params']->value[0];?>
-><?php echo $_smarty_tpl->tpl_vars['params']->value[1];?>
+					<option ><?php echo $_smarty_tpl->tpl_vars['params']->value[1];?>
 </option>
 				<?php } ?> 
 				</select>
@@ -49,8 +48,7 @@ $_smarty_tpl->tpl_vars['params']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['params']->key => $_smarty_tpl->tpl_vars['params']->value) {
 $_smarty_tpl->tpl_vars['params']->_loop = true;
 ?>
-					<option VALUE=<?php echo $_smarty_tpl->tpl_vars['params']->value[0];?>
-><?php echo $_smarty_tpl->tpl_vars['params']->value[1];?>
+					<option ><?php echo $_smarty_tpl->tpl_vars['params']->value[1];?>
 </option>
 				<?php } ?>
 				</select></br>
