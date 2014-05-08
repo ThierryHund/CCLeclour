@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-07 22:38:31
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-08 21:26:08
          compiled from "C:\wamp\www\webprojet\CCLeclour\ApplicationLeclour\templates\administrateur\gestionUtilisateur.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:237845368045173f906-91246166%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:21731536bf230e53c71-73166818%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '108863bcbd4f469c6756f00e06b9ab26ca240beb' => 
     array (
       0 => 'C:\\wamp\\www\\webprojet\\CCLeclour\\ApplicationLeclour\\templates\\administrateur\\gestionUtilisateur.tpl',
-      1 => 1399502308,
+      1 => 1399584361,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '237845368045173f906-91246166',
+  'nocache_hash' => '21731536bf230e53c71-73166818',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5368045181fec2_89555913',
+  'unifunc' => 'content_536bf23108adb4_97785873',
   'variables' => 
   array (
     'parameters' => 0,
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5368045181fec2_89555913')) {function content_5368045181fec2_89555913($_smarty_tpl) {?>			<H1>Gestion des utilisateurs</H1>
+<?php if ($_valid && !is_callable('content_536bf23108adb4_97785873')) {function content_536bf23108adb4_97785873($_smarty_tpl) {?>			<H1>Gestion des utilisateurs</H1>
 			<div>
 				<form method="post" action="././index.php?section=administrateur&page=gestionUtilisateur">
 				<input type="text" name="nom" id="nom" value="nom"/>
@@ -66,39 +66,35 @@ $_smarty_tpl->tpl_vars['params']->_loop = true;
 						<TH> Entité de rattachement </TH>
 						<TH> Profil </TH>						
 					</TR> 
-					<form id="radioSelectionUtilisateur" action="gestionUtilisateur_Select.html">
-					<TR> 
-						<TD style=" border:0;" ><input type="radio" value="idUtilisateur" name="selectionUtilisateur"></TD>
-						<TD> Dupont </TD> 
-						<TD> Pierre </TD> 
-						<TD> Dupont46 </TD> 
-						<TD> Leclour Informatique </TD>
-						<TD> Chef de caisse </TD>						
-					</TR> 
-					<TR> 
-						<TD style=" border:0;"><input type="radio" value="idUtilisateur" name="selectionUtilisateur"></TD>
-						<TD> Boubel </TD> 
-						<TD> Maxime </TD> 
-						<TD> Boubel01 </TD> 
-						<TD> Leclour Informatique </TD>
-						<TD> Administrateur </TD>						
-					</TR> 
-					<TR> 
-						<TD style=" border:0;"><input type="radio" value="idUtilisateur" name="selectionUtilisateur"></TD>
-						<TD> Poulet </TD> 
-						<TD> Philipe </TD> 
-						<TD> PouletGrillé </TD> 
-						<TD> Metz Technopole </TD>
-						<TD> Comptable </TD>						
-					</TR> 
-					<TR> 
-						<TD style=" border:0;"><input type="radio" value="idUtilisateur" name="selectionUtilisateur"></TD>
-						<TD> Poulet </TD> 
-						<TD> Cindy </TD> 
-						<TD> PouletFumé </TD> 
-						<TD> Metz Mondelange </TD>
-						<TD> Personnel d'accueil </TD>						
-					</TR> 
+					<form id="radioSelectionUtilisateur" method="post" action="././index.php?section=administrateur&page=gestionUtilisateur_select">
+					
+					<?php if (isset($_smarty_tpl->tpl_vars['parameters']->value['listeUtil'])&!empty($_smarty_tpl->tpl_vars['parameters']->value['listeUtil'])) {?>
+					
+										
+						<?php  $_smarty_tpl->tpl_vars['params'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['params']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['parameters']->value['listeUtil']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['params']->key => $_smarty_tpl->tpl_vars['params']->value) {
+$_smarty_tpl->tpl_vars['params']->_loop = true;
+?>
+							<TR> 
+								<TD style=" border:0;" ><input type="radio" value=<?php echo $_smarty_tpl->tpl_vars['params']->value['login'];?>
+ name="login"></TD>
+								<TD> <?php echo $_smarty_tpl->tpl_vars['params']->value['nom'];?>
+ </TD> 
+								<TD> <?php echo $_smarty_tpl->tpl_vars['params']->value['prenom'];?>
+ </TD> 
+								<TD> <?php echo $_smarty_tpl->tpl_vars['params']->value['login'];?>
+ </TD> 
+								<TD> <?php echo $_smarty_tpl->tpl_vars['params']->value['lib_mag'];?>
+</TD>
+								<TD> <?php echo $_smarty_tpl->tpl_vars['params']->value['lib_profil'];?>
+ </TD>						
+							</TR> 
+						<?php } ?>
+					
+					<?php }?>
+					
+
 				</TABLE> 
 				<input id="selectionner" type="submit" value="Selectionner"/>
 				</form>

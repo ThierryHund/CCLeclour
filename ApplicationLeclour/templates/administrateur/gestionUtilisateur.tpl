@@ -30,39 +30,25 @@
 						<TH> Entité de rattachement </TH>
 						<TH> Profil </TH>						
 					</TR> 
-					<form id="radioSelectionUtilisateur" action="gestionUtilisateur_Select.html">
-					<TR> 
-						<TD style=" border:0;" ><input type="radio" value="idUtilisateur" name="selectionUtilisateur"></TD>
-						<TD> Dupont </TD> 
-						<TD> Pierre </TD> 
-						<TD> Dupont46 </TD> 
-						<TD> Leclour Informatique </TD>
-						<TD> Chef de caisse </TD>						
-					</TR> 
-					<TR> 
-						<TD style=" border:0;"><input type="radio" value="idUtilisateur" name="selectionUtilisateur"></TD>
-						<TD> Boubel </TD> 
-						<TD> Maxime </TD> 
-						<TD> Boubel01 </TD> 
-						<TD> Leclour Informatique </TD>
-						<TD> Administrateur </TD>						
-					</TR> 
-					<TR> 
-						<TD style=" border:0;"><input type="radio" value="idUtilisateur" name="selectionUtilisateur"></TD>
-						<TD> Poulet </TD> 
-						<TD> Philipe </TD> 
-						<TD> PouletGrillé </TD> 
-						<TD> Metz Technopole </TD>
-						<TD> Comptable </TD>						
-					</TR> 
-					<TR> 
-						<TD style=" border:0;"><input type="radio" value="idUtilisateur" name="selectionUtilisateur"></TD>
-						<TD> Poulet </TD> 
-						<TD> Cindy </TD> 
-						<TD> PouletFumé </TD> 
-						<TD> Metz Mondelange </TD>
-						<TD> Personnel d'accueil </TD>						
-					</TR> 
+					<form id="radioSelectionUtilisateur" method="post" action="././index.php?section=administrateur&page=gestionUtilisateur_select">
+					
+					{if isset($parameters.listeUtil) & !empty($parameters.listeUtil)}
+					
+										
+						{foreach $parameters.listeUtil as $params}
+							<TR> 
+								<TD style=" border:0;" ><input type="radio" value={$params['login']} name="login"></TD>
+								<TD> {$params['nom']} </TD> 
+								<TD> {$params['prenom']} </TD> 
+								<TD> {$params['login']} </TD> 
+								<TD> {$params['lib_mag']}</TD>
+								<TD> {$params['lib_profil']} </TD>						
+							</TR> 
+						{/foreach}
+					
+					{/if}
+					
+
 				</TABLE> 
 				<input id="selectionner" type="submit" value="Selectionner"/>
 				</form>

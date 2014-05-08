@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-07 20:02:50
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-08 21:07:59
          compiled from "C:\wamp\www\webprojet\CCLeclour\ApplicationLeclour\templates\accueil.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:179315367fb8b04b3d4-77076736%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1298536bf22f1aeda9-77715264%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,15 +11,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '179315367fb8b04b3d4-77076736',
+  'nocache_hash' => '1298536bf22f1aeda9-77715264',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_5367fb8b0fa0e0_91838731',
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_536bf22f249089_88711927',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5367fb8b0fa0e0_91838731')) {function content_5367fb8b0fa0e0_91838731($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_536bf22f249089_88711927')) {function content_536bf22f249089_88711927($_smarty_tpl) {?>
 	<h1>Page d'accueil</h1>
 	<div class="centre">
 		<p>
