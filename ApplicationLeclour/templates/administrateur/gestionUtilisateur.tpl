@@ -1,16 +1,20 @@
 			<H1>Gestion des utilisateurs</H1>
 			<div>
-				<form action="gestionUtilisateur.html">
-				<input type="text" id="nom" value="nom"/>
-				<input type="text" id="prenom" value="prenom"/>
-				<input type="text" id="login" value="login"/>
-				<select id="age">
-					<option>Leclour Informatique</option>
-					<option>Technopole</option>
+				<form method="post" action="././index.php?section=administrateur&page=gestionUtilisateur">
+				<input type="text" name="nom" id="nom" value="nom"/>
+				<input type="text" name="prenom" id="prenom" value="prenom"/>
+				<input type="text" name="login" id="login" value="login"/>
+				
+      			<select name="entite" id="entite">
+				{foreach $parameters.magasins as $params}
+					<option >{$params[1]}</option>
+				{/foreach} 
 				</select>
-				<select id="age">
-					<option>Personnel d'accueil</option>
-					<option>Chef de caisse</option>
+				
+      			<select name="profil" id="profil">
+				{foreach $parameters.groupes as $params}
+					<option >{$params[1]}</option>
+				{/foreach}
 				</select></br>
 				<input id="rechercher" type="submit" value="Rechercher"/>
 				</form>

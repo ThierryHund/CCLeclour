@@ -24,6 +24,8 @@ session_start();
 
 $parameters = array();
 $parameters['connection'] = false;
+if(isset($_POST)){$post=$_POST;};
+
 
 //On ajoute toujours le header
 $smarty = new smartyIUT();

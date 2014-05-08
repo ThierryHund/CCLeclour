@@ -31,7 +31,7 @@ class Utilisateurs
   {
 
     $conn = Connection::get();
-	
+	/*
 	//verification du nom
 	if(!preg_match("/^[A-Z][a-zA-Z]* [a-zA-Z]\.$/",$nom))
 	{
@@ -67,13 +67,14 @@ class Utilisateurs
     	// 	{
     	// 		throw new Exception("password non conforme");
     	// 	}
+    	
+    
 	
 	//tableau de avec les infos de l'usager
-    $save = array( "nom" => $nom,"prenom" => $prenom, "login" => $login, "password" => $password, "statut" => $statut, "groupe" => $groupe, "magasin" => $id_mag);
-      
+    
 	//requete d'insertion		
-    $request = $conn->prepare("INSERT INTO utilisateur (nom, prenom, login, password, statut, groupe, id_mag) VALUES (:nom , :prenom , :login , :password , :statut, :groupe, :magasin)");
-	$request->execute(array('nom' => $nom, 'prenom' => $prenom ,'login' => $login ,'password' => $password ,'statut' => 1,'groupe' => $groupe,'magasin' => $id_mag));
+    $request = $conn->prepare("INSERT INTO utilisateur (nom, prenom, login, mdp, prem_connex, statut, id_profil, id_mag) VALUES (:nom , :prenom , :login , :password ,:prem_connex, :statut, :groupe, :magasin)");
+	$request->execute(array('nom' => $nom, 'prenom' => $prenom ,'login' => $login ,'password' => $password ,'prem_connex' => 1, 'statut' => "actif" ,'groupe' => $groupe,'magasin' => $id_mag));
   }
 
   ////////////////////////////////
@@ -96,6 +97,31 @@ class Utilisateurs
 	
     return $result; 
 
+  }
+  
+  ////////////////////////////////
+  //retourne un tableau d'usager selon les criteres en parametre
+  ////////////////////////////////
+  public static function getUtilisateursBy($nom, $prenom, $login, $lib_mag, $lib_profil)
+  {
+  	if(isset($nom) && $nom!=""){$nom = ' AND nom = "'.$nom.'"';} else $nom = "";
+  	if(isset($prenom) && $prenom!=""){$prenom = ' AND prenom = "'.$prenom.'"';} else $prenom= "";
+  	if(isset($login) && $login!=""){$login= ' AND login = "'.$login.'"';} else $login = "";
+  	if(isset($lib_mag) && $lib_mag!=""){$lib_mag= ' AND lib_mag = "'.$lib_mag.'"';} else $lib_mag = "";
+  	if(isset($lib_profil) && $lib_profil!=""){$lib_profil = ' AND lib_profil = "'.$lib_profil.'"';} else $lib_profil = "";
+  	$conn = Connection::get();
+  
+  	$request = $conn->query("SELECT  nom, prenom,login, lib_mag, lib_profil FROM utilisateur, groupe, entite WHERE utilisateur.id_profil = groupe.id_profil AND utilisateur.id_mag = entite.id_mag ".$nom.$prenom.$login.$lib_mag.$lib_profil );
+   //	$request->execute(array('nom' => $nom, 'prenom' => $prenom, 'login' => $login, 'lib_mag' => $lib_mag, 'lib_profil' => $lib_profil));
+	var_dump($request);
+  	$result=null;
+  	while( $row = $request->fetch())
+  	{
+  		$result[] = $row;
+  	}
+  	
+  	return $result;
+  
   }
   
   ////////////////////////////////

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-05-05 20:58:51
+<?php /* Smarty version Smarty-3.1.18, created on 2014-05-07 20:02:50
          compiled from "C:\wamp\www\webprojet\CCLeclour\ApplicationLeclour\templates\accueil.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:179315367fb8b04b3d4-77076736%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8ea86ce2ea04769c30dd56c30364236fb1cab70e' => 
     array (
       0 => 'C:\\wamp\\www\\webprojet\\CCLeclour\\ApplicationLeclour\\templates\\accueil.tpl',
-      1 => 1399198220,
+      1 => 1399492383,
       2 => 'file',
     ),
   ),
@@ -15,11 +15,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.18',
   'unifunc' => 'content_5367fb8b0fa0e0_91838731',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5367fb8b0fa0e0_91838731')) {function content_5367fb8b0fa0e0_91838731($_smarty_tpl) {?><div class="contenu">
+<?php if ($_valid && !is_callable('content_5367fb8b0fa0e0_91838731')) {function content_5367fb8b0fa0e0_91838731($_smarty_tpl) {?>
 	<h1>Page d'accueil</h1>
 	<div class="centre">
 		<p>
@@ -29,4 +29,4 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		Choisissez ce que vous souhaitez faire au moyen du menu
 		</p>
 	</div>
-</div><?php }} ?>
+<?php }} ?>
