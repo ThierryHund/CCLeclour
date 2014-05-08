@@ -4,8 +4,8 @@
 			<div>
 				<form id="formulaire" action="envoiFormulaire.html">
 					<label for="mail" >Adresse du contact :</label> 
-					<input type="hidden" id="mail" /><br/>
+					<input type="textfield" id="mail" /><br/>
 					</br>
-					<input type="submit" value="OK"/>
+					<h1><input type="submit" value="OK"/></h1>
 			</div>
 		

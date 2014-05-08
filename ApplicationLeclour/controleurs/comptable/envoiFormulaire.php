@@ -1,5 +1,5 @@
 <?php
-
+/*
     // Destinataire du mail
     $mail = "[e-mail du destinataire]";
     // Sujet du mail
@@ -31,6 +31,6 @@
     mail($destination, $sujet, $texte.$attachement, $headers);
 
    
-
+*/
 $smarty->display($_SERVER['DOCUMENT_ROOT'].'/webprojet/CCLeclour/ApplicationLeclour/templates/comptable/envoiFormulaire.tpl');
 ?>
