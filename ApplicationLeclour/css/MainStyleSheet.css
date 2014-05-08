@@ -176,10 +176,6 @@ div.entreHeaderFooter{
 	margin-bottom:50px;
 }
 
-input[type="submit"]
-{
-	margin:10px 10px;
-}
 
 #menu a{
 	
@@ -187,4 +183,11 @@ input[type="submit"]
 
 h1{
 	text-align:center;
+}
+
+/*Petit rajout du 07/05/2014 pour pouvoir afficher dans certains cas des boutons submit côte à côte
+*/
+
+form.lien {
+  display:inline;
 }

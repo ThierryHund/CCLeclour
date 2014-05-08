@@ -38,8 +38,11 @@ class Transaction
 		{
 			$result[] = $row;
 		}
+		foreach ( $result as $index=>$ligne ) {
+			$transactions[$index] = new Transaction($result[$index]['id_transac'], $result[$index]['lib_transac'], $result[$index]['date_transac'], $result[$index]['heure_transac'], $result[$index]['id_utilisateur'], $result[$index]['id_carte']);
+		}
 
-		return new Carte($result[0]['id_transac'], $result[0]['lib_transac'], $result[0]['date_transac'], $result[0]['heure_transac'], $result[0]['id_utilisateur'], $result[0]['id_carte']);
+		return $transactions;
 	}
 	
 	//Tous les getters

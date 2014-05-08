@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.17, created on 2014-05-07 14:28:21
+<?php /* Smarty version Smarty-3.1.17, created on 2014-05-07 16:32:56
          compiled from "C:\wamp\www\\webprojet\CCLeclour\ApplicationLeclour\templates\personnelAccueil\identificationCarte.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:253925366cc845d5945-12512963%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '425abec4c84c0b7b793d00d42d124339bf764e8c' => 
     array (
       0 => 'C:\\wamp\\www\\\\webprojet\\CCLeclour\\ApplicationLeclour\\templates\\personnelAccueil\\identificationCarte.tpl',
-      1 => 1399408484,
+      1 => 1399474302,
       2 => 'file',
     ),
   ),
@@ -31,13 +31,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<input type="radio" name="choix" value="serie" onchange="submit(this.form)">Numéro de série
 				</form>
 				<?php if (($_smarty_tpl->tpl_vars['recherche']->value=='alea')) {?>
-					<form id="rechercheNumAleatoire" action="././index.php?section=personnelAccueil&page=identificationCarte_Select" method="post">
+				<form id="rechercheNumAleatoire" action="././index.php?section=personnelAccueil&page=identificationCarte_Select" method="post">
 					<label for="numAleatoire" >Code barre :</label> 
 					<input type="text" id="numAleatoire" name="numAleatoire"/><br/>
 					<input type="submit" value="Rechercher"/>
 				</form>
 				<?php } elseif (($_smarty_tpl->tpl_vars['recherche']->value=='serie')) {?>
-					<form id="rechercheNumSere" action="././index.php?section=personnelAccueil&page=identificationCarte_Select" method="post">
+				<form id="rechercheNumSere" action="././index.php?section=personnelAccueil&page=identificationCarte_Select" method="post">
 					<label for="numSerie" >Numéro de série :</label> 
 					<input type="text" id="numSerie" name="numSerie"/><br/>
 					<input type="submit" value="Rechercher"/>

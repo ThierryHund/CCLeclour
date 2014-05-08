@@ -11,5 +11,10 @@
 	$carte = Carte::rechercheNumSerie($num);
 	$smarty->assign('carte', $carte);
 	}
+	else if (isset($_POST['idCarte'])){
+	$num = $_POST['idCarte'];
+	$carte = Carte::rechercheIdCarte($num);
+	$smarty->assign('carte', $carte);
+	}
 	
 ?>
