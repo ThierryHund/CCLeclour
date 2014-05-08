@@ -66,8 +66,22 @@ class Groupe {
 		
 		return new Groupe ( $result [0] ['id_grp'], $result [0] ['lib_grp'] );
 	}
+	
+	
 	public static function getLibById($id_grp) {
-		return get ( $id_grp ) . getLibGrp ();
+		$result = null;
+		$conn = Connection::get ();
+		// requete sql preparé
+		$request = $conn->prepare ( "SELECT id_grp, lib_grp FROM groupe WHERE id_grp=:id_grp" );
+		$request->execute ( array (
+				'id_grp' => $id_grp 
+		) );
+		
+		while ( $row = $request->fetch () ) {
+			$result [] = $row;
+		}
+		
+		return $result;
 	}
 }
 	

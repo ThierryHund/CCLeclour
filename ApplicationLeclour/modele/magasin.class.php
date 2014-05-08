@@ -70,7 +70,19 @@ class Magasin {
 		
 		return new Magasin ( $result [0] ['id_mag'], $result [0] ['ville_mag'], $result [0] ['ad_mag'] );
 	}
+	
 	public static function getLibById($id_mag) {
-		return get ( $id_mag ) . getLibMag ();
+		$conn = Connection::get ();
+		
+	// requete sql preparé
+		$request = $conn->prepare ( "SELECT lib_mag FROM magasin WHERE id_mag=:id_mag" );
+		$request->execute ( array (
+				'id_mag' => $id_mag 
+		) );
+		$result=null;
+		while ( $row = $request->fetch () ) {
+			$result [] = $row;
+		}
+		return $result;
 	}
 }

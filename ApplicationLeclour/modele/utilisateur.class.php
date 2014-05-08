@@ -150,7 +150,7 @@ class Utilisateurs {
 	// retourne prenom
 	// //////////////////////////////
 	public function getPrenom() {
-		return $this->Prenom;
+		return $this->prenom;
 	}
 	
 	// //////////////////////////////
@@ -158,6 +158,13 @@ class Utilisateurs {
 	// //////////////////////////////
 	public function getLogin() {
 		return $this->login;
+	}
+	
+	// //////////////////////////////
+	// retourne mot de passe
+	// //////////////////////////////
+	public function getPassword() {
+		return $this->password;
 	}
 	
 	// //////////////////////////////
