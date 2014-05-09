@@ -11,6 +11,13 @@
 			<nav>
 				<ul class="listemenu">
 					<li class="topmenu"></li>
+					{if isset($smarty.get.page)}
+					{*Gestion utilisateur*}
+					{if $smarty.get.page eq 'gestionUtilisateur'}
+						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=administrateur&page=gestionUtilisateur">Gestion utilisateur</a></li>
+					{else}
+						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=gestionUtilisateur">Gestion utilisateur</a></li>
+					{/if}
 					{*Creation utilisateur*}
 					{if $smarty.get.page eq 'creationUtilisateur'}
 						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=administrateur&page=creationUtilisateur">Création utilisateur</a></li>
@@ -64,7 +71,20 @@
 						<li class="corpsmenu"><a class="lienmenuactf" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					{else}
 						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
-					{/if}			
+					{/if}
+					{else}
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=gestionUtilisateur">Gestion utilisateur</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=creationUtilisateur">Création utilisateur</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=parametrageTarif">Paramètrage des tarifs</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=creationUtilisateur">Création utilisateur</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=chefCaisse&page=commandeCarte">Commande carte B2C</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=chefCaisse&page=gestionCommandes">Gestion des commandes B2C</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=commandeCarte">Commande carte B2B</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=gestionCommandes">Gestion des commandes B2B</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=envoiFormulaire">Envoi formulaire sur-perso</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
+					{/if}
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?key=out">Deconnexion</a></li>
 					<li class="botmenu"></li>
 				</ul>
