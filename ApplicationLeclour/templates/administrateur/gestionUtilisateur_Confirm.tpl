@@ -18,6 +18,8 @@
 					<input type="hidden" name="login" id="login" /><br/>
 					<label for="prenom" >Mot de passe :</label> 
 					<input type="hidden" name="mdp" id="mdp" /><br/>
+					<label for="entite" >statut :</label>{$parameters.user.statut}
+					<input type="hidden" name="statut" id="statut" /><br/>
 					<label for="entite" >Entité de rattachement :</label>{$parameters.user.magasin}
 					<input type="hidden" name="magasin" id="magasin" /><br/>
 					<label for="profil" >Profil :</label>{$parameters.user.groupe}

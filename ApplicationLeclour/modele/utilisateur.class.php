@@ -25,7 +25,7 @@ class Utilisateurs {
 	// //////////////////////////////
 	public static function creer($nom, $prenom, $login, $password, $groupe, $id_mag) {
 		$conn = Connection::get ();
-		
+
 		if (! preg_match ( "/^[A-Z][a-zA-Z]*[ [a-z]*]*$/", $nom )) {
 			throw new Exception ( "nom incorrect" );
 		} else {
@@ -45,13 +45,19 @@ class Utilisateurs {
 		}
 		;
 		
-		if (! preg_match ( "^(([a-zA-Z][0-9])|([0-9][a-zA-Z])).{8,25}$/", $password )) {
+		if (! preg_match ( "/^(([a-zA-Z][0-9])|([0-9][a-zA-Z])).{6,23}$/", $password )) {
 			throw new Exception ( "Password non conforme" );
 		};
 		
 		// if($groupe!=("caisse" || "comptable" || "secours" || "administrateur")) { throw new Exception("groupe incorrect"); }
-		
 
+
+		var_dump($password);
+		var_dump($nom);
+		var_dump($prenom);
+		var_dump($login);
+		var_dump($id_mag);
+		var_dump($groupe);
 		
 		// requete d'insertion
 		$request = $conn->prepare ( "INSERT INTO utilisateur (nom, prenom, login, mdp, prem_connex, statut, id_profil, id_mag) VALUES (:nom , :prenom , :login , :password ,:prem_connex, :statut, :groupe, :magasin)" );

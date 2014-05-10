@@ -10,6 +10,7 @@ $parameters ['user'] ['statut'] = $post ['statut'];
 $parameters ['user'] ['login'] = $post ['login'];
 $parameters ['user'] ['magasin'] = $post ['entite'];
 $parameters ['user'] ['groupe'] = $post ['profil'];
+$parameters ['user'] ['statut'] = $post ['statut'];
 
 if (($post ['mdp'] = $post ['mdp_confirm']) && $post ['mdp'] != "") {
 	$parameters ['user'] ['password'] = $post ['mdp'];
@@ -20,7 +21,7 @@ if (($post ['mdp'] = $post ['mdp_confirm']) && $post ['mdp'] != "") {
 	}
 } else
 	try {
-		Utilisateurs::modifie ( $post ['nom'], $post ['prenom'], $post ['login'], $post ['statut'], $post ['profil'], $post ['entite'] );
+		Utilisateurs::modifie ( $post ['nom'], $post ['prenom'], $post ['login'], "", $post ['statut'], $post ['profil'], $post ['entite'] );
 	} catch ( Exception $e ) {
 		$parameters ['error'] = ($e->getMessage ());
 	}
