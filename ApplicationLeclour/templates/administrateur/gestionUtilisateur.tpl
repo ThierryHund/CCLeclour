@@ -1,16 +1,22 @@
 			<H1>Gestion des utilisateurs</H1>
 			<div>
+				{*On n'est d'accord, en ligne ça aurait été mieux, mais on manque de place, et en tableu c'est vraiment trop moche...*}
 				<form method="post" action="././index.php?section=administrateur&page=gestionUtilisateur">
-				<input type="text" name="nom" id="nom" value="nom"/>
-				<input type="text" name="prenom" id="prenom" value="prenom"/>
-				<input type="text" name="login" id="login" value="login"/>
-				
+				<label for="nom" >Nom : </label> 
+				<input type="text" name="nom" id="nom" value="nom"/><br/>
+				<label for="nom" >Prénom : </label> 
+				<input type="text" name="prenom" id="prenom" value="prenom"/><br/>
+				<label for="nom" >Login : </label> 
+				<input type="text" name="login" id="login" value="login"/><br/>
+
+				<label for="nom" >Associé au magasin :</label> 
       			<select name="entite" id="entite">
 				{foreach $parameters.magasins as $params}
 					<option >{$params[1]}</option>
 				{/foreach} 
-				</select>
+				</select><br/>
 				
+				<label for="nom" >Profil de l'utilisateur : </label> 
       			<select name="profil" id="profil">
 				{foreach $parameters.groupes as $params}
 					<option >{$params[1]}</option>
