@@ -66,8 +66,6 @@ class Groupe {
 		
 		return new Groupe ( $result [0] ['id_grp'], $result [0] ['lib_grp'] );
 	}
-	
-	
 	public static function getLibById($id_grp) {
 		$result = null;
 		$conn = Connection::get ();

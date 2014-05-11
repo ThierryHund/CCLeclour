@@ -25,7 +25,7 @@ class Utilisateurs {
 	// //////////////////////////////
 	public static function creer($nom, $prenom, $login, $password, $groupe, $id_mag) {
 		$conn = Connection::get ();
-
+		
 		if (! preg_match ( "/^[A-Z][a-zA-Z]*[ [a-z]*]*$/", $nom )) {
 			throw new Exception ( "nom incorrect" );
 		} else {
@@ -38,26 +38,26 @@ class Utilisateurs {
 			$nom = str_replace ( " ", " ", trim ( $nom ) );
 		}
 		;
-		if (! ctype_alnum ( $login ) || ( strlen($login)<4 || strlen($login)>16)) {
+		if (! ctype_alnum ( $login ) || (strlen ( $login ) < 4 || strlen ( $login ) > 16)) {
 			throw new Exception ( "login non conforme" );
-		}else {
+		} else {
 			$login = str_replace ( " ", " ", trim ( $login ) );
 		}
 		;
 		
 		if (! preg_match ( "/^(([a-zA-Z][0-9])|([0-9][a-zA-Z])).{6,23}$/", $password )) {
 			throw new Exception ( "Password non conforme" );
-		};
+		}
+		;
 		
 		// if($groupe!=("caisse" || "comptable" || "secours" || "administrateur")) { throw new Exception("groupe incorrect"); }
-
-
-		var_dump($password);
-		var_dump($nom);
-		var_dump($prenom);
-		var_dump($login);
-		var_dump($id_mag);
-		var_dump($groupe);
+		
+		var_dump ( $password );
+		var_dump ( $nom );
+		var_dump ( $prenom );
+		var_dump ( $login );
+		var_dump ( $id_mag );
+		var_dump ( $groupe );
 		
 		// requete d'insertion
 		$request = $conn->prepare ( "INSERT INTO utilisateur (nom, prenom, login, mdp, prem_connex, statut, id_profil, id_mag) VALUES (:nom , :prenom , :login , :password ,:prem_connex, :statut, :groupe, :magasin)" );
@@ -73,14 +73,12 @@ class Utilisateurs {
 		) );
 	}
 	
-	
-	
 	// //////////////////////////////
 	// Permet de créer un usager dans la base
 	// //////////////////////////////
 	public static function modifie($nom, $prenom, $login, $password, $statut, $groupe, $id_mag) {
 		$conn = Connection::get ();
-	
+		
 		if (! preg_match ( "/^[A-Z][a-zA-Z]*[ [a-z]*]*$/", $nom )) {
 			throw new Exception ( "nom incorrect" );
 		} else {
@@ -93,21 +91,20 @@ class Utilisateurs {
 			$nom = str_replace ( " ", " ", trim ( $nom ) );
 		}
 		;
-		if (! ctype_alnum ( $login ) || ( strlen($login)<4 || strlen($login)>16)) {
+		if (! ctype_alnum ( $login ) || (strlen ( $login ) < 4 || strlen ( $login ) > 16)) {
 			throw new Exception ( "login non conforme" );
-		}else {
+		} else {
 			$login = str_replace ( " ", " ", trim ( $login ) );
 		}
 		;
-	
+		
 		if (! preg_match ( "^(([a-zA-Z][0-9])|([0-9][a-zA-Z])).{8,25}$/", $password )) {
 			throw new Exception ( "Password non conforme" );
-		};
-	
+		}
+		;
+		
 		// if($groupe!=("caisse" || "comptable" || "secours" || "administrateur")) { throw new Exception("groupe incorrect"); }
-	
-	
-	
+		
 		// requete d'insertion
 		$request = $conn->prepare ( "UPDATE utilisateur SET nom = :nom, prenom = :prenom, login = :login , mdp = :mdp, statut = :statut, groupe = :groupe, magasin = :magasin WHERE login = $login" );
 		$request->execute ( array (
@@ -117,15 +114,9 @@ class Utilisateurs {
 				'password' => $password,
 				'statut' => $statut,
 				'groupe' => $groupe,
-				'magasin' => $id_mag
+				'magasin' => $id_mag 
 		) );
 	}
-	
-	
-	
-	
-	
-	
 	
 	// //////////////////////////////
 	// retourne un tableau d'usager
