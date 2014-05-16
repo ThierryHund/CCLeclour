@@ -20,7 +20,7 @@
 					<li class="topmenu"></li>
 		
 		{if isset($profil)}
-			{if $profil=='administrateur'}
+			{if $profil='administrateur'}
 					{if isset($smarty.get.page)}
 					{*Gestion utilisateur*}
 					{if $smarty.get.page eq 'gestionUtilisateur'}
@@ -96,7 +96,7 @@
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					{/if}
 				
-			{else if $profil=='comptable'}
+			{else if $profil='comptable'}
 					{if isset($smarty.get.page)}
 					{*Commande de cartes B2B*}
 					{if $smarty.get.page eq 'commandeCarte' && $smarty.get.section eq 'comptable'}
@@ -135,7 +135,7 @@
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					{/if}
-			{else if $profil=='chefCaisse'}
+			{else if $profil='chefCaisse'}
 					{if isset($smarty.get.page)}
 					{*Commande carte B2C*}
 					{if $smarty.get.page eq 'commandeCarte' && $smarty.get.section eq 'chefCaisse'}
@@ -160,7 +160,7 @@
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=chefCaisse&page=gestionCommandes">Gestion des commandes B2C</a></li>
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					{/if}
-			{else if $profil=='personnelAccueil'}
+			{else if $profil='personnelAccueil'}
 					{if isset($smarty.get.page)}
 					{*Identification Carte*}
 					{if $smarty.get.page eq 'identificationCarte'}

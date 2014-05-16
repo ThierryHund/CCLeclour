@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+	<link rel="stylesheet" href="../css/MainStyleSheet.css">
+<title id="CNA"> Opération à effectuer sur une Carte Non active</title>
+</head>
+<body>
+<header>
+<h1>Opération à effectuer sur une Carte Non active</h1>
+
+</header>
+<br/>
+<?php
+
+	echo "<h2>Carte B2C Non Activée N° " . $_POST["numéro de la carte a ajouter proprement depuis la bdd"] . "</h2>";
+
+	?>
+</br>
+</br>
+<?php	
+	echo "<h2>Crédit de la carte : " . $_POST["montant prévu de la carte a ajouter proprement depuis la bdd"] . "</h2>";
+	?>
+
+	
+	<h2>Voulez-vous activer cette carte ?</h2>
+	<input type="submit" value="Activer"/>
+	
+</body>
+</html>
