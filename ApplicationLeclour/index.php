@@ -98,10 +98,11 @@ if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_S
  */
 
 //Permet de savoir à quel groupe d'utilisateur appartient l'utilisateur connecté
-if ( !empty($_SESSION['utilisateur'])) {
+if ( isset($_SESSION['utilisateur'])) {
 	$profil = $_SESSION['utilisateur']->getGroupe();
 	$smarty->assign('profil', $profil);
-} 
+	$smarty->assign('utilisateur', $_SESSION['utilisateur']);
+}
 
 // On ajoute toujours le header
 $smarty->display ( "header.tpl" );
