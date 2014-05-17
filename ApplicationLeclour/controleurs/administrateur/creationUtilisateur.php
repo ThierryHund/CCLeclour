@@ -10,12 +10,12 @@ if (! empty ( $post )) {
 	$mdp = $post ['mdp'];
 	$groupe = intval ( $post ['profil'] );
 	$magasin = intval ( $post ['entite'] );
-	var_dump($nom);
-	var_dump($prenom);
-	var_dump($login);
-	var_dump($mdp);
-	var_dump($magasin);
-	var_dump($groupe);
+	var_dump ( $nom );
+	var_dump ( $prenom );
+	var_dump ( $login );
+	var_dump ( $mdp );
+	var_dump ( $magasin );
+	var_dump ( $groupe );
 	
 	try {
 		Utilisateurs::creer ( $nom, $prenom, $login, $mdp, $groupe, $magasin );

@@ -6,26 +6,22 @@ créee le 28/04/2014 à 5h08 du matin, oui, ça bosse.
 puis trouver une valeur de largeur pour laquelle l'ensemble du texte est bien visible. Nous nous laissons la possibilité de gérer plusieurs tailles
 de formulaires avec l'ajout potentiel d'un id par formulaire.
 */
-
-label
-{
-    display:block;
-    width:160px;
-    float:left;
+label {
+	display: block;
+	width: 160px;
+	float: left;
 }
 
-#connexion label
-{
-    display:block;
-    width:130px;
-    float:left;
+#connexion label {
+	display: block;
+	width: 130px;
+	float: left;
 }
 
-#parametrageTarif label
-{
-    display:block;
-    width:200px;
-    float:left;
+#parametrageTarif label {
+	display: block;
+	width: 200px;
+	float: left;
 }
 
 /*
@@ -34,49 +30,51 @@ Le menu est extnsible pratiquement à volonté.
 Ceci dit, si vous voulez faire du zèle, vous pourrez vous pencher sur un problème très étrange, Chrome (et Firefox) 
 ont une facon un peu étrange de gerer la tailes des éléments de la liste (et ca fait fait planter mon graphisme).
 */
-
-html{
+html {
 	background: url(sources/bg.png);
-	width:100%;
+	width: 100%;
 }
 
 /* Le myriad pro, c'est bon, mangez-en*/
-@font-face{
+@font-face {
 	font-family: "Myriad Pro";
 	src: url(sources/MyriadPro-Regular.otf);
 }
-@font-face{
+
+@font-face {
 	font-family: "Myriad Pro";
 	font-style: bold;
 	src: url(sources/MyriadPro-Bold.otf);
 }
-@font-face{
+
+@font-face {
 	font-family: "Myriad Pro";
 	font-style: italic;
 	src: url(sources/MyriadPro-It.otf);
 }
-@font-face{
+
+@font-face {
 	font-family: "Myriad Pro Cond";
 	src: url(sources/MyriadPro-Cond.otf);
 }
 
-body{
-	background-color:white;
-	float:left;
-	margin:50px 10%;
-	width:80%;
+body {
+	background-color: white;
+	float: left;
+	margin: 50px 10%;
+	width: 80%;
 	box-shadow: 0 0 10px #000;
-	border-radius:5px;
+	border-radius: 5px;
 	font-family: "Myriad Pro";
 }
 
-.listemenu{
+.listemenu {
 	list-style-type: none;
 	padding: 0px;
 	margin: 0px;
 }
 
-.topmenu{
+.topmenu {
 	background: url(sources/casemenu.png);
 	width: 235px;
 	height: 42px;
@@ -84,18 +82,17 @@ body{
 	background-repeat: inherit;
 }
 
-.corpsmenu{
+.corpsmenu {
 	background: url(sources/case.png) no-repeat;
 	width: 210px;
 	height: 30px;
-	padding-left:25px;
+	padding-left: 25px;
 	text-align: left;
 	margin: 0px;
 	background-repeat: inherit;
 }
 
-
-.botmenu{
+.botmenu {
 	background: url(sources/botmenu.png);
 	width: 235px;
 	height: 15px;
@@ -103,7 +100,7 @@ body{
 	background-repeat: inherit;
 }
 
-a.lienmenuactif{
+a.lienmenuactif {
 	text-decoration: none;
 	font-family: "Myriad Pro";
 	/*font-weight: bold;*/
@@ -111,53 +108,52 @@ a.lienmenuactif{
 	color: rgb(255, 145, 13);
 }
 
-a.lienmenu{
+a.lienmenu {
 	text-decoration: none;
 	font-family: "Myriad Pro";
 	/*font-weight: bold;*/
 	letter-spacing: 0px;
 }
 
-a.lienmenu:link{
+a.lienmenu:link {
 	color: black;
 	font-size: 13px;
 }
 
-a.lienmenu:visited{
+a.lienmenu:visited {
 	color: black;
 	/*color: rgb(255, 145, 13);*/
 }
 
-a.lienmenu:hover{
-	color: rgb(30, 80, 193) ;
+a.lienmenu:hover {
+	color: rgb(30, 80, 193);
 }
 
-
-
-div.header{
-	background : url(sources/banniere.jpg);
-	height:43px;
+div.header {
+	background: url(sources/banniere.jpg);
+	height: 43px;
 }
-div.bandeau{
-	margin-right:50px;
-	margin-top:10px;
+
+div.bandeau {
+	margin-right: 50px;
+	margin-top: 10px;
 	text-align: right;
-	height:40px;
+	height: 40px;
 }
 
-div.footer{
-	float:left;
-	background : url(sources/foot.png) no-repeat;
-	height:126px;
-	width:100%;
+div.footer {
+	float: left;
+	background: url(sources/foot.png) no-repeat;
+	height: 126px;
+	width: 100%;
 }
 
-div.contenu{
-	padding-left:10px;
-	height:auto;
-	float:left;
-	width:70%;
-	padding-bottom:50px;
+div.contenu {
+	padding-left: 10px;
+	height: auto;
+	float: left;
+	width: 70%;
+	padding-bottom: 50px;
 	/* Nous donnons ici un aspect professionel et fini à notre application
 	Ce code a été copié depuis le site www.debray-jerome.fr qui fournit un outil
 	de génération de code pour simplifier la création de styles d'ombres sur nos div
@@ -166,40 +162,37 @@ div.contenu{
 	-webkit-box-shadow: 0px 5px 10px 0px #9698ed;
 	-o-box-shadow: 0px 5px 10px 0px #9698ed;
 	box-shadow: 0px 5px 10px 0px #9698ed;
-	filter:progid:DXImageTransform.Microsoft.Shadow(color=#9698ed, Direction=180, Strength=10);
+	filter: progid:DXImageTransform.Microsoft.Shadow(color=#9698ed,
+		Direction=180, Strength=10);
 }
 
-div.menu{
-	
-	width:25%;
-	height:auto;
-	float:left;
-	
+div.menu {
+	width: 25%;
+	height: auto;
+	float: left;
 }
 
-div.centre{
-	margin:auto;
-	width:85%;
+div.centre {
+	margin: auto;
+	width: 85%;
 }
 
-div.entreHeaderFooter{
-	width:100%;
-	float:left;
-	margin-bottom:50px;
+div.entreHeaderFooter {
+	width: 100%;
+	float: left;
+	margin-bottom: 50px;
 }
 
-
-#menu a{
+#menu a {
 	
 }
 
-h1{
-	text-align:center;
+h1 {
+	text-align: center;
 }
 
 /*Petit rajout du 07/05/2014 pour pouvoir afficher dans certains cas des boutons submit côte à côte
 */
-
 form.lien {
-  display:inline;
+	display: inline;
 }

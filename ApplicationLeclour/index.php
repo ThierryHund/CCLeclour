@@ -27,9 +27,7 @@ if (isset ( $_POST )) {
 }
 ;
 
-
 $smarty = new smartyIUT ();
-
 
 // //////////////////////////////
 // creation de la session connection et acces a page d'acceuil
@@ -42,7 +40,6 @@ if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_S
 				
 				$_SESSION ['connecte'] = true;
 				$_SESSION ['utilisateur'] = Utilisateurs::get ( $value ['login'] );
-				
 				
 				// var_dump($_SESSION['grp']);
 				// $parameters['login'] = $_SESSION['login'];
@@ -86,7 +83,6 @@ if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_S
 				
 				$_SESSION ['connecte'] = true;
 				$_SESSION ['utilisateur'] = Utilisateurs::get ( $value ['login'] );
-				
 			}
 		}
 	}
@@ -97,16 +93,16 @@ if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_S
  * if (isset($_GET['page']) && isset($_GET['section'])) $smarty->display(_TPL_.$_GET['section'].'/'.$_GET['page'].'.tpl'); else if(isset($_SESSION['connecte'])) { $smarty->display(_TPL_ . 'accueil.tpl'); }
  */
 
-//Permet de savoir à quel groupe d'utilisateur appartient l'utilisateur connecté
-if ( isset($_SESSION['utilisateur'])) {
-	$profil = $_SESSION['utilisateur']->getGroupe();
-	$smarty->assign('profil', $profil);
-	$smarty->assign('utilisateur', $_SESSION['utilisateur']);
+// Permet de savoir à quel groupe d'utilisateur appartient l'utilisateur connecté
+if (isset ( $_SESSION ['utilisateur'] )) {
+	$profil = $_SESSION ['utilisateur']->getGroupe ();
+	$smarty->assign ( 'profil', $profil );
+	$smarty->assign ( 'utilisateur', $_SESSION ['utilisateur'] );
 }
 
 // On ajoute toujours le header
 $smarty->display ( "header.tpl" );
- 
+
 // Navigation 2.0 ! On charge nos controleurs et les controleurs s'occupent d'afficher les bon templates
 if (isset ( $_GET ['page'] ) && isset ( $_GET ['section'] ) && isset ( $_SESSION ['connecte'] )) {
 	include (_CTRL_ . $_GET ['section'] . '/' . $_GET ['page'] . '.php');
@@ -115,9 +111,6 @@ if (isset ( $_GET ['page'] ) && isset ( $_GET ['section'] ) && isset ( $_SESSION
 	$smarty->display ( _TPL_ . 'accueil.tpl' );
 } else
 	$smarty->display ( _TPL_ . 'connexion.tpl' );
-	
-
-
 	
 	// Et on ajoutera toujours le footer en fin de page
 $smarty->display ( "footer.tpl" );

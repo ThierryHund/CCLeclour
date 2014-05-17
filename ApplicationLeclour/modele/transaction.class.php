@@ -7,8 +7,6 @@ class Transaction {
 	private $heure_transac;
 	private $id_utilisateur;
 	private $id_carte;
-	
-	
 	public function __construct($id_transac, $lib_transac, $date_transac, $heure_transac, $id_utilisateur, $id_carte) {
 		$this->id_transac = $id_transac;
 		$this->lib_transac = $lib_transac;

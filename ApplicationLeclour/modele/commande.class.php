@@ -6,8 +6,6 @@ class Commande {
 	private $date_com;
 	private $heure_com;
 	private $id_utilisateur;
-	
-	
 	public function __construct($id_com, $id_type_com, $date_com, $heure_com, $id_utilisateur) {
 		$this->id_com = $id_com;
 		$this->id_type_com = $id_type_com;

@@ -1,11 +1,6 @@
 
 <?php
-
-echo "popopopo"
-
+echo "popopopo"?>
 
 
-
-
-?>
 
