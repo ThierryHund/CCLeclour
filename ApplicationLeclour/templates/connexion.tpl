@@ -7,4 +7,7 @@
 			<input type="password" name="pswd"></br>
 			<input type="submit" value="Connexion" />
 		</form>
+		{if isset($erreur)}
+		{$erreur}
+		{/if}
 	</div>

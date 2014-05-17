@@ -65,7 +65,7 @@ class Utilisateurs {
 				'nom' => $nom,
 				'prenom' => $prenom,
 				'login' => $login,
-				'password' => $password,
+				'password' => crypt($password),
 				'prem_connex' => 1,
 				'statut' => "actif",
 				'groupe' => $groupe,
@@ -124,7 +124,7 @@ class Utilisateurs {
 				'prenom' => $prenom,
 				'login' => $login,
 				'vieux_login' => $vieux_login,
-				'mdp' => $password,
+				'mdp' => crypt($password),
 				'statut' => $statut,
 				'groupe' => $groupe,
 				'magasin' => $id_mag 

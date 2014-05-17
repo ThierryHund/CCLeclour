@@ -37,19 +37,11 @@ if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_S
 	if (! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) {
 		$listeUtil = Utilisateurs::getUtilisateurs ();
 		foreach ( $listeUtil as $value ) {
-			if ($value ['login'] == $_POST ['login'] && $value ['mdp'] == $_POST ['pswd']) {
-				
+			if ($value ['login'] == $_POST ['login'] && crypt($_POST ['pswd'],$value ['mdp']) == $value ['mdp']) {	
 				$_SESSION ['connecte'] = true;
 				$_SESSION ['utilisateur'] = Utilisateurs::get ( $value ['login'] );
-				
-				// var_dump($_SESSION['grp']);
-				// $parameters['login'] = $_SESSION['login'];
-				// $parameters['pswd'] = $_SESSION['pswd'];
-				// $parameters['connection'] = true;
 			} else {
-				// $parameters['login'] = $_SESSION['login'];
-				// $parameters['pswd'] = $_SESSION['pswd'];
-				// $parameters['connection'] = true;
+				$smarty->assign('erreur', 'Erreur d\'identification');
 			}
 		}
 	}
@@ -74,7 +66,7 @@ if ($nav == 'out') {
 // //////////////////////////////
 // page d'accueil post connection
 // //////////////////////////////
-
+/* 
 if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_SESSION ['connecte'] )) {
 	if (! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) {
 		$listeUtil = Utilisateurs::getUtilisateurs ();
@@ -87,7 +79,7 @@ if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_S
 			}
 		}
 	}
-}
+} */
 
 // Navigation entre les diff�rentes pages
 /*
@@ -103,6 +95,7 @@ if (isset ( $_SESSION ['utilisateur'] )) {
 
 // On ajoute toujours le header
 $smarty->display ( "header.tpl" );
+
 
 // Navigation 2.0 ! On charge nos controleurs et les controleurs s'occupent d'afficher les bon templates
 if (isset ( $_GET ['page'] ) && isset ( $_GET ['section'] ) && isset ( $_SESSION ['connecte'] )) {
