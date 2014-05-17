@@ -15,18 +15,19 @@
 					<label for="prenom" >Prenom :</label> {$parameters.user.prenom}
 					<input type="hidden" value="{$parameters.user.prenom}" name="prenom" id="prenom" /><br/>
 					<label for="nom" >Login :</label> {$parameters.user.login}
-					<input type="hidden" value="{$parameters.user.login}" name="login" id="login" /><br/>
+					<input type="hidden" value="{$parameters.user.login}" name="login" id="login" />
+					<input type="hidden" name="vieux_login" id="vieux_login" value="{$parameters.user.login}"/><br/>
 					<label for="prenom" >Mot de passe :</label> 
-					<input type="hidden" value="{$parameters.user.password}" name="mdp" id="mdp" /><br/>
+					<input type="password" value="{$parameters.user.password}" name="mdp" id="mdp" /><br/>
 					<label for="prenom" >Mot de passe confirmation :</label> 
-					<input type="hidden" value="{$parameters.user.password}" name="mdp" id="mdp" /><br/>
+					<input type="password" value="{$parameters.user.password}" name="mdp_confirm" id="mdp_confirm" /><br/>
 					<label for="entite" >statut :</label>{$parameters.user.statut}
 					
 					<input type="hidden" value="{$parameters.user.statut}" name="statut" id="statut" /><br/>
 					<label for="entite" >Entité de rattachement :</label>{$parameters.user.magasin}
-					<input type="hidden" value="{$parameters.user.magasin}" name="magasin" id="magasin" /><br/>
+					<input type="hidden" value="{$parameters.user.magasin}" name="entite" id="entite" /><br/>
 					<label for="profil" >Profil :</label>{$parameters.user.groupe}
-					<input type="hidden" value="{$parameters.user.groupe}" name="groupe" id="groupe" /><br/>
+					<input type="hidden" value="{$parameters.user.groupe}" name="profil" id="profil" /><br/>
 					<input type="submit" value="Confirmer"/>
 				</form>
 				<div>

@@ -45,7 +45,7 @@ class Utilisateurs {
 		}
 		;
 		
-		if (! preg_match ( "/^(([a-zA-Z][0-9])|([0-9][a-zA-Z])).{6,23}$/", $password )) {
+		if (! preg_match ( "/^.{8,25}$/", $password )) {
 			throw new Exception ( "Password non conforme" );
 		}
 		;
@@ -79,6 +79,16 @@ class Utilisateurs {
 	public static function modifie($nom, $prenom, $login, $vieux_login, $password, $statut, $groupe, $id_mag) {
 		$conn = Connection::get ();
 		
+		var_dump(array (
+		'nom' => $nom,
+		'prenom' => $prenom,
+		'login' => $login,
+		'vieux_login' => $vieux_login,
+		'password' => $password,
+		'statut' => $statut,
+		'groupe' => $groupe,
+		'magasin' => $id_mag ));
+		
 		if (! preg_match ( "/^[A-Z][a-zA-Z]*[ [a-z]*]*$/", $nom )) {
 			throw new Exception ( "nom incorrect" );
 		} else {
@@ -91,6 +101,8 @@ class Utilisateurs {
 			$nom = str_replace ( " ", " ", trim ( $nom ) );
 		}
 		;
+		
+		
 		if (! ctype_alnum ( $login ) || (strlen ( $login ) < 4 || strlen ( $login ) > 16)) {
 			throw new Exception ( "login non conforme" );
 		} else {
@@ -98,21 +110,21 @@ class Utilisateurs {
 		}
 		;
 		
-		if (! preg_match ( "/^(([a-zA-Z][0-9])|([0-9][a-zA-Z])).{6,23}$/", $password )) {
+		if (! preg_match ( "/^.{8,25}$/", $password )) {
 			throw new Exception ( "Password non conforme" );
 		}
 		;
-		
+
 		// if($groupe!=("caisse" || "comptable" || "secours" || "administrateur")) { throw new Exception("groupe incorrect"); }
 		
 		// requete d'insertion
-		$request = $conn->prepare ( "UPDATE utilisateur SET nom = :nom, prenom = :prenom, login = :login , mdp = :mdp, statut = :statut, groupe = :groupe, magasin = :magasin WHERE login = :vieux_login" );
+		$request = $conn->prepare ( "UPDATE utilisateur SET nom = :nom, prenom = :prenom, login = :login , mdp = :mdp, statut = :statut, id_profil = :groupe, id_mag = :magasin WHERE login = :vieux_login" );
 		$request->execute ( array (
 				'nom' => $nom,
 				'prenom' => $prenom,
 				'login' => $login,
 				'vieux_login' => $vieux_login,
-				'password' => $password,
+				'mdp' => $password,
 				'statut' => $statut,
 				'groupe' => $groupe,
 				'magasin' => $id_mag 

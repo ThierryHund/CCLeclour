@@ -27,9 +27,9 @@
 					<select name="entite" id="entite">
 						{foreach $parameters.magasins as $params}
 							{if $params[1] == $parameters.user.magasin}
-								<option VALUE={$params[1]} selected="selected">{$params[1]}</option>
+								<option VALUE={$params[0]} selected="selected">{$params[1]}</option>
 							{else}
-								<option VALUE={$params[1]}>{$params[1]}</option>
+								<option VALUE={$params[0]}>{$params[1]}</option>
 							{/if}
 							
 						{/foreach} 
@@ -39,10 +39,10 @@
 					<select name="profil" id="profil">
 						{foreach $parameters.groupes as $params}
 							{if $params[1] == $parameters.user.groupe}
-								<option VALUE={$params[1]} selected="selected" >{$params[1]}</option>
+								<option VALUE={$params[0]} selected="selected" >{$params[1]}</option>
 								
 							{else}
-								<option VALUE={$params[1]}>{$params[1]}</option>
+								<option VALUE={$params[0]}>{$params[1]}</option>
 							{/if}
 						{/foreach}
 					</select>

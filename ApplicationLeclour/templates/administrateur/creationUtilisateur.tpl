@@ -1,4 +1,4 @@
-			<H1>Création d'un utilisateur</H1>
+			<H1>Crï¿½ation d'un utilisateur</H1>
 				
 			<div class="centre">
 				<form id="formulaire" method="post" action="././index.php?section=administrateur&page=creationUtilisateur">
@@ -14,7 +14,7 @@
 					<label for="mdp" >Mot de passe :</label> 
 					<input type="password" name="mdp" id="mdp" /><br/>
 					
-					<label for="entite">Entité</label>{*<br/>*}
+					<label for="entite">EntitÃ©</label>{*<br/>*}
       				<select name="entite" id="entite">
 					{foreach $parameters.magasins as $params}
 						<option VALUE={$params[0]}>{$params[1]}</option>
