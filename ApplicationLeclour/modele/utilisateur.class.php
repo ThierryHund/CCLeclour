@@ -21,7 +21,7 @@ class Utilisateurs {
 	}
 	
 	// //////////////////////////////
-	// Permet de créer un usager dans la base
+	// Permet de crÃ©er un usager dans la base
 	// //////////////////////////////
 	public static function creer($nom, $prenom, $login, $password, $groupe, $id_mag) {
 		$conn = Connection::get ();
@@ -74,9 +74,9 @@ class Utilisateurs {
 	}
 	
 	// //////////////////////////////
-	// Permet de créer un usager dans la base
+	// Permet de modifier un usager dans la base
 	// //////////////////////////////
-	public static function modifie($nom, $prenom, $login, $password, $statut, $groupe, $id_mag) {
+	public static function modifie($nom, $prenom, $login, $vieux_login, $password, $statut, $groupe, $id_mag) {
 		$conn = Connection::get ();
 		
 		if (! preg_match ( "/^[A-Z][a-zA-Z]*[ [a-z]*]*$/", $nom )) {
@@ -98,7 +98,7 @@ class Utilisateurs {
 		}
 		;
 		
-		if (! preg_match ( "^(([a-zA-Z][0-9])|([0-9][a-zA-Z])).{8,25}$/", $password )) {
+		if (! preg_match ( "/^(([a-zA-Z][0-9])|([0-9][a-zA-Z])).{6,23}$/", $password )) {
 			throw new Exception ( "Password non conforme" );
 		}
 		;
@@ -106,11 +106,12 @@ class Utilisateurs {
 		// if($groupe!=("caisse" || "comptable" || "secours" || "administrateur")) { throw new Exception("groupe incorrect"); }
 		
 		// requete d'insertion
-		$request = $conn->prepare ( "UPDATE utilisateur SET nom = :nom, prenom = :prenom, login = :login , mdp = :mdp, statut = :statut, groupe = :groupe, magasin = :magasin WHERE login = $login" );
+		$request = $conn->prepare ( "UPDATE utilisateur SET nom = :nom, prenom = :prenom, login = :login , mdp = :mdp, statut = :statut, groupe = :groupe, magasin = :magasin WHERE login = :vieux_login" );
 		$request->execute ( array (
 				'nom' => $nom,
 				'prenom' => $prenom,
 				'login' => $login,
+				'vieux_login' => $vieux_login,
 				'password' => $password,
 				'statut' => $statut,
 				'groupe' => $groupe,
@@ -187,7 +188,7 @@ class Utilisateurs {
 		$conn = Connection::get ();
 		$result = null;
 		
-		// requete sql preparé
+		// requete sql preparï¿½
 		$request = $conn->prepare ( "SELECT id_utilisateur, login, mdp, nom, prenom ,statut,lib_profil, entite.id_mag FROM utilisateur, groupe, entite WHERE login=:login AND utilisateur.id_profil=groupe.id_profil AND utilisateur.id_mag=entite.id_mag" );
 		$request->execute ( array (
 				'login' => $login 

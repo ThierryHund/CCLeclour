@@ -4,7 +4,7 @@ require_once "modele/smarty_iut.php";
 require_once "modele/carte.class.php";
 require_once "modele/transaction.class.php";
 
-// Definition de quelques variables globales nécéssaire à un fonctionnement plus propre de système de routine
+// Definition de quelques variables globales nï¿½cï¿½ssaire ï¿½ un fonctionnement plus propre de systï¿½me de routine
 // Si on a pas ces infos, rien ne peut fonctionner : die
 if (! isset ( $_SERVER ['DOCUMENT_ROOT'] ))
 	die ();
@@ -22,6 +22,7 @@ session_start ();
 
 $parameters = array ();
 $parameters ['connection'] = false;
+
 if (isset ( $_POST )) {
 	$post = $_POST;
 }
@@ -88,12 +89,12 @@ if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_S
 	}
 }
 
-// Navigation entre les différentes pages
+// Navigation entre les diffï¿½rentes pages
 /*
  * if (isset($_GET['page']) && isset($_GET['section'])) $smarty->display(_TPL_.$_GET['section'].'/'.$_GET['page'].'.tpl'); else if(isset($_SESSION['connecte'])) { $smarty->display(_TPL_ . 'accueil.tpl'); }
  */
 
-// Permet de savoir à quel groupe d'utilisateur appartient l'utilisateur connecté
+// Permet de savoir ï¿½ quel groupe d'utilisateur appartient l'utilisateur connectï¿½
 if (isset ( $_SESSION ['utilisateur'] )) {
 	$profil = $_SESSION ['utilisateur']->getGroupe ();
 	$smarty->assign ( 'profil', $profil );

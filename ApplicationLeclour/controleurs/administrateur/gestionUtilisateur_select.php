@@ -6,6 +6,7 @@ $utilisateur = Utilisateurs::get ( $post ['login'] );
 
 $parameters ['user'] ['nom'] = $utilisateur->getNom ();
 $parameters ['user'] ['prenom'] = $utilisateur->getPrenom ();
+$parameters ['user'] ['vieux_login']= $utilisateur->getLogin ();
 $parameters ['user'] ['login'] = $utilisateur->getLogin ();
 $parameters ['user'] ['password'] = $utilisateur->getPassword ();
 $parameters ['user'] ['statut'] = $utilisateur->getStatut ();
