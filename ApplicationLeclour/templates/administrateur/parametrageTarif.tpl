@@ -1,6 +1,4 @@
-
-
-			<H1>Paramètrage des tarifs</H1>
+<H1>Paramétrage des tarifs</H1>
 				
 			<div class="centre">
 				<form id="parametrageTarif" action="">
