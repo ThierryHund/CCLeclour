@@ -6,9 +6,15 @@ if (! empty ( $post )) {
 	$lines = explode ( PHP_EOL, $csvData );
 	$array = array ();
 	foreach ( $lines as $line ) {
-		$array [] = str_getcsv ( $line );
+		$array [] = str_getcsv ( $line,";" );
 	}
 	var_dump ( $array );
+	
+	//nom-entp
+// 	nom_beneficiaire
+// 	prenom_beneficiaire
+// 	evenement
+// 	id_carte
 }
 
 ?>
