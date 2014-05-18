@@ -3,7 +3,7 @@
 			<div>
 				<form method="post" id="commandeSurPerso" action="././index.php?section=comptable&page=commandeCarte">
 					<input type="radio" name="commandeSurPerso" Value="oui">Oui
-					<input type="file" id="mail" /><br/>
+					<input type="file" name="file" id="file" /><br/>
 					<input type="radio" name="commandeSurPerso" Value="non">Non
 					<h1><input type="submit" value="Suivant"/></h1>
 				</form>
