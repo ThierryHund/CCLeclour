@@ -6,7 +6,7 @@
 	<body>
 		<div>
 
-			<H1>Cr�ation d'un utilisateur</H1>
+			<H1>Création d'un utilisateur</H1>
 				
 			<div>
 				<form id="formulaire" action="#">

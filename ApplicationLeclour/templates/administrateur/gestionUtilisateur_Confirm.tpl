@@ -7,7 +7,7 @@
 		<div>
 
 			<H1>Gestion des utilisateurs</H1>
-			<H2>Utilisateur selectionn�</H2>	
+			<H2>Utilisateur selectionné</H2>	
 			<div>
 				<form id="formulaire" method="post" action="././index.php?section=administrateur&page=gestionUtilisateur_Confirm">
 					<label for="nom" >Nom :</label> {$parameters.user.nom}</label>

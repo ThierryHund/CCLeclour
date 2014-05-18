@@ -1,15 +1,15 @@
 			<H1>Gestion des utilisateurs</H1>
 			<div>
-				{*On n'est d'accord, en ligne ça aurait été mieux, mais on manque de place, et en tableu c'est vraiment trop moche...*}
+				{*On n'est d'accord, en ligne Ã§a aurait Ã©tÃ© mieux, mais on manque de place, et en tableu c'est vraiment trop moche...*}
 				<form method="post" action="././index.php?section=administrateur&page=gestionUtilisateur">
 				<label for="nom" >Nom : </label> 
 				<input type="text" name="nom" id="nom" /><br/>
-				<label for="nom" >Prénom : </label> 
+				<label for="nom" >PrÃ©nom : </label> 
 				<input type="text" name="prenom" id="prenom" /><br/>
 				<label for="nom" >Login : </label> 
 				<input type="text" name="login" id="login" /><br/>
 
-				<label for="nom" >Associé au magasin :</label> 
+				<label for="nom" >AssociÃ© au magasin :</label> 
       			<select name="entite" id="entite">
 				{foreach $parameters.magasins as $params}
 					<option >{$params[1]}</option>
@@ -33,7 +33,7 @@
 						<TH> Nom </TH> 
 						<TH> Prenom </TH> 
 						<TH> Login </TH> 
-						<TH> Entité de rattachement </TH>
+						<TH> EntitÃ© de rattachement </TH>
 						<TH> Profil </TH>						
 					</TR> 
 					<form id="radioSelectionUtilisateur" method="post" action="././index.php?section=administrateur&page=gestionUtilisateur_select">
