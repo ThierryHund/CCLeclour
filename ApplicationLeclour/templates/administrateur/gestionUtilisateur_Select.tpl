@@ -18,7 +18,7 @@
 					<input type="text" name="login" id="login" value="{$parameters.user.login}"/><br/>
 					<input type="hidden" name="vieux_login" id="vieux_login" value="{$parameters.user.login}"/>
 					<label for="mdp" >Mot de passe :</label> 
-					<input type="password" name="mdp" value="{$parameters.user.password}" id="mdp" /><br/>
+					<input type="password" name="mdp" id="mdp" /><br/>
 					<label for="mdp_confirm" >Confirmation du mot de passe :</label> 
 					<input type="password" name="mdp_confirm" id="mdp_confirm" /><br/>
 					<label for="statut" >Statut :</label> 
