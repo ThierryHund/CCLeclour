@@ -1,4 +1,3 @@
-
 <?php
 require_once _PATH_ . "modele/groupe.class.php";
 require_once _PATH_ . "modele/magasin.class.php";
@@ -35,5 +34,6 @@ if (($post ['mdp'] == $post ['mdp_confirm']) && $post ['mdp_confirm'] != "") {
 		$parameters ['error'] = ($e->getMessage ());
 		;
 	}
+
 $smarty->assign ( 'parameters', $parameters );
 
