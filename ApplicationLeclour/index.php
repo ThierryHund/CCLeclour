@@ -26,6 +26,10 @@ $parameters ['connection'] = false;
 if (isset ( $_POST )) {
 	$post = $_POST;
 }
+
+if (isset ( $_FILES)) {
+	$files = $_FILES;
+}
 ;
 
 $smarty = new smartyIUT ();

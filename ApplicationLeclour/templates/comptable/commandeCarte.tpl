@@ -1,7 +1,7 @@
 <H1>Commande</H1>
 	<p>Souhaitez-vous que les cartes soient sur-personnalisées ?</p>
 			<div>
-				<form method="post" id="commandeSurPerso" action="././index.php?section=comptable&page=commandeCarte">
+				<form method="post" id="commandeSurPerso" enctype="multipart/form-data" action="././index.php?section=comptable&page=commandeCarte">
 					<input type="radio" name="commandeSurPerso" Value="oui">Oui
 					<input type="file" name="file" id="file" /><br/>
 					<input type="radio" name="commandeSurPerso" Value="non">Non
