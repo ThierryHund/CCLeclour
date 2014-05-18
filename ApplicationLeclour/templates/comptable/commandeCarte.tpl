@@ -1,11 +1,12 @@
 <H1>Commande</H1>
-	<p>Souhaitez-vous que les cartes soient sur-personnalisées ?</p>
+	<p>Souhaitez-vous que les cartes soient sur-personnalisÃ©es ?</p>
 			<div>
-				<input type="radio" name="commandeSurPerso" Value="oui">Oui
-				<form id="commandeSurPerso" action="choixSurPerso.html">
+				<form method="post" id="commandeSurPerso" action="././index.php?section=comptable&page=commandeCarte">
+					<input type="radio" name="commandeSurPerso" Value="oui">Oui
 					<input type="file" id="mail" /><br/>
 					<input type="radio" name="commandeSurPerso" Value="non">Non
 					<h1><input type="submit" value="Suivant"/></h1>
+				</form>
 			</div>
 			
 			<div>
@@ -22,7 +23,7 @@
 				<TABLE BORDER="1" style=" width:90%;"> 
 					 
 					<tr>
-						<th> Lot N° </th> 
+						<th> Lot Nï¿½ </th> 
 						<th> Valeur </th> 
 						<th> Nombre de cartes </th> 
 					</tr>	
