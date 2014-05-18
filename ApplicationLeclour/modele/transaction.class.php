@@ -24,7 +24,7 @@ class Transaction {
 		$conn = Connection::get ();
 		$result = null;
 		
-		// requete sql preparé
+		// requete sql preparï¿½
 		$request = $conn->prepare ( "SELECT id_transac, lib_transac, date_transac, heure_transac, id_utilisateur, id_carte FROM transaction WHERE id_carte=:id_carte" );
 		$request->execute ( array (
 				'id_carte' => $numCarte 

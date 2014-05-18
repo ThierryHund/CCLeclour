@@ -16,7 +16,7 @@ class Groupe {
 	}
 	
 	// //////////////////////////////
-	// retourne le libellé du groupe
+	// retourne le libellï¿½ du groupe
 	// //////////////////////////////
 	public function getLibGrp() {
 		return $lib_grp;
@@ -54,7 +54,7 @@ class Groupe {
 		$conn = Connection::get ();
 		$result = null;
 		
-		// requete sql preparé
+		// requete sql preparï¿½
 		$request = $conn->prepare ( "SELECT id_grp, lib_grp FROM groupe WHERE id_grp=:id_grp" );
 		$request->execute ( array (
 				'id_grp' => $id_grp 
@@ -69,7 +69,7 @@ class Groupe {
 	public static function getLibById($id_grp) {
 		$result = null;
 		$conn = Connection::get ();
-		// requete sql preparé
+		// requete sql preparï¿½
 		$request = $conn->prepare ( "SELECT id_grp, lib_grp FROM groupe WHERE id_grp=:id_grp" );
 		$request->execute ( array (
 				'id_grp' => $id_grp 

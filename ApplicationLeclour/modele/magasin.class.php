@@ -58,7 +58,7 @@ class Magasin {
 		$conn = Connection::get ();
 		$result = null;
 		
-		// requete sql preparé
+		// requete sql preparï¿½
 		$request = $conn->prepare ( "SELECT id_mag, ville_mag, ad_mag FROM magasin WHERE id_mag=:id_mag" );
 		$request->execute ( array (
 				'id_mag' => $id_mag 
@@ -73,7 +73,7 @@ class Magasin {
 	public static function getLibById($id_mag) {
 		$conn = Connection::get ();
 		
-		// requete sql preparé
+		// requete sql preparï¿½
 		$request = $conn->prepare ( "SELECT lib_mag FROM magasin WHERE id_mag=:id_mag" );
 		$request->execute ( array (
 				'id_mag' => $id_mag 
