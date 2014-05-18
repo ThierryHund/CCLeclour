@@ -23,7 +23,7 @@
 				<TABLE BORDER="1" style=" width:90%;"> 
 					 
 					<tr>
-						<th> Lot N� </th> 
+						<th> Lot N° </th> 
 						<th> Valeur </th> 
 						<th> Nombre de cartes </th> 
 					</tr>	

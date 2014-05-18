@@ -4,7 +4,7 @@ require_once "modele/smarty_iut.php";
 require_once "modele/carte.class.php";
 require_once "modele/transaction.class.php";
 
-// Definition de quelques variables globales n�c�ssaire � un fonctionnement plus propre de syst�me de routine
+// Definition de quelques variables globales nécéssaire à un fonctionnement plus propre de système de routine
 // Si on a pas ces infos, rien ne peut fonctionner : die
 if (! isset ( $_SERVER ['DOCUMENT_ROOT'] ))
 	die ();
@@ -74,12 +74,12 @@ if ($nav == 'out') {
  * if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_SESSION ['connecte'] )) { if (! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) { $listeUtil = Utilisateurs::getUtilisateurs (); foreach ( $listeUtil as $value ) { if ($value ['login'] == $_POST ['login'] && $value ['mdp'] == $_POST ['pswd']) { $_SESSION ['connecte'] = true; $_SESSION ['utilisateur'] = Utilisateurs::get ( $value ['login'] ); } } } }
  */
 
-// Navigation entre les diff�rentes pages
+// Navigation entre les différentes pages
 /*
  * if (isset($_GET['page']) && isset($_GET['section'])) $smarty->display(_TPL_.$_GET['section'].'/'.$_GET['page'].'.tpl'); else if(isset($_SESSION['connecte'])) { $smarty->display(_TPL_ . 'accueil.tpl'); }
  */
 
-// Permet de savoir � quel groupe d'utilisateur appartient l'utilisateur connect�
+// Permet de savoir à quel groupe d'utilisateur appartient l'utilisateur connecté
 if (isset ( $_SESSION ['utilisateur'] )) {
 	$profil = $_SESSION ['utilisateur']->getGroupe ();
 	$smarty->assign ( 'profil', $profil );

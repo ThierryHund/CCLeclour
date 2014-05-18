@@ -219,7 +219,7 @@ class Utilisateurs {
 		$conn = Connection::get ();
 		$result = null;
 		
-		// requete sql prepar�
+		// requete sql preparé
 		$request = $conn->prepare ( "SELECT id_utilisateur, login, mdp, nom, prenom ,statut,lib_profil, entite.id_mag FROM utilisateur, groupe, entite WHERE login=:login AND utilisateur.id_profil=groupe.id_profil AND utilisateur.id_mag=entite.id_mag" );
 		$request->execute ( array (
 				'login' => $login 

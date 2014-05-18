@@ -3,9 +3,9 @@
 	{if ($carte->getIdCarte() != NULL)}
 	Id de la carte : {$carte->getIdCarte()} </br>
 	Code barre : {$carte->getNumAleatoire()} </br>
-	Numéro de série : {$carte->getNumSerie()} </br>
+	NumÃ©ro de sÃ©rie : {$carte->getNumSerie()} </br>
 	Indice de blocage : {$carte->affichageBlocage()} </br>
-	Solde : {$carte->getSolde()}€ </br>
+	Solde : {$carte->getSolde()} </br>
 	Type de carte : {$carte->getIdTypeCarte()} </br>
 	Id de sur-personnalisation : {$carte->getIdSurperso()} </br></br>
 	Outils :</br>
@@ -19,7 +19,7 @@
 	</form>	
 	{else}
 	
-	Carte non trouvée !
+	Carte non trouvÃ©e !
 	{/if}
 	</br></br>
 	<form action='././index.php?' method='get'>

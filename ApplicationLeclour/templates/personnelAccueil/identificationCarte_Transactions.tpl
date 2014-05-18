@@ -4,7 +4,7 @@
 	<table>
 		<tr>
 		<th>Id transaction</th>
-		<th>Libellé transaction</th>
+		<th>LibellÃ© transaction</th>
 		<th>Date transaction</th>
 		<th>Heure transaction</th>
 		<th>Id utilisateur</th>

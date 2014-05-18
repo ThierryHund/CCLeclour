@@ -26,7 +26,7 @@ class Carte {
 		$conn = Connection::get ();
 		$result = null;
 		
-		// requete sql prepar�
+		// requete sql preparé
 		$request = $conn->prepare ( "SELECT id_carte, num_aleatoire, num_serie, blocage, solde, id_type_carte, id_surperso FROM carte WHERE num_aleatoire=:num_aleatoire" );
 		$request->execute ( array (
 				'num_aleatoire' => $numAlea 
@@ -47,7 +47,7 @@ class Carte {
 		$conn = Connection::get ();
 		$result = null;
 		
-		// requete sql prepar�
+		// requete sql preparé
 		$request = $conn->prepare ( "SELECT id_carte, num_aleatoire, num_serie, blocage, solde, id_type_carte, id_surperso FROM carte WHERE num_serie=:num_serie" );
 		$request->execute ( array (
 				'num_serie' => $numSerie 
@@ -68,7 +68,7 @@ class Carte {
 		$conn = Connection::get ();
 		$result = null;
 		
-		// requete sql prepar�
+		// requete sql preparé
 		$request = $conn->prepare ( "SELECT id_carte, num_aleatoire, num_serie, blocage, solde, id_type_carte, id_surperso FROM carte WHERE id_carte=:id_carte" );
 		$request->execute ( array (
 				'id_carte' => $numCarte 
@@ -96,9 +96,9 @@ class Carte {
 	// Retourne une chaine en fonction de l'indice de blocage de la carte
 	public function affichageBlocage() {
 		if ($this->blocage == 0) {
-			return 'Carte non bloqu�e';
+			return 'Carte non bloquée';
 		} else {
-			return 'Carte bloqu�e';
+			return 'Carte bloquée';
 		}
 	}
 	

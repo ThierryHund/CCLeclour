@@ -3,7 +3,7 @@
 <TABLE BORDER="1" style=" width:90%;"> 
 					 
 					<tr>
-						<th> Commande N° </th> 
+						<th> Commande NÂ° </th> 
 						<th> Fait le </th> 
 						<th> Nombre de cartes </th> 
 						<th> montant </th> 
@@ -36,15 +36,15 @@
 				</TABLE> 
 
 
-<input type="submit" value="Détails"/>
+<input type="submit" value="DÃ©tails"/>
 
 
-<H1>Détails de la Commande</H1>
+<H1>DÃ©tails de la Commande</H1>
 
 <TABLE BORDER="1" style=" width:90%;"> 
 					 
 					<tr>
-						<th> Lot N° </th> 
+						<th> Lot NÂ° </th> 
 						<th> Valeur </th> 
 						<th> Nombre de cartes </th> 
 					</tr>	

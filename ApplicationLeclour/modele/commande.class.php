@@ -15,14 +15,14 @@ class Commande {
 	}
 	
 	// //////////////////////////////
-	// retourne les commandes gr�ce au type de commande
+	// retourne les commandes grâce au type de commande
 	// //////////////////////////////
 	public static function rechercheIdCarte($type_com) {
 		// verification a faire
 		$conn = Connection::get ();
 		$result = null;
 		
-		// requete sql prepar�
+		// requete sql preparé
 		$request = $conn->prepare ( "SELECT id_com, lib_type_commande, date_com, heure_com, id_utilisateur FROM commande, type_commande WHERE id_typ_com=:id_typ_com" );
 		$request->execute ( array (
 				'id_typ_com' => $type_com 

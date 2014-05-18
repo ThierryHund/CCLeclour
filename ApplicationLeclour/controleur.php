@@ -6,9 +6,9 @@ session_start ();
 $parameters = array ();
 $parameters ['connection'] = false;
 
-// Modification faite par Yacine le 03/05 pour commencer � avoir une version fonctionnelle de l'application
-// Pour l'instant on ne g�re pas l'acc�s � la base et les controleurs ne sont pas op�rationnels
-// On va utiliser le controleur.php pour faire une premi�re redirection et pouvoir inclure le header et le footer
+// Modification faite par Yacine le 03/05 pour commencer à avoir une version fonctionnelle de l'application
+// Pour l'instant on ne gère pas l'accès à la base et les controleurs ne sont pas opérationnels
+// On va utiliser le controleur.php pour faire une première redirection et pouvoir inclure le header et le footer
 if (! isset ( $_SESSION ['connecte'] )) {
 	$smarty = new smartyIUT ();
 	$smarty->display ( "header.tpl" );

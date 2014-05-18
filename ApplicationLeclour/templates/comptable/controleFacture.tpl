@@ -42,20 +42,20 @@
 <select id="formulaire_mois" name="mois">
 	<option value="-">-</option>
 	<option value="1">Janvier</option>
-	<option value="2">Février</option>
+	<option value="2">FÃ©vrier</option>
 	<option value="3">Mars</option>
 	<option value="4">Avril</option>
 	<option value="5">Mai</option>
 	<option value="6">Juin</option>
 	<option value="7">Juillet</option>
-	<option value="8">Août</option>
+	<option value="8">Aout</option>
 	<option value="9">Septembre</option>
 	<option value="10">Octobre</option>
 	<option value="11">Novembre</option>
 	<option value="12">Decembre</option>
 </select>
 
- <select id="formulaire_année" name="année">
+ <select id="formulaire_annÃ©e" name="annÃ©e">
 	<option value="-">-</option>
 	<option value="2014">2014</option>
 	<option value="2013">2013</option>
@@ -114,20 +114,20 @@ au
 <select id="formulaire_mois" name="mois">
 	<option value="-">-</option>
 	<option value="1">Janvier</option>
-	<option value="2">Février</option>
+	<option value="2">FÃ©vrier</option>
 	<option value="3">Mars</option>
 	<option value="4">Avril</option>
 	<option value="5">Mai</option>
 	<option value="6">Juin</option>
 	<option value="7">Juillet</option>
-	<option value="8">Août</option>
+	<option value="8">Aout</option>
 	<option value="9">Septembre</option>
 	<option value="10">Octobre</option>
 	<option value="11">Novembre</option>
 	<option value="12">Decembre</option>
 </select>
 
- <select id="formulaire_année" name="année">
+ <select id="formulaire_annÃ©e" name="annÃ©e">
 	<option value="-">-</option>
 	<option value="2014">2014</option>
 	<option value="2013">2013</option>
@@ -152,7 +152,7 @@ au
 <TABLE BORDER="1" style=" width:90%;"> 
 					 
 					<tr>
-						<th> Période </th> 
+						<th> PÃ©riode </th> 
 						<th> Nombre de plages </th> 
 						<th> Tarif </th> 
 						<th> Prix Unitaire </th>
