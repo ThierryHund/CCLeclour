@@ -51,7 +51,7 @@ class Utilisateurs {
 		if (self::verifLogin ( $login )) {
 			throw new Exception ( "login existant" );
 		} else {
-			$login = str_replace ( " ", " ", trim ( $nom ) );
+			$login = str_replace ( " ", " ", trim ( $login ) );
 		}
 		
 		if (! preg_match ( "/^[A-Z][a-zA-Z]*[ [a-z]*]*$/", $nom )) {
@@ -63,7 +63,7 @@ class Utilisateurs {
 		if (! preg_match ( "/^[A-Z][a-zA-Z]*[ [a-z]*]*$/", $prenom )) {
 			throw new Exception ( "prenom incorrect" );
 		} else {
-			$nom = str_replace ( " ", " ", trim ( $nom ) );
+			$prenom = str_replace ( " ", " ", trim ( $prenom ) );
 		}
 		;
 		if (! ctype_alnum ( $login ) || (strlen ( $login ) < 4 || strlen ( $login ) > 16)) {
@@ -79,7 +79,7 @@ class Utilisateurs {
 		;
 		
 		// if($groupe!=("caisse" || "comptable" || "secours" || "administrateur")) { throw new Exception("groupe incorrect"); }
-		
+
 		// requete d'insertion
 		$request = $conn->prepare ( "INSERT INTO utilisateur (nom, prenom, login, mdp, prem_connex, statut, id_profil, id_mag) VALUES (:nom , :prenom , :login , :password ,:prem_connex, :statut, :groupe, :magasin)" );
 		$request->execute ( array (

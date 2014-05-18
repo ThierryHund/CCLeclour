@@ -6,7 +6,7 @@
 	<body>
 		<div>
 
-			<H1>Création d'un utilisateur</H1>
+			<H1>Crï¿½ation d'un utilisateur</H1>
 				
 			<div>
 				<form id="formulaire" action="#">
@@ -14,11 +14,11 @@
 					<input type="hidden" id="nom" /><br/>
 					<label for="prenom" >Prenom :</label> 
 					<input type="hidden" id="prenom" /><br/>
-					<label for="nom" >Login :</label> 
-					<input type="hidden" id="nom" /><br/>
-					<label for="prenom" >Mot de passe :</label> 
+					<label for="login" >Login :</label> 
+					<input type="hidden" id="login" /><br/>
+					<label for="mdp" >Mot de passe :</label> 
 					<input type="hidden" id="prenom" /><br/>
-					<label for="entite" >Entité de rattachement :</label>
+					<label for="entite" >EntitÃ© de rattachement :</label>
 					<input type="hidden" id="entite" id="profil" /><br/>
 					<label for="profil" >Profil :</label>
 					<input type="hidden" id="profil" /><br/>
