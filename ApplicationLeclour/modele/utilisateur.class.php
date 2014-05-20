@@ -234,6 +234,13 @@ class Utilisateurs {
 		// return $result[0][0];
 	}
 	// //////////////////////////////
+	// retourne id
+	// //////////////////////////////
+	public function getId() {
+		return $this->id;
+	}
+	
+	// //////////////////////////////
 	// retourne nom
 	// //////////////////////////////
 	public function getNom() {

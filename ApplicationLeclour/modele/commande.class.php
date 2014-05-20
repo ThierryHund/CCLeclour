@@ -10,36 +10,61 @@ class Commande {
 	private $id_utilisateur;
 	private $nom;
 	
-	
-	
 	public function __construct($id_com, $id_type_com, $date_com, $heure_com, $id_utilisateur, $nom) {
 		$this->id_com = $id_com;
 		$this->id_type_com = $id_type_com;
 		$this->date_com = $date_com;
-		$this->heure_com = $heure_com;
-		
+		$this->heure_com = $heure_com;		
 		$this->id_utilisateur = $id_utilisateur;		
-		$this->nom = $nom;
-		
+		$this->nom = $nom;		
 	}
 	
 	// //////////////////////////////
 	// Créé une nouvelle commande composée de différents lots
 	// //////////////////////////////
-	public static function creer($id_client, $id_utilisateur, $id_type_com) {
+	public static function creer($id_utilisateur, $lib_theme, $montant, $quantite, $date, $heure, $taille_array) {
 		$conn = Connection::get ();
-		if($quantite >= 1000){		   
+		/*if($quantite >= 1000){		   
 ?>				<script language="Javascript">
-					alert ("La commande est supérieure à 1000 cartes. Voulez-vous continuer?" )
+					confirm ("Le lot" .$lib_theme ." est supérieure à 1000 cartes. Voulez-vous continuer?" );
 				</script>';
-<?php 	}
-		// requete d'insertion
-		$request = $conn->prepare ( "INSERT INTO commande (id_com, id_client, date_com, heure_com, id_utilisateur, id_type_com) VALUES ('', :id_client , '', '', :id_utilisateur ,:id_type_com)" );
-		$request->execute ( array (
-				'id_client' => $id_client,
-				'id_utilisateur' => $id_utilisateur,
-				'id_type_com' => $id_type_com
-		) );
+<?php 	}*/
+		
+			// requete pour obtenir id_type_carte à partir de lib_theme et montant
+		$req1 = $conn->prepare("SELECT id_type_carte FROM type_carte WHERE lib_theme =:lib_theme AND montant =:montant");
+		$req1->execute ( array ('lib_theme' => $lib_theme, 'montant' => $montant) );
+		
+		$id_type_carte = $req1->fetch();
+		$id_type_carte = $id_type_carte['id_type_carte'];
+		
+		echo var_dump($taille_array);
+		echo var_dump($id_type_carte);		
+		echo var_dump($lib_theme);
+		echo var_dump($montant);
+		echo var_dump($quantite);
+		echo var_dump($id_utilisateur);
+		echo var_dump($date);
+		echo var_dump($heure);
+	
+		
+			// requete d'insertion table commande
+		$req2 = $conn->prepare ( "INSERT INTO commande (date_com, heure_com, id_utilisateur, id_type_com) 
+											VALUES (:date_com, :heure_com, :id_utilisateur , 2 )");
+		$req2->execute ( array ('date_com' => $date, 
+								'heure_com' => $heure, 
+								'id_utilisateur' => $id_utilisateur, 
+								) );
+		
+			// requete d'insertion table ligne_com
+		$com = $conn->query("SELECT max(last_insert_id(id_com)) as last_com FROM commande");
+		$id_com = $com->fetch();
+		echo var_dump($id_com['last_com']);
+		
+		$req3 = $conn->prepare ( "INSERT INTO ligne_com (quantite, id_com, id_type_carte) VALUES (:quantite, :id_com, :id_type_carte)" );	
+		$req3->execute ( array ('quantite' => $quantite, 
+								'id_com' => $id_com['last_com'],
+								'id_type_carte' => $id_type_carte) );
+		
 	}
 	
 	// //////////////////////////////
@@ -51,9 +76,9 @@ class Commande {
 		$result = null;
 		
 		// requete sql preparé
-		$request = $conn->prepare ( "SELECT id_com, lib_type_com, date_com, heure_com, id_utilisateur FROM commande, type_commande WHERE id_typ_com=:id_typ_com" );
+		$request = $conn->prepare ( "SELECT id_com, lib_type_com, date_com, heure_com, id_utilisateur FROM commande, type_commande WHERE id_type_com=:id_type_com" );
 		$request->execute ( array (
-				'id_typ_com' => $type_com 
+				'id_type_com' => $type_com 
 		) );
 		
 		while ( $row = $request->fetch () ) {
