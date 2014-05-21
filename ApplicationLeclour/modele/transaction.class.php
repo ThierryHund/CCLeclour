@@ -61,52 +61,20 @@ class Transaction {
 	}
 	
 	//creer une transaction
-	public static function creer($id_transac, $lib_transac, $date_transac, $heure_transac, $id_utilisateur, $id_carte) {
+	public static function creer($lib_transac, $id_utilisateur, $id_carte) {
 		$conn = Connection::get ();
 		
-		if (self::verifLogin ( $login )) {
-			throw new Exception ( "login existant" );
-		} else {
-			$login = str_replace ( " ", " ", trim ( $login ) );
-		}
-		
-		if (! preg_match ( "/^[A-Z][a-zA-Z]*[ [a-z]*]*$/", $nom )) {
-			throw new Exception ( "nom incorrect" );
-		} else {
-			$nom = str_replace ( " ", " ", trim ( $nom ) );
-		}
-		;
-		if (! preg_match ( "/^[A-Z][a-zA-Z]*[ [a-z]*]*$/", $prenom )) {
-			throw new Exception ( "prenom incorrect" );
-		} else {
-			$prenom = str_replace ( " ", " ", trim ( $prenom ) );
-		}
-		;
-		if (! ctype_alnum ( $login ) || (strlen ( $login ) < 4 || strlen ( $login ) > 16)) {
-			throw new Exception ( "login non conforme" );
-		} else {
-			$login = str_replace ( " ", " ", trim ( $login ) );
-		}
-		;
-		
-		if (! preg_match ( "/^.{8,25}$/", $password )) {
-			throw new Exception ( "Password non conforme" );
-		}
-		;
-		
-		// if($groupe!=("caisse" || "comptable" || "secours" || "administrateur")) { throw new Exception("groupe incorrect"); }
-		
 		// requete d'insertion
-		$request = $conn->prepare ( "INSERT INTO utilisateur (nom, prenom, login, mdp, prem_connex, statut, id_profil, id_mag) VALUES (:nom , :prenom , :login , :password ,:prem_connex, :statut, :groupe, :magasin)" );
+		$t=time();
+
+		$request = $conn->prepare ( "INSERT INTO transaction (id_transac, lib_transac, date_transac, heure_transac, id_utilisateur, id_carte) VALUES (:id_transac, :lib_transac, :date_transac, :heure_transac, :id_utilisateur, :id_carte)" );
 		$request->execute ( array (
-				'nom' => $nom,
-				'prenom' => $prenom,
-				'login' => $login,
-				'password' => crypt ( $password ),
-				'prem_connex' => 1,
-				'statut' => "actif",
-				'groupe' => $groupe,
-				'magasin' => $id_mag 
+				'id_transac' => "",
+				'lib_transac' => $lib_transac,
+				'date_transac' => date("Y-m-d",$t),
+				'heure_transac' => date("H:i:s",$t),
+				'id_utilisateur' => $id_utilisateur,
+				'id_carte' => $id_carte 
 		) );
 	}
 }
