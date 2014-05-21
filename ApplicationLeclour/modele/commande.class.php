@@ -20,31 +20,19 @@ class Commande {
 	}
 	
 	// //////////////////////////////
-	// Créé une nouvelle commande composée de différents lots
+	// Création d'une nouvelle commande composée de différents lots
 	// //////////////////////////////
-	public static function creer($id_utilisateur, $lib_theme, $montant, $quantite, $date, $heure, $taille_array) {
+	public static function creerCom($id_utilisateur, $date, $heure) {
 		$conn = Connection::get ();
 		/*if($quantite >= 1000){		   
 ?>				<script language="Javascript">
 					confirm ("Le lot" .$lib_theme ." est supérieure à 1000 cartes. Voulez-vous continuer?" );
 				</script>';
 <?php 	}*/
-		
-			// requete pour obtenir id_type_carte à partir de lib_theme et montant
-		$req1 = $conn->prepare("SELECT id_type_carte FROM type_carte WHERE lib_theme =:lib_theme AND montant =:montant");
-		$req1->execute ( array ('lib_theme' => $lib_theme, 'montant' => $montant) );
-		
-		$id_type_carte = $req1->fetch();
-		$id_type_carte = $id_type_carte['id_type_carte'];
-		
-		echo var_dump($taille_array);
-		echo var_dump($id_type_carte);		
-		echo var_dump($lib_theme);
-		echo var_dump($montant);
-		echo var_dump($quantite);
-		echo var_dump($id_utilisateur);
-		echo var_dump($date);
-		echo var_dump($heure);
+			
+		echo var_dump("id_util: ".$id_utilisateur);
+		echo var_dump("date: ".$date);
+		echo var_dump("heure: ".$heure);
 	
 		
 			// requete d'insertion table commande
@@ -55,10 +43,32 @@ class Commande {
 								'id_utilisateur' => $id_utilisateur, 
 								) );
 		
+	}
+	
+	// //////////////////////////////
+	// Création d'un nouveau lot à partir de l'id de la commande
+	// //////////////////////////////
+	public static function creerLot($lib_theme, $montant, $quantite, $taille_array) {
+		$conn = Connection::get ();
+		
+			// requete pour obtenir id_type_carte à partir de lib_theme et montant
+		$req1 = $conn->prepare("SELECT id_type_carte FROM type_carte WHERE lib_theme =:lib_theme AND montant =:montant");
+		$req1->execute ( array ('lib_theme' => $lib_theme, 'montant' => $montant) );
+		
+		$id_type_carte = $req1->fetch();
+		$id_type_carte = $id_type_carte['id_type_carte'];
+		
+		echo var_dump("taille_tab: ".$taille_array);
+		echo var_dump("id_type_carte: ".$id_type_carte);		
+		echo var_dump("lib_theme: ".$lib_theme);
+		echo var_dump("montant: ".$montant);
+		echo var_dump("quantite: ".$quantite);
+	
+		
 			// requete d'insertion table ligne_com
 		$com = $conn->query("SELECT max(last_insert_id(id_com)) as last_com FROM commande");
 		$id_com = $com->fetch();
-		echo var_dump($id_com['last_com']);
+		echo var_dump("dernière id com insérée: ".$id_com['last_com']);
 		
 		$req3 = $conn->prepare ( "INSERT INTO ligne_com (quantite, id_com, id_type_carte) VALUES (:quantite, :id_com, :id_type_carte)" );	
 		$req3->execute ( array ('quantite' => $quantite, 
@@ -71,7 +81,7 @@ class Commande {
 	// retourne les commandes grâce au type de commande
 	// //////////////////////////////
 	public static function rechercheIdCarte($type_com) {
-		// verification a faire
+		
 		$conn = Connection::get ();
 		$result = null;
 		
