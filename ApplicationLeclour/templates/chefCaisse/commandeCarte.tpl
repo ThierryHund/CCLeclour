@@ -24,10 +24,23 @@
 					colonne3.innerHTML = '<select name="montant['+i+']" id="montant">{foreach $parameters.montant as $params}<option VALUE={$params[0]}>{$params[0]}</option>{/foreach} ';
 				var colonne4 = nouvelleLigne.insertCell(3);
 					colonne4.innerHTML = '<input type="text" name="quantite['+i+']" value="" />';
-				{*var colonne4 = nouvelleLigne.insertCell(3);
-				colonne4.innerHTML = '<input type="text" name="prix['+i+']" value="" />';*}
+				var colonne4 = nouvelleLigne.insertCell(4);
+				colonne4.innerHTML = '<input type="button" value="Supprimer" onclick="javascript:removeRow(this);" />';
 													
 			}
+			
+			function removeRow(src)
+				{
+					/* src refers to the input button that was clicked. 
+					   to get a reference to the containing <tr> element,
+					   get the parent of the parent (in this case <tr>)
+					*/   
+					var oRow = src.parentElement.parentElement;  
+					
+					//once the row reference is obtained, delete it passing in its rowIndex   
+					document.all("tableau_commande").deleteRow(oRow.rowIndex);  
+
+				}
 			
 		</script>
 	</head>
@@ -44,16 +57,16 @@
 					<th><label for="lib_theme">Thème</label></th>
 					<th><label for="montant">Montant</label></th>
 					<th><label for="quantite">Quantité</label></th>
-					{*<th><label for="prix">Prix</label></th>*}
+					<th><label for="Supprimer">Supprimer lot</label></th>
 					
 				</tr>
 				<tr>
-					<td colspan="4">
+					<td colspan="2">
 						<input name="button" type="button" class="input2" onClick="javascript:create_champ()" value="Ajouter un lot de cartes">
 					</td>
 				</tr>
 			</table>
-			<input id="envoyer" type="submit" value="Envoyer"/>
+			<input id="envoyer" type="submit" value="Envoyer" />
 		</form>
 		
 	</body>
