@@ -138,32 +138,49 @@ class Commande {
 			$result [] = $row;
 		}
 		
-		return $result;
+		
 	return $result;
 
   }
+  
 	// //////////////////////////////
-	// retourne le type de carte, montant, lib_thème
+	// retourne le lib_thème
 	// //////////////////////////////
-	public static function getTheme() {
+	public static function getThemes() {
 		$conn = Connection::get ();
 		
-		$select = $conn->query ( "SELECT id_type_carte, code_theme, lib_theme, montant FROM type_carte" );
-		$result = array ();
+		$select = $conn->query ( "SELECT distinct lib_theme FROM type_carte" );
 		
 		while ( $row = $select->fetch () ) {
 			$result [] = $row;
 		}
 		
 		foreach ( $result as $value ) {
-			$return [] = array (
-					$value ['id_type_carte'],
-					$value ['code_theme'],
-					$value ['lib_theme'], 
-					$value ['montant'] 
-			);
+			$return []= array($value['lib_theme']);
+
+		}			 
+		//echo var_dump($return);
+		return $return;
+		
+	}
+	
+	// //////////////////////////////
+	// retourne les montants proposés pour les type de cartes
+	// //////////////////////////////
+	public static function getMontant() {
+		$conn = Connection::get ();
+		
+		$select = $conn->query ( "SELECT distinct montant FROM type_carte" );
+		
+		while ( $row = $select->fetch () ) {
+			$result [] = $row;
 		}
 		
+		foreach ( $result as $value ) {
+			$return []= array($value ['montant']);
+			
+		}
+		//echo var_dump($return);
 		return $return;
 	}
 	

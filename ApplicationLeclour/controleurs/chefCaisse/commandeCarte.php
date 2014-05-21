@@ -34,7 +34,8 @@ if (! empty ( $post )) {
 	} 
 }
 
-$parameters ['theme'] = Commande::getTheme ();
+$parameters ['theme'] = Commande::getThemes ();
+$parameters ['montant'] = Commande::getMontant ();
 
 $smarty->assign ( 'parameters', $parameters );
 ?>
