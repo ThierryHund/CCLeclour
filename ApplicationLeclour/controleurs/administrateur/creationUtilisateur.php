@@ -2,7 +2,7 @@
 require_once _PATH_ . "modele/groupe.class.php";
 require_once _PATH_ . "modele/magasin.class.php";
 
-if (! empty ( $post )) {
+if (!empty ( $post )) {
 	
 	$nom = $post ['nom'];
 	$prenom = $post ['prenom'];
