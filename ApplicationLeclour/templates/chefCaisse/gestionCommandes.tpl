@@ -1,6 +1,6 @@
-<H1>Gestion des Commandes B2C</H1>
+<h1>Gestion des Commandes B2C</h1>
 			<div>
-				
+				<h2>Recherche des commandes B2C par: </h2>
 				<form method="post" action="././index.php?section=chefCaisse&page=gestionCommandes">
 				
 				<label for="id_com" >Id commande : </label> 
@@ -12,16 +12,16 @@
 
 				<label for="id_utilisateur" >Identifiant utilisateur :</label> 
       			<select name="id_utilisateur" id="id_utilisateur">
-				{foreach $parameters.utilisateurs as $params}
-					<option >{$params[0]}</option>
-				{/foreach} 
+					{foreach $parameters.utilisateurs as $params}
+						<option >{$params[0]}</option>
+					{/foreach} 
 				</select><br/>
 				
 				<label for="nom" >Nom de l'utilisateur : </label> 
       			<select name="nom" id="nom">
-				{foreach $parameters.utilisateurs as $params}
-					<option >{$params[3]}</option>
-				{/foreach}
+					{foreach $parameters.utilisateurs as $params}
+						<option >{$params[3]}</option>
+					{/foreach}
 				</select></br>
 				<input id="rechercher" type="submit" value="Rechercher"/>
 				</form>

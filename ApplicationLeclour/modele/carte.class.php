@@ -27,7 +27,7 @@ class Carte {
 		$result = null;
 		
 		// requete sql preparé
-		$request = $conn->prepare ( "SELECT id_carte, num_aleatoire, num_serie, blocage, solde, id_type_carte, id_surperso FROM carte WHERE num_aleatoire=:num_aleatoire" );
+		$request = $conn->prepare ( "SELECT id_carte, num_aleatoire, num_serie, solde, statut, id_type_carte, id_surperso FROM carte WHERE num_aleatoire=:num_aleatoire" );
 		$request->execute ( array (
 				'num_aleatoire' => $numAlea 
 		) );
@@ -36,7 +36,7 @@ class Carte {
 			$result [] = $row;
 		}
 		
-		return new Carte ( $result [0] ['id_carte'], $result [0] ['num_aleatoire'], $result [0] ['num_serie'], $result [0] ['blocage'], $result [0] ['solde'], $result [0] ['id_type_carte'], $result [0] ['id_surperso'] );
+		return new Carte ( $result [0] ['id_carte'], $result [0] ['num_aleatoire'], $result [0] ['num_serie'], $result [0] ['solde'], $result [0] ['statut'],  $result [0] ['id_type_carte'], $result [0] ['id_surperso'] );
 	}
 	
 	// //////////////////////////////
@@ -48,7 +48,7 @@ class Carte {
 		$result = null;
 		
 		// requete sql preparé
-		$request = $conn->prepare ( "SELECT id_carte, num_aleatoire, num_serie, blocage, solde, id_type_carte, id_surperso FROM carte WHERE num_serie=:num_serie" );
+		$request = $conn->prepare ( "SELECT id_carte, num_aleatoire, num_serie, solde, statut, id_type_carte, id_surperso FROM carte WHERE num_serie=:num_serie" );
 		$request->execute ( array (
 				'num_serie' => $numSerie 
 		) );
@@ -57,7 +57,7 @@ class Carte {
 			$result [] = $row;
 		}
 		
-		return new Carte ( $result [0] ['id_carte'], $result [0] ['num_aleatoire'], $result [0] ['num_serie'], $result [0] ['blocage'], $result [0] ['solde'], $result [0] ['id_type_carte'], $result [0] ['id_surperso'] );
+		return new Carte ( $result [0] ['id_carte'], $result [0] ['num_aleatoire'], $result [0] ['num_serie'], $result [0] ['solde'], $result [0] ['statut'], $result [0] ['id_type_carte'], $result [0] ['id_surperso'] );
 	}
 	
 	// //////////////////////////////
