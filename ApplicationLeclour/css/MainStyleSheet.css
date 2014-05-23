@@ -61,8 +61,8 @@ html {
 body {
 	background-color: white;
 	float: left;
-	margin: 50px 10%;
-	width: 80%;
+	margin: 50px 5%;
+	width: 90%;
 	box-shadow: 0 0 10px #000;
 	border-radius: 5px;
 	font-family: "Myriad Pro";
@@ -106,6 +106,7 @@ a.lienmenuactif {
 	/*font-weight: bold;*/
 	letter-spacing: 0px;
 	color: rgb(255, 145, 13);
+	font-size:14px;
 }
 
 a.lienmenu {
