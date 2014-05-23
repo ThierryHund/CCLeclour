@@ -43,8 +43,21 @@ class TarifTransaction {
 	
 	
 	//Création d'un tarif :
+	public static function creer($prix, $date_deb, $date_fin, $nbcarte_max, $nbcarte_min){
+		$conn = Connection::get ();
+		if($nbcarte_max == 'x') $nbcarte_max = NULL;
+		$request = $conn->prepare ( "INSERT INTO tarif_transaction (id_tarif, prix, date_deb, date_fin, nbcarte_max, nbcarte_min) VALUES (:id_tarif, :prix, :date_deb, :date_fin, :nbcarte_max, :nbcarte_min)" );
+		$request->execute ( array (
+				'id_tarif' => "",
+				'prix' => $prix,
+				'date_deb' => $date_deb,
+				'date_fin' => $date_fin,
+				'nbcarte_max' => $nbcarte_max,
+				'nbcarte_min' => $nbcarte_min 
+		) );
+	}
 	
-	public static function creer($prix, $date_deb, $date_fin, $nbcarte_max, $nbcarte_min) {
+	public static function creer2($prix, $date_deb, $date_fin, $nbcarte_max, $nbcarte_min) {
 		$addtarif = TarifTransaction::get ();		
 		if (! preg_match ( "/^[0-9]*$/", $prix )) {
 			throw new Exception ( "prix incorrect" );

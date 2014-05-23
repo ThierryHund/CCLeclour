@@ -3,6 +3,7 @@ require_once "modele/utilisateur.class.php";
 require_once "modele/smarty_iut.php";
 require_once "modele/carte.class.php";
 require_once "modele/transaction.class.php";
+require_once "modele/tarif_transaction.class.php";
 require_once "modele/commande.class.php";
 
 // Definition de quelques variables globales nécéssaire à un fonctionnement plus propre de système de routine
