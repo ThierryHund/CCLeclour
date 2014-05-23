@@ -3,7 +3,7 @@
 		<script type="text/javascript">
 			
 			i=0;
-				// ajoute un ligne au tableau			
+				// ajoute une ligne au tableau			
 			function create_champ(){
 											
 				i++;	
@@ -34,7 +34,7 @@
 				
 				cell = document.getElementById('tableau_commande');
 				nBoxes = document.getElementsByName('delBox');
-				for (i=nBoxes.length-1; i>=0; i--){
+				for(i=1;i<=nBoxes.length;i++){  {*for (i=nBoxes.length-1; i>=0; i--){  *}
 					if (nBoxes[i].checked == true){
 						cell.deleteRow(i+1);
 						

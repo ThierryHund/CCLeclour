@@ -101,30 +101,77 @@ class Commande {
 		return $commandes;
 	}
 	
-	//////////////////////////
-	// Recherche d'une commande selon plusieurs paramètres
-	
-	public static function getCommandesBy($id_com, $date_com, $lib_type_com, $id_utilisateur, $nom) {
-		
+	// //////////////////////////////
+	// retourne les commandes selon 1 ou plusieurs parametres
+	// //////////////////////////////
+	public static function getCommandesBy($id_com, $id_utilisateur, $nom, $prenom, $login, $date_com_deb, $date_com_fin) {
+		$save;
+		if (isset ( $id_com ) && $id_com != "") {
+			$adIdCom = " AND id_com = :id_com";
+			$save ['id_com'] = $id_com;
+		} else
+			$adIdCom = "";
+		if (isset ( $id_utilisateur ) && $id_utilisateur != "") {
+			$adIdUtilisateur = " AND id_utilisateur = :id_utilisateur";
+			$save ['id_utilisateur'] = $id_utilisateur;
+		} else
+			$adIdUtilisateur = "";
+		if (isset ( $nom ) && $nom != "") {
+			$adNom = " AND nom = :nom";
+			$save ['nom'] = $nom;
+		} else
+			$adNom = "";
+		if (isset ( $prenom ) && $prenom != "") {
+			$adPrenom = " AND prenom = :prenom";
+			$save ['prenom'] = $prenom;
+		} else
+			$adPrenom = "";
+		if (isset ( $login ) && $login != "") {
+			$adLogin = " AND login = :login";
+			$save ['login'] = $login;
+		} else
+			$adLogin = "";
+		if (isset ( $date_com_deb ) && $date_com_deb != "") {
+			$adDateComDeb = " AND date_com_deb = :date_com_deb";
+			$save ['date_com_deb'] = $date_com_deb;
+		} else
+			$adDateComDeb = "";
+		if (isset ( $date_com_fin ) && $date_com_fin != "") {
+			$adDateComFin = " AND date_com_fin = :date_com_fin";
+			$save ['date_com_fin'] = $date_com_fin;
+		} else
+			$adDateComFin = "";
+			
+			echo var_dump($save);
 		$conn = Connection::get ();
 		
-		$request = $conn->prepare ( "SELECT  id_com, date_com, lib_type_com, heure_com, id_utilisateur, nom 
+		$request = $conn->prepare ( "SELECT  id_com, id_utilisateur, nom, prenom, login, date_com, heure_com
 									FROM commande, utilisateur 
 									WHERE utilisateur.id_utilisateur = commande.id_utilisateur
 									AND commande.id_type_com = type_commande.id_type_com
+									AND id_type_com = 2
 									AND id_com = :id_com
-									AND lib_type_com = :lib_type_com
-									AND date_com = :date_com
 									AND id_utilisateur = :id_utilisateur
-									AND nom = :nom");
+									AND nom = :nom
+									AND prenom = :prenom
+									AND login = :login
+									AND date_com_deb = :date_com_deb
+									AND date_com_fin = :date_com_fin");
 
-		$request->execute(array('id_com' => $id_com, 'date_com' => $date_com, 'lib_type_com' => $lib_type_com, 'id_utilisateur' => $id_utilisateur, 'nom' => $nom));
+		$request->execute(array('id_com' => $id_com, 
+								'id_utilisateur' => $id_utilisateur, 
+								'nom' => $nom, 
+								'prenom' => $prenom, 
+								'login' => $login,
+								'date_com_deb' => $date_com_deb,
+								'date_com_fin' => $date_com_fin));
 		
 		$result = null;
+		
 		while ( $row = $request->fetch () ) {
 			$result [] = $row;
 		}
-		
+		//echo var_dump($result);
 		 return $result;
 		
 	}
