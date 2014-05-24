@@ -10,19 +10,12 @@ class Surperso {
 	public static function insererSurperso($array) {
 		$conn = Connection::get ();
 
-
+		var_dump($array);
 		// requete d'insertion
-		$request = $conn->prepare ( "INSERT INTO utilisateur (nom, prenom, login, mdp, prem_connex, statut, id_profil, id_mag) VALUES (:nom , :prenom , :login , :password ,:prem_connex, :statut, :groupe, :magasin)" );
-		$request->execute ( array (
-				'nom' => $nom,
-				'prenom' => $prenom,
-				'login' => $login,
-				'password' => crypt ( $password ),
-				'prem_connex' => 1,
-				'statut' => "actif",
-				'groupe' => $groupe,
-				'magasin' => $id_mag
+		$request = $conn->prepare ( "INSERT INTO sur_perso (nom_beneficiaire, prenom_beneficiaire, evenement, nom_entp, id_carte)
+				VALUES (:nom , :prenom , :evenement, :entreprise, 1)" );
+		$request->execute($array);
 
-		) );
+
 	}
 }

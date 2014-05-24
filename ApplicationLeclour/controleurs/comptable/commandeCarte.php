@@ -1,5 +1,6 @@
 <?php
 require_once _PATH_ . "modele/commande.class.php";
+require_once _PATH_ . "modele/surperso.class.php";
 
 //recuperation des donnée du csv dans un tableau
 $array = array ();
@@ -14,22 +15,33 @@ if (! empty ( $post )) {
 
 	//recuperation du nom de l'entreprise
 	$entreprise = $array[0][1];
-	
+
 	//recuperation surperso pour chaque carte
 	$surperso = array();
 	for($i=2;$i<count($array);$i++)
 	{
 		if(isset($array[$i][0]) && $array[$i][0]!=""){
-			$surperso[$i-2][0]=$array[$i][0];
-			$surperso[$i-2][1]=$array[$i][1];
-			$surperso[$i-2][2]=$array[$i][2];
-			$surperso[$i-2][4]=$array[$i][4];
-			$surperso[$i-2][5]=$array[$i][5];
-			$surperso[$i-2][6]=$entreprise;
+			$surperso[$i-2]['nom']=$array[$i][0];
+			$surperso[$i-2]['prenom']=$array[$i][1];
+			$surperso[$i-2]['montant']=$array[$i][2];
+			$surperso[$i-2]['theme']=$array[$i][4];
+			$surperso[$i-2]['evenement']=$array[$i][5];
+			$surperso[$i-2]['entreprise']=$entreprise;
 		}
 	}
 
-	var_dump($surperso);
+	
+	//insertion des surperso dans la table surperso
+	foreach($surperso as $value){
+		$info=array();
+				$info['nom'] = $value['nom'];
+				$info['prenom'] = $value['prenom'];
+				$info['evenement'] = $value['evenement'];
+				$info['entreprise'] = $value['entreprise'];
+			
+		Surperso::insererSurperso($info);
+	}
+	var_dump("voilou");
 
 
 
@@ -37,7 +49,7 @@ if (! empty ( $post )) {
 
 
 /*echo var_dump($_SESSION['utilisateur']->getNom());
-echo var_dump($_SESSION['utilisateur']->getPrenom());
+ echo var_dump($_SESSION['utilisateur']->getPrenom());
 echo var_dump($_SESSION['utilisateur']->getId());*/
 
 
@@ -46,7 +58,7 @@ if (! empty ( $post )) {
 	$id_utilisateur = $_SESSION['utilisateur']->getId();
 	$profil = $_SESSION['utilisateur']->getGroupe();
 	$taille_array = sizeof($post['lib_theme']);
-	
+
 	$date = date("Y-m-d");
 	$heure = date("H:i:s");
 	//echo var_dump("taille_tab: ".$taille_array);
@@ -60,7 +72,7 @@ if (! empty ( $post )) {
 	} catch ( Exception $e ) {
 		$parameters ['error'] = ($e->getMessage ());
 	}
-		
+
 	for ($i=1;$i<=$taille_array;$i++){
 		$lot = $i;
 		$lib_theme = $post ['lib_theme'][$i];
@@ -70,13 +82,13 @@ if (! empty ( $post )) {
 		//echo var_dump("lib_theme: ".$lib_theme);
 		//echo var_dump("quantité: ".$quantite);
 		//echo var_dump("montant: ".$montant);
-		
-	try {
+
+		try {
 			Commande::creerLot($lib_theme, $montant, $quantite, $taille_array);
 		} catch ( Exception $e ) {
 			$parameters ['error'] = ($e->getMessage ());
 		}
-	} 
+	}
 }
 
 $parameters ['theme'] = Commande::getThemes ();
