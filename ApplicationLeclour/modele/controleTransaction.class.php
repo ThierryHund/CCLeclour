@@ -26,7 +26,7 @@ echo var_dump($result);
 
 		echo var_dump($true); // Long story short, ça marche pas
 
-		$fakeresult = array(2,2);
+		$fakeresult = null; // array(2,2);
 		echo var_dump($fakeresult);
 
 		if ($fakeresult != null) { // Ce test ne sert à rien s un resultat vide renvoit effectivement un null

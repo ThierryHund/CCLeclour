@@ -156,7 +156,7 @@
 
 
 	</form>
-
+<p>{$parameters.datesInvalides}</p>
 	<TABLE BORDER="1" style=" width:90%;"> 
 
 		<tr>
