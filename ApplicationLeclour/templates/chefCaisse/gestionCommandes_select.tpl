@@ -6,7 +6,7 @@
 				{if ($commande->getIdCom() != NULL)}
 					
 				<div>
-					<TABLE BORDER="1" style=" width:90%;"> 
+					<table border="1" style=" width:90%;"> 
 					 
 						<TR>
 							<TH></TH>
