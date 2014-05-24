@@ -15,6 +15,9 @@ function validationDate($date_deb, $date_fin)
 
 echo var_dump($result);
 
+//TH : je fixe la date de fin car le menu deroulant ne permet pas de mettre 2015 (rien touché d'autre)
+		$date_fin="2015-12-31";
+		
 		$result->execute ( array (
 				'date_deb' => $date_deb,
 				'date_fin' => $date_fin
@@ -23,7 +26,8 @@ echo var_dump($result);
 		while ( $row = $result->fetch () ) {
 			$true [] = $row;
 		}
-
+//TH  :et hop ici $true prend bien la bonne valeur (6 avec la base de max)
+		echo("tadaaaaaaaaaa!");
 		echo var_dump($true); // Long story short, ça marche pas
 
 		$fakeresult = null; // array(2,2);
