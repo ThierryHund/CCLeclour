@@ -57,75 +57,55 @@ class TarifTransaction {
 		) );
 	}
 	
-	public static function creer2($prix, $date_deb, $date_fin, $nbcarte_max, $nbcarte_min) {
-		$addtarif = TarifTransaction::get ();		
-		if (! preg_match ( "/^[0-9]*$/", $prix )) {
-			throw new Exception ( "prix incorrect" );
-		} else {
-			$prix = str_replace ( " ", " ", trim ( $prix ) );
-		}
-		;
-		if (! preg_match ( "/^[0-9]*$/", $date_deb )) {
-			throw new Exception ( "date incorrecte" );
-			}
-			else if (date_deb>=date_fin) {
-			throw new Exception ( "La date de début ne peut être supérieure à la date de fin" );
-			}
+	public static function contratConcerne($dateDeb, $dateFin){
+		$conn = Connection::get();
 		
-		else {
-			$date_deb = str_replace ( " ", " ", trim ( $date_deb ) );
+		$select = $conn->query("SELECT id_tarif, prix, date_deb, date_fin, nbcarte_max, nbcarte_min FROM tarif_transaction WHERE ((DATEDIFF(date_fin, '".$dateDeb."') >=0) AND (DATEDIFF(date_fin, '".$dateFin."') <=0) )OR ((DATEDIFF(date_deb, '".$dateFin."') <=0) AND (DATEDIFF(date_fin, '".$dateDeb."') >=0) ) ORDER BY date_deb ASC");
+		$result = array();
+		
+		while ( $row = $select->fetch() ) {
+			$result[] = $row;
 		}
-		;
-		if (! preg_match ( "/^[0-9]*$/", $date_fin )) {
-			throw new Exception ( "date incorrecte" );
+		return $result;
+	}
+	
+	public static function decoupeContrat($tabContrat){
+		$resultat = array();
+		$i=0;
+		foreach($tabContrat as $key=>$value){
+			if($key==0){
+				$resultat[$i][] = $tabContrat[0];
 			}
-		else if (date_fin<=date_deb){
+			else {
+				if($tabContrat[$key-1][2] == $tabContrat[$key][2]){
+					$resultat[$i][] = $tabContrat[$key];
+				}
+				else{
+					$i++;
+					$resultat[$i][] = $tabContrat[$key];
+				}
+			}
+		}
+		return $resultat;
+	}
+	
+	public static function calculPrix($tarifPeriode, $nbTransac){
+		$resultat = 0;
+		foreach($tarifPeriode as $key=>$value){
 			
-			throw new Exception ( "La date de fin ne peut être inférieure à la date de début" );
+			if($nbTransac - $tarifPeriode[$key][4] > 0){
+				$resultat = $resultat + $tarifPeriode[$key][4]*$tarifPeriode[$key][1];
+				$nbTransac = $nbTransac - $tarifPeriode[$key][4];
 			}
-		
-		else {
-			$date_fin = str_replace ( " ", " ", trim ( $date_fin ) );
+			else {
+				$resultat = $resultat + $nbTransac*$tarifPeriode[$key][1];
+			}
+			if($tarifPeriode[$key][4] == NULL ){
+				$resultat = $resultat + $nbTransac*$tarifPeriode[$key][1];
+			}
 		}
-		;
 		
-		if (! preg_match ( "/^[0-9]*$/", $nbcarte_min )) {
-			throw new Exception ( "nombre incorrecte" );
-			}
-			else if (nbcarte_min>=nbcarte_max){
-			
-			throw new Exception ( "Le nombre maximum de cartes ne peut être inférieur au nombre minimum" );
-			}
-		
-		else {
-			$nbcarte_min = str_replace ( " ", " ", trim ( $nbcarte_min ) );
-		}
-		;
-		
-		if (! preg_match ( "/^[0-9]*$/", $nbcarte_max )) {
-			throw new Exception ( "nombre incorrecte" );
-			}
-			else if (nbcarte_max<=nbcarte_min){
-			
-			throw new Exception ( "Le nombre minimum de cartes ne peut être supérieur au nombre maximum" );
-			}
-		
-		else {
-			$nbcarte_max = str_replace ( " ", " ", trim ( $nbcarte_max ) );
-		}
-		;
-
-		
-		// Ajout du tarif dans la BDD 
-		$request = $addtarif->prepare ( "UPDATE tarif_transaction SET prix = :prix, date_deb = :date_deb, date_fin = :date_fin , nbcarte_max = :nbcarte_max, nbcarte_min = :nbcarte_min WHERE id_tarif = :null" );
-		$request->execute ( array (
-				'prix' => $prix,
-				'date_deb' => $date_deb,
-				'date_fin' => $date_fin,
-				'nbcarte_max' => $nbcarte_max,
-				'nbcarte_min' => $nbcarte_min,
-				
-		) );
+		return $resultat;
 	}
 		
 	}	

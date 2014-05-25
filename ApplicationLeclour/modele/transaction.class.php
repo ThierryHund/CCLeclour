@@ -77,4 +77,28 @@ class Transaction {
 				'id_carte' => $id_carte 
 		) );
 	}
+	
+	public static function recherchePeriode($dateDeb, $dateFin){
+		$conn = Connection::get();
+		
+		$select = $conn->query("SELECT id_transac, date_transac FROM transaction WHERE DATEDIFF(date_transac, '".$dateDeb."') >=0 AND DATEDIFF('".$dateFin."',date_transac) >=0");
+		$result = array();
+		
+		while ( $row = $select->fetch() ) {
+			$result[] = $row;
+		}
+
+		return $result;
+	
+	}
+	
+	public static function recherchePeriode2($dateDeb, $dateFin){
+		$conn = Connection::get();
+		
+		$select = $conn->query("SELECT COUNT(*) FROM transaction WHERE DATEDIFF(date_transac, '".$dateDeb."') >=0 AND DATEDIFF('".$dateFin."',date_transac) >=0");
+		return $select->fetch();
+	
+	}
+	
+	
 }
