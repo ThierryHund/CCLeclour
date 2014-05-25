@@ -21,6 +21,7 @@ define ( '_CTRL_', _PATH_ . 'controleurs/' );
 define ( '_TPL_', _PATH_ . 'templates/' );
 
 session_start ();
+header("Cache-Control: private"); 
 
 $parameters = array ();
 $parameters ['connection'] = false;

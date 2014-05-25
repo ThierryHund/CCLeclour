@@ -1,13 +1,7 @@
-			
-			
-			
-			<h1>Gestion des Commandes B2C</h1>
+﻿			<h1>Gestion des Commandes B2C</h1>
 			<div class="centre">
-				{*{if ($commande->getIdCom() != NULL)}*}
-					
-				<div>
+			<div>
 					<table border="1" style=" width:90%;"> 
-					 
 						<TR>
 							<TH></TH>
 							<TH> Date </TH> 
@@ -17,15 +11,11 @@
 							<TH> Prénom </TH>
 							<TH> Id utilisateur </TH>
 							<TH> Id connexion </TH>
-													
 						</TR> 
-					
-						{*{if isset($parameters.listeCom) & !empty($parameters.listeCom)}*}
-					
-											
+								<form action="././index.php?section=chefCaisse&page=gestionCommandes_ligneCom" method="post">			
 								{foreach $parameters.commande as $params}
-									<TR> 
-										<TD style=" border:0;" ><input type="radio" value={$params['id_com']} name="id_com"></TD>
+									<TR id="{$params['id_com']}"> 
+										<TD style=" border:0;" ><input type="radio" value={$params['id_com']} name="id_com" onClick="ajoutLigneCom({$params['id_com']})"></TD>
 										<TD> {$params['date_com']} </TD> 
 										<TD> {$params['heure_com']} </TD> 
 										<TD> {$params['id_com']} </TD> 
@@ -36,38 +26,8 @@
 										
 									</TR> 
 								{/foreach}
-							
-					
-						{*{/if}*}
-				
+								
 					</TABLE> 
+					<input type="submit" value="Détails de la commande"/>
+					</form>
 			</div>
-				{*	
-					Id de la commande : {$commande->getIdCarte()} </br>
-					Code barre : {$carte->getNumAleatoire()} </br>
-					Numéro de série : {$carte->getNumSerie()} </br>
-					Indice de blocage : {$carte->affichageBlocage()} </br>
-					Solde : {$carte->getSolde()} </br>
-					Type de carte : {$carte->getIdTypeCarte()} </br>
-					Id de sur-personnalisation : {$carte->getIdSurperso()} </br></br>
-					Outils :</br>
-					<form class='lien' action='././index.php?section=personnelAccueil&page=identificationCarte_Transactions' method='post'>
-						<input type="hidden" value="{$carte->getIdCarte()}" name="idCarte">
-						<input type="submit" value="Consulter transactions"/>
-					</form>	
-					<form class='lien' action='././index.php?section=personnelAccueil&page=identificationCarte_Blocage' method='post'>
-						<input type="hidden" value="{$carte->getIdCarte()}" name="idCarte">
-						<input type="submit" value="Blocage/Deblocage"/>
-					</form>	
-					{else}
-					
-					Carte non trouvée !
-				{/if}
-				</br></br>
-				<form action='././index.php?' method='get'>
-					<input type="hidden" value="personnelAccueil" name="section">
-					<input type="hidden" value="identificationCarte" name="page">
-					<input type="submit" value="Retour"/>
-				</form>	
-			
-			</div>*}

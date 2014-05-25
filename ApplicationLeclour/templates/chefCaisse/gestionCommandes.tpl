@@ -1,8 +1,4 @@
-		
-		
-	
-	<head>
-		<script type="text/javascript">
+﻿		<script type="text/javascript">
 			function choixSelect(){
 							
 					nBoxes = document.getElementsByName('choix');
@@ -34,8 +30,6 @@
 			}
 			
 		</script>
-	</head>
-	<body>
 		<h1>Gestion des Commandes B2C</h1>
 			
 				<h2>Recherche des commandes B2C par: </h2>

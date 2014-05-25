@@ -106,25 +106,6 @@ class Commande {
 	// //////////////////////////////
 	public static function getCommandesBy($id_com, $id_utilisateur, $nom, $prenom, $login, $date_com_deb, $date_com_fin) {
 		$save;
-		
-		echo var_dump($id_com);
-		echo var_dump($id_utilisateur);
-		echo var_dump($nom);
-		echo var_dump($prenom);
-		echo var_dump($login);
-		echo var_dump($date_com_deb);
-		echo var_dump($date_com_fin);
-		
-		$date_com_deb = strtotime($date_com_deb);
-		$date_com_fin = strtotime($date_com_fin);
-		
-		echo $date_com_deb, "\n";
-		
-		echo $date_com_fin, "\n";
-		
-		
-		
-	/*	
 		if (isset ( $id_com ) && $id_com != "") {
 			$adIdCom = " AND id_com = :id_com";
 			$save ['id_com'] = $id_com;
@@ -161,42 +142,30 @@ class Commande {
 		} else
 			$adDateComFin = "";
 			
-			echo var_dump($save ['id_com']);
-			echo var_dump($save ['id_utilisateur']);
-			echo var_dump($save ['nom']);
-			echo var_dump($save ['prenom']);
-			echo var_dump($save ['login']);
-			echo var_dump($save ['date_com_deb']);
-			echo var_dump($save ['date_com_fin']);
-			
-			echo var_dump($save);
 		$conn = Connection::get ();
+		if ( (!isset($date_com_fin) || $date_com_fin == "") || (!isset($date_com_deb) || $date_com_deb == "") ) {
+			$request = $conn->prepare ( "SELECT  id_com, commande.id_utilisateur, nom, prenom, login, date_com, heure_com
+									FROM commande, utilisateur
+									WHERE utilisateur.id_utilisateur = commande.id_utilisateur									
+									AND id_type_com = 2". $adIdCom. $adIdUtilisateur. $adNom. $adPrenom. $adLogin);
 		
-		$request = $conn->prepare ( "SELECT  id_com, id_utilisateur, nom, prenom, login, date_com, heure_com
+		}
+		else {
+			$request = $conn->prepare ( "SELECT  id_com, commande.id_utilisateur, nom, prenom, login, date_com, heure_com
 									FROM commande, utilisateur 
 									
 									WHERE ((DATEDIFF(date_com, '".$date_com_deb."') >=0) 
 									AND (DATEDIFF(date_com, '".$date_com_fin."') <=0) )
 									AND utilisateur.id_utilisateur = commande.id_utilisateur									
-									AND id_type_com = 2". $adIdCom. $adIdUtilisateur. $adNom. $adPrenom. $adLogin. $adDateComDeb. $adDateComFin);
-		echo var_dump($request);
-		$request->execute ( array ('id_com' => $id_com, 
-									'id_utilisateur' => $id_utilisateur,
-									'nom' => $nom,
-									'prenom' => $prenom,
-									'login' => $login,
-									'date_com_deb' => $date_com_deb,
-									'date_com_fin' => $date_com_fin) );
+									AND id_type_com = 2". $adIdCom. $adIdUtilisateur. $adNom. $adPrenom. $adLogin);
 		
-		echo var_dump($request);
+		}
+		$request->execute($save);
 		$result = array ();
-		
 		while ( $row = $request->fetch () ) {
 			$result [] = $row;
 		}
-		echo var_dump($result);
-		
-		//return $result;*/
+		return $result;
 		 
 	}
 	
@@ -284,4 +253,23 @@ class Commande {
 	public function getNom() {
 		return $this->nom;
 	}
+	
+	//Partie developpee le 25/05/2014
+	public static function getLigneCom($id_com) {
+		$conn = Connection::get ();
+		$result = null;
+		
+		// requete sql preparé
+		$request = $conn->prepare ( "SELECT quantite, id_com, ligne_com.id_type_carte, montant, lib_theme FROM ligne_com, type_carte WHERE id_com=:id_com AND type_carte.id_type_carte = ligne_com.id_type_carte" );
+		$request->execute ( array (
+				'id_com' => $id_com 
+		) );
+		
+		while ( $row = $request->fetch () ) {
+			$result [] = $row;
+		}
+		
+		return $result;
+	}
+	
 }

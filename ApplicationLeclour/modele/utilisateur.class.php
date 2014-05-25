@@ -195,7 +195,7 @@ class Utilisateurs {
 			$adLib_profil = " AND lib_profil = :lib_profil";
 			$save ['lib_profil'] = $lib_profil;
 		} else
-			$adLib_profi = "";
+			$adLib_profil = "";
 		
 		$conn = Connection::get ();
 		
