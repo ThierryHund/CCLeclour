@@ -1,13 +1,14 @@
 <?php
 
-	if(isset($_POST['dateDeb']) && isset($_POST['dateFin'])){
+	if(isset($_POST['jour_deb']) && isset($_POST['mois_deb']) && isset($_POST['annee_deb']) && isset($_POST['jour_fin']) && isset($_POST['mois_fin']) && isset($_POST['annee_fin']) ){
 		//tests si dateDeb= Date de début ou si dateFin=Date de fin (cas ou l'utilisateur clique sur valider sans remplir
-		
+		$dateDeb = "$_POST[annee_deb]-$_POST[mois_deb]-$_POST[jour_deb]";
+		$dateFin = "$_POST[annee_fin]-$_POST[mois_fin]-$_POST[jour_fin]";
 		//On a ici toutes les transactions comprises entre la date de début et la date de fin (saisies par l'utilisateur)
-		$transactionsPeriode = Transaction::recherchePeriode($_POST['dateDeb'],$_POST['dateFin']);
+		$transactionsPeriode = Transaction::recherchePeriode($dateDeb,$dateFin);
 		
 		//On veut récupérer ici le nombre de contrats qui se suivent sur la periode saisie par l'utilisateur
-		$contratsPeriode = TarifTransaction::contratConcerne($_POST['dateDeb'],$_POST['dateFin']);
+		$contratsPeriode = TarifTransaction::contratConcerne($dateDeb,$dateFin);
 		$smarty->assign('contrats',$contratsPeriode);
 		
 		$nbContrats = 0;
