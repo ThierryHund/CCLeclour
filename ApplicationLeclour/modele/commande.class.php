@@ -106,6 +106,25 @@ class Commande {
 	// //////////////////////////////
 	public static function getCommandesBy($id_com, $id_utilisateur, $nom, $prenom, $login, $date_com_deb, $date_com_fin) {
 		$save;
+		
+		echo var_dump($id_com);
+		echo var_dump($id_utilisateur);
+		echo var_dump($nom);
+		echo var_dump($prenom);
+		echo var_dump($login);
+		echo var_dump($date_com_deb);
+		echo var_dump($date_com_fin);
+		
+		$date_com_deb = strtotime($date_com_deb);
+		$date_com_fin = strtotime($date_com_fin);
+		
+		echo $date_com_deb, "\n";
+		
+		echo $date_com_fin, "\n";
+		
+		
+		
+	/*	
 		if (isset ( $id_com ) && $id_com != "") {
 			$adIdCom = " AND id_com = :id_com";
 			$save ['id_com'] = $id_com;
@@ -142,38 +161,43 @@ class Commande {
 		} else
 			$adDateComFin = "";
 			
+			echo var_dump($save ['id_com']);
+			echo var_dump($save ['id_utilisateur']);
+			echo var_dump($save ['nom']);
+			echo var_dump($save ['prenom']);
+			echo var_dump($save ['login']);
+			echo var_dump($save ['date_com_deb']);
+			echo var_dump($save ['date_com_fin']);
+			
 			echo var_dump($save);
 		$conn = Connection::get ();
 		
 		$request = $conn->prepare ( "SELECT  id_com, id_utilisateur, nom, prenom, login, date_com, heure_com
 									FROM commande, utilisateur 
-									WHERE utilisateur.id_utilisateur = commande.id_utilisateur
-									AND commande.id_type_com = type_commande.id_type_com
-									AND id_type_com = 2
-									AND id_com = :id_com
-									AND id_utilisateur = :id_utilisateur
-									AND nom = :nom
-									AND prenom = :prenom
-									AND login = :login
-									AND date_com_deb = :date_com_deb
-									AND date_com_fin = :date_com_fin");
-
-		$request->execute(array('id_com' => $id_com, 
-								'id_utilisateur' => $id_utilisateur, 
-								'nom' => $nom, 
-								'prenom' => $prenom, 
-								'login' => $login,
-								'date_com_deb' => $date_com_deb,
-								'date_com_fin' => $date_com_fin));
+									
+									WHERE ((DATEDIFF(date_com, '".$date_com_deb."') >=0) 
+									AND (DATEDIFF(date_com, '".$date_com_fin."') <=0) )
+									AND utilisateur.id_utilisateur = commande.id_utilisateur									
+									AND id_type_com = 2". $adIdCom. $adIdUtilisateur. $adNom. $adPrenom. $adLogin. $adDateComDeb. $adDateComFin);
+		echo var_dump($request);
+		$request->execute ( array ('id_com' => $id_com, 
+									'id_utilisateur' => $id_utilisateur,
+									'nom' => $nom,
+									'prenom' => $prenom,
+									'login' => $login,
+									'date_com_deb' => $date_com_deb,
+									'date_com_fin' => $date_com_fin) );
 		
-		$result = null;
+		echo var_dump($request);
+		$result = array ();
 		
 		while ( $row = $request->fetch () ) {
 			$result [] = $row;
 		}
-		//echo var_dump($result);
-		 return $result;
+		echo var_dump($result);
 		
+		//return $result;*/
+		 
 	}
 	
 	// //////////////////////////////

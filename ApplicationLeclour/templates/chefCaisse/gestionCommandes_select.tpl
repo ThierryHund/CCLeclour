@@ -3,7 +3,7 @@
 			
 			<h1>Gestion des Commandes B2C</h1>
 			<div class="centre">
-				{if ($commande->getIdCom() != NULL)}
+				{*{if ($commande->getIdCom() != NULL)}*}
 					
 				<div>
 					<table border="1" style=" width:90%;"> 
@@ -20,7 +20,7 @@
 													
 						</TR> 
 					
-						{if isset($parameters.listeCom) & !empty($parameters.listeCom)}
+						{*{if isset($parameters.listeCom) & !empty($parameters.listeCom)}*}
 					
 											
 								{foreach $parameters.commande as $params}
@@ -38,11 +38,11 @@
 								{/foreach}
 							
 					
-						{/if}
+						{*{/if}*}
 				
 					</TABLE> 
 			</div>
-					
+				{*	
 					Id de la commande : {$commande->getIdCarte()} </br>
 					Code barre : {$carte->getNumAleatoire()} </br>
 					Numéro de série : {$carte->getNumSerie()} </br>
@@ -70,4 +70,4 @@
 					<input type="submit" value="Retour"/>
 				</form>	
 			
-			</div>
+			</div>*}

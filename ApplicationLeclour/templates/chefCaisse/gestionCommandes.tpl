@@ -86,10 +86,10 @@
 						{/if}
 						{if ($recherche[6] == 'date')}
 							
-								<label for="date1" >Du </label> 
-								<input type="date" id="date1" name="date1" value="aaaa-mm-jj"/><br/>
-								<label for="date2" >au </label> 
-								<input type="date" id="date2" name="date2" value="aaaa-mm-jj"/><br/>
+								<label for="dateDeb" >Du </label> 
+								<input type="date" id="dateDeb" name="dateDeb" value="aaaa-mm-jj"/><br/>
+								<label for="dateFin" >au </label> 
+								<input type="date" id="dateFin" name="dateFin" value="aaaa-mm-jj"/><br/>
 													
 						{/if}
 					{/if}

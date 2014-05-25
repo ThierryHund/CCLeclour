@@ -15,7 +15,7 @@
 					$tab[$i] = null;
 				}
 		}
-		echo var_dump($tab);
+		//echo var_dump($tab);
 		$smarty->assign ( 'recherche', $tab );
 		
 		
