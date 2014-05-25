@@ -8,7 +8,7 @@ class Carte {
 	private $solde;
 	private $id_typeCarte;
 	private $id_surperso;
-	public function __construct($id_carte, $num_Aleatoire, $num_Serie, $statut, $solde, $id_typeCarte, $id_surperso) {
+	public function __construct($id_carte, $num_Aleatoire, $num_Serie, $solde, $statut, $id_typeCarte, $id_surperso) {
 		$this->id_carte = $id_carte;
 		$this->num_Aleatoire = $num_Aleatoire;
 		$this->num_Serie = $num_Serie;
@@ -48,7 +48,7 @@ class Carte {
 		$result = null;
 		
 		// requete sql preparé
-		$request = $conn->prepare ( "SELECT id_carte, num_aleatoire, num_serie, statut, solde, id_type_carte, id_surperso FROM carte WHERE num_serie=:num_serie" );
+		$request = $conn->prepare ( "SELECT id_carte, num_aleatoire, num_serie, solde, statut, id_type_carte, id_surperso FROM carte WHERE num_serie=:num_serie" );
 		$request->execute ( array (
 				'num_serie' => $numSerie 
 		) );
@@ -77,7 +77,7 @@ class Carte {
 			$result [] = $row;
 		}
 		
-		return new Carte ( $result [0] ['id_carte'], $result [0] ['num_aleatoire'], $result [0] ['num_serie'], $result [0] ['statut'], $result [0] ['solde'], $result [0] ['id_type_carte'], $result [0] ['id_surperso'] );
+		return new Carte ( $result [0] ['id_carte'], $result [0] ['num_aleatoire'], $result [0] ['num_serie'], $result [0] ['solde'],$result [0] ['statut'], $result [0] ['id_type_carte'], $result [0] ['id_surperso'] );
 	}
 	
 	// //////////////////////////////
@@ -97,10 +97,10 @@ class Carte {
 		if ($this->statut == 0) {
 			return 'Carte non activée et non bloquée';
 		} 
-		elseif (($this->statut == 1)) {
+		elseif (($this->statut == 1) || $this->statut == 2) {
 			return 'Carte activée et non bloquée';
 		}
-		elseif (($this->statut == 2)) {
+		elseif (($this->statut == 3)) {
 			return 'Carte activée et bloquée';
 		}
 	}
