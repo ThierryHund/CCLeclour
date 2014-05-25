@@ -22,6 +22,8 @@ if (!empty ( $post )) {
 		$parameters ['datesInvalides'] = "";
 	}
 
+	desossage($dates);
+
 }
 
 $smarty->assign ( 'parameters', $parameters );
