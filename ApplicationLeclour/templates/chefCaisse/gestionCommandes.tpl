@@ -53,36 +53,36 @@
 				</form>
 			
 				<form id="form2" action="././index.php?section=chefCaisse&page=gestionCommandes_select" method="post">
-					
+					{if ($recherche != null)}
 						{if ($recherche[1] == 'id_com')}
 							
 								<label for="idCom" >Identifiant commande</label> 
 								<input type="text" id="idCom" name="idCom"/><br/>
-						{else}		<label for="idCom" ></label> 	
+							
 						{/if}	
 						{if ($recherche[2] == 'id_utilisateur')}
 							
 								<label for="idUtil" >Identifiant utilisateur</label> 
 								<input type="text" id="idUtil" name="idUtil"/><br/>
-									
+								
 						{/if}	
 						{if ($recherche[3] == 'nom')}
 							
 								<label for="nom" >Nom utilisateur</label> 
 								<input type="text" id="nom" name="nom"/><br/>
-									
+								
 						{/if}
 						{if ($recherche[4] == 'prenom')}
 							
 								<label for="prenom" >Prénom utilisateur</label> 
 								<input type="text" id="prenom" name="prenom"/><br/>
-										
+									
 						{/if}
 						{if ($recherche[5] == 'login')}
 							
 								<label for="login" >Identifiant de connexion</label> 
 								<input type="text" id="login" name="login"/><br/><br/>
-													
+												
 						{/if}
 						{if ($recherche[6] == 'date')}
 							
@@ -90,9 +90,9 @@
 								<input type="date" id="date1" name="date1" value="aaaa-mm-jj"/><br/>
 								<label for="date2" >au </label> 
 								<input type="date" id="date2" name="date2" value="aaaa-mm-jj"/><br/>
-														
+													
 						{/if}
-					
+					{/if}
 					<input type="submit" value="Rechercher"/>
 				</form>	
 	</body>			
