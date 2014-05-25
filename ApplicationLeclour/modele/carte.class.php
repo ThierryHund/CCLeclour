@@ -4,15 +4,15 @@ class Carte {
 	private $id_carte;
 	private $num_Aleatoire;
 	private $num_Serie;
-	private $blocage;
+	private $statut;
 	private $solde;
 	private $id_typeCarte;
 	private $id_surperso;
-	public function __construct($id_carte, $num_Aleatoire, $num_Serie, $blocage, $solde, $id_typeCarte, $id_surperso) {
+	public function __construct($id_carte, $num_Aleatoire, $num_Serie, $statut, $solde, $id_typeCarte, $id_surperso) {
 		$this->id_carte = $id_carte;
 		$this->num_Aleatoire = $num_Aleatoire;
 		$this->num_Serie = $num_Serie;
-		$this->blocage = $blocage;
+		$this->statut = $statut;
 		$this->solde = $solde;
 		$this->id_typeCarte = $id_typeCarte;
 		$this->id_surperso = $id_surperso;
@@ -48,7 +48,7 @@ class Carte {
 		$result = null;
 		
 		// requete sql preparé
-		$request = $conn->prepare ( "SELECT id_carte, num_aleatoire, num_serie,blocage, solde, id_type_carte, id_surperso FROM carte WHERE num_serie=:num_serie" );
+		$request = $conn->prepare ( "SELECT id_carte, num_aleatoire, num_serie, statut, solde, id_type_carte, id_surperso FROM carte WHERE num_serie=:num_serie" );
 		$request->execute ( array (
 				'num_serie' => $numSerie 
 		) );
@@ -56,7 +56,7 @@ class Carte {
 		while ( $row = $request->fetch () ) {
 			$result [] = $row;
 		}
-		return new Carte ( $result [0] ['id_carte'], $result [0] ['num_aleatoire'], $result [0] ['num_serie'], $result [0] ['solde'], $result [0] ['blocage'], $result [0] ['id_type_carte'], $result [0] ['id_surperso'] );
+		return new Carte ( $result [0] ['id_carte'], $result [0] ['num_aleatoire'], $result [0] ['num_serie'], $result [0] ['solde'], $result [0] ['statut'], $result [0] ['id_type_carte'], $result [0] ['id_surperso'] );
 	}
 	
 	// //////////////////////////////
@@ -68,7 +68,7 @@ class Carte {
 		$result = null;
 		
 		// requete sql preparé
-		$request = $conn->prepare ( "SELECT id_carte, num_aleatoire, num_serie, blocage, solde, id_type_carte, id_surperso FROM carte WHERE id_carte=:id_carte" );
+		$request = $conn->prepare ( "SELECT id_carte, num_aleatoire, num_serie, statut, solde, id_type_carte, id_surperso FROM carte WHERE id_carte=:id_carte" );
 		$request->execute ( array (
 				'id_carte' => $numCarte 
 		) );
@@ -77,27 +77,31 @@ class Carte {
 			$result [] = $row;
 		}
 		
-		return new Carte ( $result [0] ['id_carte'], $result [0] ['num_aleatoire'], $result [0] ['num_serie'], $result [0] ['blocage'], $result [0] ['solde'], $result [0] ['id_type_carte'], $result [0] ['id_surperso'] );
+		return new Carte ( $result [0] ['id_carte'], $result [0] ['num_aleatoire'], $result [0] ['num_serie'], $result [0] ['statut'], $result [0] ['solde'], $result [0] ['id_type_carte'], $result [0] ['id_surperso'] );
 	}
 	
 	// //////////////////////////////
 	// modifie la valeur de l'indice de blocage d'une carte
 	// //////////////////////////////
-	public static function modificationBlocage($numCarte, $numBlocage) {
+	public static function modificationStatut($numCarte, $numStatut) {
 		$conn = Connection::get ();
-		$request = $conn->prepare ( "UPDATE carte SET blocage = :blocage WHERE id_carte = :id_carte" );
+		$request = $conn->prepare ( "UPDATE carte SET statut = :statut WHERE id_carte = :id_carte" );
 		$request->execute ( array (
-				'blocage' => $numBlocage,
+				'statut' => $numStatut,
 				'id_carte' => $numCarte 
 		) );
 	}
 	
 	// Retourne une chaine en fonction de l'indice de blocage de la carte
-	public function affichageBlocage() {
-		if ($this->blocage == 0) {
-			return 'Carte non bloquée';
-		} else {
-			return 'Carte bloquée';
+	public function affichageStatut() {
+		if ($this->statut == 0) {
+			return 'Carte non activée et non bloquée';
+		} 
+		elseif (($this->statut == 1)) {
+			return 'Carte activée et non bloquée';
+		}
+		elseif (($this->statut == 2)) {
+			return 'Carte activée et bloquée';
 		}
 	}
 	
@@ -111,8 +115,8 @@ class Carte {
 	public function getNumSerie() {
 		return $this->num_Serie;
 	}
-	public function getBlocage() {
-		return $this->blocage;
+	public function getStatut() {
+		return $this->statut;
 	}
 	public function getSolde() {
 		return $this->solde;
