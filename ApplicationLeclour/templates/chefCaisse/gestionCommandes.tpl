@@ -12,62 +12,89 @@
 							
 						}
 					}
+			}
+			
+			function testcheck()
+			{
+			   $test=false;
+			   for ($i=1; $i<=6; $i++)
+			   {
+				$choix=document.getElementById('checkbox'+$i).checked;
+				if ($choix==true)
+				{
+				  $test=true;
 				}
+			  }
+			   if ($test==true)
+			   {
+			   document.getElementById('form1').submit();
+			  }else{
+			   alert("Vous devez faire au moins un choix :");
+			  }
+			}
+			
 		</script>
 	</head>
 	<body>
 		<h1>Gestion des Commandes B2C</h1>
-			<div>
+			
 				<h2>Recherche des commandes B2C par: </h2>
-				<form method="post" action="././index.php?section=chefCaisse&page=gestionCommandes">
-				
-					<input type="checkbox" name="choix" value="id_com" onclick="submit(this.form)">Identifiant commande </br>
-					<input type="checkbox" name="choix" value="id_utilisateur" onclick="submit(this.form)">Identifiant utilisateur </br>
-					<input type="checkbox" name="choix" value="nom" onclick="submit(this.form)">Nom utilisateur </br>
-					<input type="checkbox" name="choix" value="prenom" onclick="submit(this.form)">Prénom utilisateur </br>
-					<input type="checkbox" name="choix" value="login" onclick="submit(this.form)">Identifiant de connexion </br>
-					<input type="checkbox" name="choix" value="date" onclick="submit(this.form)">Date </br>
+				<form id="form1" method="post" action="././index.php?section=chefCaisse&page=gestionCommandes">
+					
+					<input type="checkbox" name="checkbox1" id="checkbox1" value="id_com" >Identifiant commande </br>
+					<input type="checkbox" name="checkbox2" id="checkbox2" value="id_utilisateur" >Identifiant utilisateur </br>
+					<input type="checkbox" name="checkbox3" id="checkbox3" value="nom" >Nom utilisateur </br>
+					<input type="checkbox" name="checkbox4" id="checkbox4" value="prenom" >Prénom utilisateur </br>
+					<input type="checkbox" name="checkbox5" id="checkbox5" value="login" >Identifiant de connexion </br>
+					<input type="checkbox" name="checkbox6" id="checkbox6" value="date" >Date </br>
+					
+					<p><input type="button" name="Submit" value="Valider" onclick="testcheck()" /></p>
+					
 				</form>
-				{if ($recherche == 'id_com')}
-				<form id="rechercheIdCom" action="././index.php?section=chefCaisse&page=gestionCommandes_select" method="post">
-					<label for="idCom" >Identifiant commande</label> 
-					<input type="text" id="idCom" name="idCom"/><br/>
-					<input type="submit" value="Rechercher"/>
-				</form>
-				{else if ($recherche == 'id_utilisateur')}
-				<form id="rechercheIdUtil" action="././index.php?section=chefCaisse&page=gestionCommandes_select" method="post">
-					<label for="idUtil" >Identifiant utilisateur</label> 
-					<input type="text" id="idUtil" name="idUtil"/><br/>
+			
+				<form id="form2" action="././index.php?section=chefCaisse&page=gestionCommandes_select" method="post">
+					
+						{if ($recherche[1] == 'id_com')}
+							
+								<label for="idCom" >Identifiant commande</label> 
+								<input type="text" id="idCom" name="idCom"/><br/>
+						{else}		<label for="idCom" ></label> 	
+						{/if}	
+						{if ($recherche[2] == 'id_utilisateur')}
+							
+								<label for="idUtil" >Identifiant utilisateur</label> 
+								<input type="text" id="idUtil" name="idUtil"/><br/>
+									
+						{/if}	
+						{if ($recherche[3] == 'nom')}
+							
+								<label for="nom" >Nom utilisateur</label> 
+								<input type="text" id="nom" name="nom"/><br/>
+									
+						{/if}
+						{if ($recherche[4] == 'prenom')}
+							
+								<label for="prenom" >Prénom utilisateur</label> 
+								<input type="text" id="prenom" name="prenom"/><br/>
+										
+						{/if}
+						{if ($recherche[5] == 'login')}
+							
+								<label for="login" >Identifiant de connexion</label> 
+								<input type="text" id="login" name="login"/><br/><br/>
+													
+						{/if}
+						{if ($recherche[6] == 'date')}
+							
+								<label for="date1" >Du </label> 
+								<input type="date" id="date1" name="date1" value="aaaa-mm-jj"/><br/>
+								<label for="date2" >au </label> 
+								<input type="date" id="date2" name="date2" value="aaaa-mm-jj"/><br/>
+														
+						{/if}
+					
 					<input type="submit" value="Rechercher"/>
 				</form>	
-				{else if ($recherche == 'nom')}
-				<form id="rechercheNom" action="././index.php?section=chefCaisse&page=gestionCommandes_select" method="post">
-					<label for="nom" >Nom utilisateur</label> 
-					<input type="text" id="nom" name="nom"/><br/>
-					<input type="submit" value="Rechercher"/>
-				</form>	
-				{else if ($recherche == 'prenom')}
-				<form id="recherchePrenom" action="././index.php?section=chefCaisse&page=gestionCommandes_select" method="post">
-					<label for="prenom" >Prénom utilisateur</label> 
-					<input type="text" id="prenom" name="prenom"/><br/>
-					<input type="submit" value="Rechercher"/>
-				</form>	
-				{else if ($recherche == 'login')}
-				<form id="rechercheLogin" action="././index.php?section=chefCaisse&page=gestionCommandes_select" method="post">
-					<label for="login" >Identifiant de connexion</label> 
-					<input type="text" id="login" name="login"/><br/>
-					<input type="submit" value="Rechercher"/>
-				</form>	
-				{else if ($recherche == 'date')}
-				<form id="rechercheDate" action="././index.php?section=chefCaisse&page=gestionCommandes_select" method="post">
-					<label for="date1" >Du </label> 
-					<input type="date" id="date1" name="date1"/><br/>
-					<label for="date2" >au </label> 
-					<input type="date" id="date2" name="date2"/><br/>
-					<input type="submit" value="Rechercher"/>
-				</form>	
-				{/if}
-			</div>
 	</body>			
 				
 				{*<label for="id_com" >Id commande : </label> 

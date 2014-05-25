@@ -1,4 +1,4 @@
-			<H1>Cr�ation d'un utilisateur</H1>
+			<H1>Création d'un utilisateur</H1>
 				
 			<div class="centre">
 				<form id="formulaire" method="post" action="././index.php?section=administrateur&page=creationUtilisateur">
