@@ -44,7 +44,7 @@
 		</script>
 	</head>
 	
-		<H1>Commande B2C</H1>
+		<H1>Commande B2B</H1>
 		<p>Souhaitez-vous que les cartes soient sur-personnalisées ?</p>
 			<div>
 				<form method="post" id="commandeSurPerso" enctype="multipart/form-data" action="././index.php?section=comptable&page=commandeCarte">

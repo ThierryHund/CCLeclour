@@ -1,7 +1,7 @@
 <?php
 require_once _PATH_ . "modele/commande.class.php";
 require_once _PATH_ . "modele/surperso.class.php";
-
+/*
 //recuperation des donnée du csv dans un tableau
 $array = array ();
 if (! empty ( $post )) {
@@ -46,7 +46,7 @@ if (! empty ( $post )) {
 
 
 }
-
+*/
 
 /*echo var_dump($_SESSION['utilisateur']->getNom());
  echo var_dump($_SESSION['utilisateur']->getPrenom());

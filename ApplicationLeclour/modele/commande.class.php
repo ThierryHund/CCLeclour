@@ -30,9 +30,9 @@ class Commande {
 				</script>';
 <?php 	}*/
 			
-		echo var_dump("id_util: ".$id_utilisateur);
-		echo var_dump("date: ".$date);
-		echo var_dump("heure: ".$heure);
+		//echo var_dump("id_util: ".$id_utilisateur);
+		//echo var_dump("date: ".$date);
+		//echo var_dump("heure: ".$heure);
 	
 		
 			// requete d'insertion table commande
@@ -58,17 +58,17 @@ class Commande {
 		$id_type_carte = $req1->fetch();
 		$id_type_carte = $id_type_carte['id_type_carte'];
 		
-		echo var_dump("taille_tab: ".$taille_array);
+	/*	echo var_dump("taille_tab: ".$taille_array);
 		echo var_dump("id_type_carte: ".$id_type_carte);		
 		echo var_dump("lib_theme: ".$lib_theme);
 		echo var_dump("montant: ".$montant);
 		echo var_dump("quantite: ".$quantite);
-	
+	*/
 		
 			// requete d'insertion table ligne_com
 		$com = $conn->query("SELECT max(last_insert_id(id_com)) as last_com FROM commande");
 		$id_com = $com->fetch();
-		echo var_dump("dernière id com insérée: ".$id_com['last_com']);
+		//echo var_dump("dernière id com insérée: ".$id_com['last_com']);
 		
 		$req3 = $conn->prepare ( "INSERT INTO ligne_com (quantite, id_com, id_type_carte) VALUES (:quantite, :id_com, :id_type_carte)" );	
 		$req3->execute ( array ('quantite' => $quantite, 
