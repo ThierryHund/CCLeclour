@@ -16,7 +16,7 @@
 					<label for="prenom" >Prenom :</label> {$parameters.user.prenom}
 					<input type="hidden" value="{$parameters.user.prenom}" name="prenom" id="prenom" /><br/>
 					
-					<label for="nom" >Login :</label> {$parameters.user.login}
+					<label for="nom" >Identifiant :</label> {$parameters.user.login}
 					<input type="hidden" value="{$parameters.user.login}" name="login" id="login" />
 					<input type="hidden" name="vieux_login" id="vieux_login" value="{$parameters.user.login}"/><br/>
 					

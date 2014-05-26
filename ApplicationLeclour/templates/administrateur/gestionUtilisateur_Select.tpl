@@ -14,7 +14,7 @@
 					<input type="text" name="nom" id="nom" value="{$parameters.user.nom}" /><br/>
 					<label for="prenom" >Prenom :</label> 
 					<input type="text" name="prenom" id="prenom" value="{$parameters.user.prenom}"/><br/>
-					<label for="login" >Login :</label> 
+					<label for="login" >Identifiant :</label> 
 					<input type="text" name="login" id="login" value="{$parameters.user.login}"/><br/>
 					<input type="hidden" name="vieux_login" id="vieux_login" value="{$parameters.user.login}"/>
 					<label for="mdp" >Mot de passe :</label> 

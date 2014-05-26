@@ -14,26 +14,22 @@ $parameters ['user'] ['magasin'] = intval ( $post ['entite'] );
 $parameters ['user'] ['groupe'] = intval ( $post ['profil'] );
 $parameters ['user'] ['statut'] = $post ['statut'];
 
-var_dump ( $post );
-var_dump ( $parameters ['user'] );
 
 if (($post ['mdp'] == $post ['mdp_confirm']) && $post ['mdp_confirm'] != "") {
 	$parameters ['user'] ['password'] = $post ['mdp'];
 	try {
-		var_dump ( "suisla" );
 		Utilisateurs::modifie ( $post ['nom'], $post ['prenom'], $post ['login'], $post ['vieux_login'], $post ['mdp'], $post ['statut'], $parameters ['user'] ['groupe'], $parameters ['user'] ['magasin'] );
 	} catch ( Exception $e ) {
 		$parameters ['error'] = ($e->getMessage ());
 	}
 } else
 	try {
-		var_dump ( "suisici" );
-		
-		Utilisateurs::modifie ( $post ['nom'], $post ['prenom'], $post ['login'], $post ['vieux_login'], $post ['mdp'], $post ['statut'], $parameters ['user'] ['groupe'], $parameters ['user'] ['magasin'] );
-	} catch ( Exception $e ) {
-		$parameters ['error'] = ($e->getMessage ());
-		;
-	}
+
+	Utilisateurs::modifie ( $post ['nom'], $post ['prenom'], $post ['login'], $post ['vieux_login'], $post ['mdp'], $post ['statut'], $parameters ['user'] ['groupe'], $parameters ['user'] ['magasin'] );
+} catch ( Exception $e ) {
+	$parameters ['error'] = ($e->getMessage ());
+	;
+}
 
 $smarty->assign ( 'parameters', $parameters );
 

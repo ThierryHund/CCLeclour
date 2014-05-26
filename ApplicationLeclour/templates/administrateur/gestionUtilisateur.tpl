@@ -6,7 +6,7 @@
 				<input type="text" name="nom" id="nom" /><br/>
 				<label for="nom" >Prénom : </label> 
 				<input type="text" name="prenom" id="prenom" /><br/>
-				<label for="nom" >Login : </label> 
+				<label for="nom" >Identifiant : </label> 
 				<input type="text" name="login" id="login" /><br/>
 
 				<label for="nom" >Associé au magasin :</label> 
@@ -32,7 +32,7 @@
 						<TH></TH>
 						<TH> Nom </TH> 
 						<TH> Prenom </TH> 
-						<TH> Login </TH> 
+						<TH> Identifiant </TH> 
 						<TH> Entité de rattachement </TH>
 						<TH> Profil </TH>						
 					</TR> 
