@@ -10,8 +10,8 @@ require_once "modele/commande.class.php";
 // Si on a pas ces infos, rien ne peut fonctionner : die
 if (! isset ( $_SERVER ['DOCUMENT_ROOT'] ))
 	die ();
-	
-	// Define de la racine du site
+
+// Define de la racine du site
 define ( '_PATH_', $_SERVER ['DOCUMENT_ROOT'] . '/webprojet/CCLeclour/ApplicationLeclour/' );
 
 // Define du dossier des Controleurs
@@ -21,7 +21,7 @@ define ( '_CTRL_', _PATH_ . 'controleurs/' );
 define ( '_TPL_', _PATH_ . 'templates/' );
 
 session_start ();
-header("Cache-Control: private"); 
+header("Cache-Control: private");
 
 $parameters = array ();
 $parameters ['connection'] = false;
@@ -41,18 +41,23 @@ $smarty = new smartyIUT ();
 // creation de la session connection et acces a page d'acceuil
 // //////////////////////////////
 if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_SESSION ['connecte'] )) {
-	if (! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) {
-		$listeUtil = Utilisateurs::getUtilisateurs ();
-		foreach ( $listeUtil as $value ) {
-			if ($value ['login'] == $_POST ['login'] && crypt ( $_POST ['pswd'], $value ['mdp'] ) == $value ['mdp']) {
-				$_SESSION ['connecte'] = true;
-				$_SESSION ['utilisateur'] = Utilisateurs::get ( $value ['login'] );
-			} else {
-				$smarty->assign ( 'erreur', 'Erreur d\'identification' );
+	
+		if (! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) {try{
+			$listeUtil = Utilisateurs::getUtilisateurs ();
+			foreach ( $listeUtil as $value ) {
+				if ($value ['login'] == $_POST ['login'] && crypt ( $_POST ['pswd'], $value ['mdp'] ) == $value ['mdp']) {
+					$_SESSION ['connecte'] = true;
+					$_SESSION ['utilisateur'] = Utilisateurs::get ( $value ['login'] );
+				} else {
+					$smarty->assign ( 'erreur', 'Erreur d\'identification' );
+				}
 			}
-		}
+		}catch(PDOException $erreur) {
+		$parameters ['error'] = "probleme d'acces BDD contactez un administrateur";
+		$smarty->assign ( 'parameters', $parameters );
 	}
-}
+	}
+}else if (! empty ( $_POST ['login'] ) || ! empty ( $_POST ['pswd'] )){$parameters ['error'] = "Chaque champ doit etre rempli";$smarty->assign ( 'parameters', $parameters );}
 
 // //////////////////////////////
 // affectation de la variable de navigation
@@ -61,10 +66,10 @@ if (isset ( $_GET ['key'] )) {
 	$nav = $_GET ['key'];
 } else
 	$nav = null;
-	
-	// //////////////////////////////
-	// deconnection
-	// //////////////////////////////
+
+// //////////////////////////////
+// deconnection
+// //////////////////////////////
 if ($nav == 'out') {
 	session_unset ();
 	session_destroy ();
@@ -75,12 +80,12 @@ if ($nav == 'out') {
 // //////////////////////////////
 /*
  * if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_SESSION ['connecte'] )) { if (! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) { $listeUtil = Utilisateurs::getUtilisateurs (); foreach ( $listeUtil as $value ) { if ($value ['login'] == $_POST ['login'] && $value ['mdp'] == $_POST ['pswd']) { $_SESSION ['connecte'] = true; $_SESSION ['utilisateur'] = Utilisateurs::get ( $value ['login'] ); } } } }
- */
+*/
 
 // Navigation entre les différentes pages
 /*
  * if (isset($_GET['page']) && isset($_GET['section'])) $smarty->display(_TPL_.$_GET['section'].'/'.$_GET['page'].'.tpl'); else if(isset($_SESSION['connecte'])) { $smarty->display(_TPL_ . 'accueil.tpl'); }
- */
+*/
 
 // Permet de savoir à quel groupe d'utilisateur appartient l'utilisateur connecté
 if (isset ( $_SESSION ['utilisateur'] )) {
@@ -100,6 +105,6 @@ if (isset ( $_GET ['page'] ) && isset ( $_GET ['section'] ) && isset ( $_SESSION
 	$smarty->display ( _TPL_ . 'accueil.tpl' );
 } else
 	$smarty->display ( _TPL_ . 'connexion.tpl' );
-	
-	// Et on ajoutera toujours le footer en fin de page
+
+// Et on ajoutera toujours le footer en fin de page
 $smarty->display ( "footer.tpl" );
