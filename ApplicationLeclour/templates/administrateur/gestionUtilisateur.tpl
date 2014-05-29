@@ -1,5 +1,5 @@
 			<H1>Gestion des utilisateurs</H1>
-			<div>
+			<div class="centre">
 				{*On n'est d'accord, en ligne ça aurait été mieux, mais on manque de place, et en tableu c'est vraiment trop moche...*}
 				<form method="post" action="././index.php?section=administrateur&page=gestionUtilisateur">
 				<label for="nom" >Nom : </label> 

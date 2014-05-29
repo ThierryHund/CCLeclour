@@ -38,7 +38,7 @@
 					<input type="submit" value="Confirmer"/>
 				</form>
 				<div>
-				<a href="gestionUtilisateur.html">Retour</a>
+				
 				</div>
 			</div>
 		</div>

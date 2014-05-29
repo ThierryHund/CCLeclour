@@ -103,7 +103,7 @@ class Utilisateurs {
 		if ($login != $vieux_login) {
 			if (self::verifLogin ( $login )) {
 				
-				var_dump ( "login existe deja" );
+				
 				throw new Exception ( "login existant" );
 			} else
 				var_dump ( "login ok)" );
