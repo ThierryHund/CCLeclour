@@ -61,6 +61,5 @@
 				</TABLE> 
 				<input id="selectionner" type="submit" value="Selectionner"/>
 				</form>
-				{else}<p style="color:red;">Résultat vide</p>
 				{/if}
 			</div>

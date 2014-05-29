@@ -22,7 +22,7 @@ define ( '_TPL_', _PATH_ . 'templates/' );
 
 session_start ();
 header("Cache-Control: private");
-
+$parameters = null;
 $parameters = array ();
 $parameters ['connection'] = false;
 
