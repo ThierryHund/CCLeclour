@@ -41,8 +41,9 @@ $smarty = new smartyIUT ();
 // creation de la session connection et acces a page d'acceuil
 // //////////////////////////////
 if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_SESSION ['connecte'] )) {
-	
-		if (! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) {try{
+
+	if (! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) {
+		try{
 			$listeUtil = Utilisateurs::getUtilisateurs ();
 			foreach ( $listeUtil as $value ) {
 				if ($value ['login'] == $_POST ['login'] && crypt ( $_POST ['pswd'], $value ['mdp'] ) == $value ['mdp']) {
@@ -53,11 +54,13 @@ if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_S
 				}
 			}
 		}catch(PDOException $erreur) {
-		$parameters ['error'] = "probleme d'acces BDD contactez un administrateur";
-		$smarty->assign ( 'parameters', $parameters );
+			$parameters ['error'] = "probleme d'acces BDD contactez un administrateur";
+			$smarty->assign ( 'parameters', $parameters );
+		}
 	}
-	}
-}else if (! empty ( $_POST ['login'] ) || ! empty ( $_POST ['pswd'] )){$parameters ['error'] = "Chaque champ doit etre rempli";$smarty->assign ( 'parameters', $parameters );}
+}else if (! empty ( $_POST ['login'] ) || ! empty ( $_POST ['pswd'] )){
+	$parameters ['error'] = "Chaque champ doit etre rempli";$smarty->assign ( 'parameters', $parameters );
+}
 
 // //////////////////////////////
 // affectation de la variable de navigation
