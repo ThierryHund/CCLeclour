@@ -1,6 +1,12 @@
 			<H1>Création d'un utilisateur</H1>
 				
 			<div class="centre">
+				{if isset($parameters.creation)}
+					<p style="color:green;">Création réussie</p>
+				{/if}
+				{if isset($parameters.error)}
+					<p style="color:red;">{$parameters.error}</p>
+				{/if}
 				<form id="formulaire" method="post" action="././index.php?section=administrateur&page=creationUtilisateur">
 					<label for="nom" >Nom :</label> 
 					<input type="text" name="nom" id="nom"/><br/>

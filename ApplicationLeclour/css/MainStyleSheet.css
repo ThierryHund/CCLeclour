@@ -1,9 +1,9 @@
-/* Feuille de style s'appliquant à l'ensemble des pages de l'application Leclour
-créee le 28/04/2014 à 5h08 du matin, oui, ça bosse.
+/* Feuille de style s'appliquant ï¿½ l'ensemble des pages de l'application Leclour
+crï¿½ee le 28/04/2014 ï¿½ 5h08 du matin, oui, ï¿½a bosse.
 */
 
-/*Pour avoir des formulaires bien alignés nous nous servons d'une technique qui consiste à faire flotter des labels devant les champs associés,
-puis trouver une valeur de largeur pour laquelle l'ensemble du texte est bien visible. Nous nous laissons la possibilité de gérer plusieurs tailles
+/*Pour avoir des formulaires bien alignï¿½s nous nous servons d'une technique qui consiste ï¿½ faire flotter des labels devant les champs associï¿½s,
+puis trouver une valeur de largeur pour laquelle l'ensemble du texte est bien visible. Nous nous laissons la possibilitï¿½ de gï¿½rer plusieurs tailles
 de formulaires avec l'ajout potentiel d'un id par formulaire.
 */
 label {
@@ -26,9 +26,9 @@ label {
 
 /*
 Ci-dessous, le CSS du menu principal, qui normalement, devrai s'appliquer sur pratiquement toutes les pages du projet.
-Le menu est extnsible pratiquement à volonté.
-Ceci dit, si vous voulez faire du zèle, vous pourrez vous pencher sur un problème très étrange, Chrome (et Firefox) 
-ont une facon un peu étrange de gerer la tailes des éléments de la liste (et ca fait fait planter mon graphisme).
+Le menu est extnsible pratiquement ï¿½ volontï¿½.
+Ceci dit, si vous voulez faire du zï¿½le, vous pourrez vous pencher sur un problï¿½me trï¿½s ï¿½trange, Chrome (et Firefox) 
+ont une facon un peu ï¿½trange de gerer la tailes des ï¿½lï¿½ments de la liste (et ca fait fait planter mon graphisme).
 */
 html {
 	background: url(sources/bg.png);
@@ -155,9 +155,9 @@ div.contenu {
 	float: left;
 	width: 70%;
 	padding-bottom: 50px;
-	/* Nous donnons ici un aspect professionel et fini à notre application
-	Ce code a été copié depuis le site www.debray-jerome.fr qui fournit un outil
-	de génération de code pour simplifier la création de styles d'ombres sur nos div
+	/* Nous donnons ici un aspect professionel et fini ï¿½ notre application
+	Ce code a ï¿½tï¿½ copiï¿½ depuis le site www.debray-jerome.fr qui fournit un outil
+	de gï¿½nï¿½ration de code pour simplifier la crï¿½ation de styles d'ombres sur nos div
 	*/
 	-moz-box-shadow: 0px 5px 10px 0px #9698ed;
 	-webkit-box-shadow: 0px 5px 10px 0px #9698ed;
@@ -192,7 +192,7 @@ h1 {
 	text-align: center;
 }
 
-/*Petit rajout du 07/05/2014 pour pouvoir afficher dans certains cas des boutons submit côte à côte
+/*Petit rajout du 07/05/2014 pour pouvoir afficher dans certains cas des boutons submit cï¿½te ï¿½ cï¿½te
 */
 form.lien {
 	display: inline;

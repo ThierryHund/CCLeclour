@@ -13,6 +13,8 @@ if (!empty ( $post )) {
 	
 	try {
 		Utilisateurs::creer ( $nom, $prenom, $login, $mdp, $groupe, $magasin );
+		$parameters ['creation'] = "reussi";
+		
 	} catch ( Exception $e ) {
 		$parameters ['error'] = ($e->getMessage ());
 	}
