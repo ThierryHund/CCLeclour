@@ -25,7 +25,7 @@
 				<input id="rechercher" type="submit" value="Rechercher"/>
 				</form>
 			</div>
-			<div>
+			<div>{if isset($parameters.listeUtil) & !empty($parameters.listeUtil)}
 				<TABLE BORDER="1" style=" width:90%;"> 
 					 
 					<TR>
@@ -38,7 +38,7 @@
 					</TR> 
 					<form id="radioSelectionUtilisateur" method="post" action="././index.php?section=administrateur&page=gestionUtilisateur_select">
 					
-					{if isset($parameters.listeUtil) & !empty($parameters.listeUtil)}
+					
 					
 										
 						{foreach $parameters.listeUtil as $params}
@@ -52,10 +52,15 @@
 							</TR> 
 						{/foreach}
 					
-					{/if}
+					
 					
 
+				
+				
+				
 				</TABLE> 
 				<input id="selectionner" type="submit" value="Selectionner"/>
 				</form>
+				{else}<p style="color:red;">Résultat vide</p>
+				{/if}
 			</div>
