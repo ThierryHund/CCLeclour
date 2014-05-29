@@ -37,14 +37,19 @@
 			else span.style.display = 'none';
 			
 		}
+		
+		function activateToolTips(elt)
+		{
+			
+			elt.nextSibling.nextSibling.style.display = 'inline-block';
+			
+			
+		}
 	
-	deactivateTooltips();
-	
-	var pass = document.getElementsByName("password");
-	var passConf = document.getElementsByName("passwordConf");
-	pass[0].onkeyup = keyupPwd;
-	passConf[0].onkeyup = keyupPwdConf;
-	
+		deactivateTooltips();
+
+		
+		
 	
 
 

@@ -9,16 +9,20 @@
 				{/if}
 				<form id="formulaire" method="post" action="././index.php?section=administrateur&page=creationUtilisateur">
 					<label for="nom" >Nom :</label> 
-					<input type="text" name="nom" id="nom"/><br/>
+					<input type="text" name="nom" id="nom" onFocus='activateToolTips(this)' onBlur='deactivateTooltips()'/>
+					<span class="tooltip">Format : Xxxxx Xxxxx</span><br/>
 					
 					<label for="prenom" >Prenom :</label> 
-					<input type="text" name="prenom" id="prenom"/><br/>
+					<input type="text" name="prenom" id="prenom" onFocus='activateToolTips(this)' onBlur='deactivateTooltips()'/>
+					<span class="tooltip">Format : Xxxxx Xxxxx</span><br/>
 					
-					<label for="login" >Login :</label> 
-					<input type="text" name="login" id="login"/><br/>
+					<label for="login" >Identifiant :</label> 
+					<input type="text" name="login" id="login" onFocus='activateToolTips(this)' onBlur='deactivateTooltips()'/>
+					<span class="tooltip">Format : entre  4 et 16 caractères alpha-numériques</span><br/>
 					
 					<label for="mdp" >Mot de passe :</label> 
-					<input type="password" name="mdp" id="mdp" /><br/>
+					<input type="password" name="mdp" id="mdp" onFocus='activateToolTips(this)' onBlur='deactivateTooltips()'/>
+					<span class="tooltip">Format : entre  8 et 25 caractères</span><br/>
 					
 					<label for="entite">Entité</label>{*<br/>*}
       				<select name="entite" id="entite">
@@ -36,4 +40,5 @@
 					
 					<input type="submit" value="Valider"/>
 				</form>
+				<script src="js/creationutilisateur.js"  type="text/javascript"></script>
 			</div>
