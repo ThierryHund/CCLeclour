@@ -1,4 +1,4 @@
-﻿			<h1>Gestion des Commandes B2B</h1>
+			<h1>Gestion des Commandes B2B</h1>
 			<div class="centre">
 			<div>
 					<table border="1" style=" width:90%;"> 
@@ -12,7 +12,7 @@
 							<TH> Id utilisateur </TH>
 							<TH> Id connexion </TH>
 						</TR> 
-								<form action="././index.php?section=chefCaisse&page=gestionCommandes_ligneCom" method="post">			
+								<form action="././index.php?section=comptable&page=gestionCommandes_ligneCom" method="post">			
 								{foreach $parameters.commande as $params}
 									<TR id="{$params['id_com']}"> 
 										<TD style=" border:0;" ><input type="radio" value={$params['id_com']} name="id_com" onClick="ajoutLigneCom({$params['id_com']})"></TD>

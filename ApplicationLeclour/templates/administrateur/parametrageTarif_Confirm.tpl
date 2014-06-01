@@ -1,6 +1,6 @@
-<H1>Paramétrage des tarifs</H1>
+<H1>ParamÃ©trage des tarifs</H1>
 
-<h2>Données saisies</h2>
+<h2>DonnÃ©es saisies</h2>
 
 
 
@@ -19,13 +19,13 @@ Contrat du {$dateDeb} au {$dateFin}
 	<input type="hidden" value="{$plage[$i]}" name="plage{$i}"/>
 	<input type="hidden" value="{$tarif[$i]}" name="tarif{$i}"/>
 	{if $i==1}
-		De 0 à la {$plage[$i]}è transaction : {$tarif[$i]}€ 
+		De 1 Ã  la {$plage[$i]}Ã¨me transaction : {$tarif[$i]}â‚¬ 
 		</br>
 	{elseif $i==$nbPlages}
-		Puis à partir de la {$plage[$i-1]+1}è transactions : {$tarif[$i]}€
+		Puis Ã  partir de la {$plage[$i-1]+1}Ã¨me transactions : {$tarif[$i]}â‚¬
 		</br>
 	{else}
-		De {$plage[$i-1]+1} à la {$plage[$i]}è transaction : {$tarif[$i]}€
+		De {$plage[$i-1]+1} Ã  la {$plage[$i]}Ã¨me transaction : {$tarif[$i]}â‚¬
 		</br>
 	{/if}
 {/for}

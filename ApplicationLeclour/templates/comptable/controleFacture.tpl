@@ -1,7 +1,7 @@
-<H1>ContrÙle de facture</H1>
+<H1>Contr√¥le de facture</H1>
 
 <div>
-	Saisissez les dates pour le contrÙle facture
+	Saisissez les dates pour le contr√¥le facture
 	</br>
 	<form id="formaulaire" action="././index.php?section=comptable&page=controleFacture" method="post">
 
@@ -156,16 +156,16 @@
 
 	
 	<table border="solid">
-	<caption>Contrats concernÈs</caption>
+	<caption>Contrats concern√©s</caption>
 	<tr>
 				<th>ID tarif</th>
-				<th>Date de dÈbut</th>
+				<th>Date de d√©but</th>
 				<th>Date de fin</th>
 				<th>Plage min</th>
 				<th>Plage maxi</th>
 				<th>Tarif</th>
 				<th>Nb transactions</th>
-				<th>Total estimÈ</th>
+				<th>Total estim√©</th>
 			</tr>
 	{if isset($contrats)}
 		{assign var=index value=1}
@@ -187,12 +187,12 @@
 				{if $contrat.nbcarte_max != ''}
 					<td>{$contrat.nbcarte_max}</td>
 				{else}
-					<td>Et au del‡</td>
+					<td>Et au del√†</td>
 				{/if}
-				<td>{$contrat.prix} Ä</td>
+				<td>{$contrat.prix} ‚Ç¨</td>
 				{if isset($dateContrat.$i)}
 					<td>{$transactionContrat.{$index2}.0}</td>
-					<td>{$prix.{$index2}} Ä</td>
+					<td>{$prix.{$index2}} ‚Ç¨</td>
 					{assign var=index2 value=$index2+1}
 					
 				{else}
@@ -205,7 +205,7 @@
 	<tr></tr>
 	<td>TOTAL</td>
 	{if isset($totalPrix)}
-	<td>{$totalPrix}Ä</td>
+	<td>{$totalPrix}‚Ç¨</td>
 	{/if}
 
 	</table>
@@ -214,7 +214,7 @@
 
 	</form>
 	<form method="POST" action="././index.php?section=comptable&page=controleFacture">
-	<input type="date" name="dateDeb" value="Date de dÈbut" onClick="this.value=''" onBlur="if(this.value=='') this.value='Date de dÈbut'"/>
+	<input type="date" name="dateDeb" value="Date de d√©but" onClick="this.value=''" onBlur="if(this.value=='') this.value='Date de d√©but'"/>
 	<input type="date" name="dateFin" value="Date de fin" onClick="this.value=''" onBlur="if(this.value=='') this.value='Date de fin'"/>
 	<input type="submit" value="Envoyer"/>
 	</form>

@@ -33,7 +33,7 @@
 		<h1>Gestion des Commandes B2B</h1>
 			
 				<h2>Recherche des commandes B2C par: </h2>
-				<form id="form1" method="post" action="././index.php?section=chefCaisse&page=gestionCommandes">
+				<form id="form1" method="post" action="././index.php?section=comptable&page=gestionCommandes">
 					
 					<input type="checkbox" name="checkbox1" id="checkbox1" value="id_com" >Identifiant commande </br>
 					<input type="checkbox" name="checkbox2" id="checkbox2" value="id_utilisateur" >Identifiant utilisateur </br>
@@ -46,7 +46,7 @@
 					
 				</form>
 			
-				<form id="form2" action="././index.php?section=chefCaisse&page=gestionCommandes_select" method="post">
+				<form id="form2" action="././index.php?section=comptable&page=gestionCommandes_select" method="post">
 					{if ($recherche != null)}
 						{if ($recherche[1] == 'id_com')}
 							

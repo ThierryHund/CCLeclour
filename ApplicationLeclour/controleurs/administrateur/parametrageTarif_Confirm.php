@@ -22,6 +22,6 @@ if(isset($_POST['confirmation'])){
 	}
 	
 	}
-	$smarty->assign('traitement', 'Ajout à la base de données effectué');
+	$smarty->assign('traitement', 'Ajout Ã  la base de donnÃ©es effectuÃ©');
 }
 ?>

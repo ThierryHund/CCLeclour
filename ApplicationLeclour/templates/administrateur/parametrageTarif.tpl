@@ -17,7 +17,7 @@
 					<form id="affichageLignesParametrageTarif" method="POST" action="././index.php?section=administrateur&page=parametrageTarif_Confirm">
 					{for $i=1 to $nbPlages}
 						{if $i == 1}
-							<input type="text" name="plage{$i}" value="0" readonly="readonly"/>
+							<input type="text" name="plage{$i}" value="1" readonly="readonly"/>
 							à
 						<input type="text" name="plage{$i}" onKeyUp="document.getElementById('{$i+1}').value=this.value" onblur="document.getElementById('{$i+1}').value=parseInt(this.value)+1"/>
 			

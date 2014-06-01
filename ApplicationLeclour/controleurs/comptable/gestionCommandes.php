@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 // Test selon choix de recherche
 		
