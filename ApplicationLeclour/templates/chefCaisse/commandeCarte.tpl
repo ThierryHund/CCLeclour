@@ -17,7 +17,7 @@
 					var nouvelleLigne = obj_tableau.insertRow(nbr_de_lignes-1);
 												
 					var colonne1 = nouvelleLigne.insertCell(0);
-						colonne1.innerHTML = +nbr_de_lignes-1 ;
+						colonne1.innerHTML = "Lot " +i ;
 					var colonne2 = nouvelleLigne.insertCell(1);
 						colonne2.innerHTML = '<select name="lib_theme['+i+']" id="lib_theme">{foreach $parameters.theme as $params}<option VALUE={$params[0]}>{$params[0]}</option>{/foreach}';
 					var colonne3 = nouvelleLigne.insertCell(2);
@@ -34,12 +34,21 @@
 				
 				cell = document.getElementById('tableau_commande');
 				nBoxes = document.getElementsByName('delBox');
-				for(i=1;i<=nBoxes.length;i++){  {*for (i=nBoxes.length-1; i>=0; i--){  *}
-					if (nBoxes[i].checked == true){
-						cell.deleteRow(i+1);
+				for (j=nBoxes.length-1; j>=0; j--){  
+					if (nBoxes[j].checked == true){
+						cell.deleteRow(j+1);
 						
 					}
 				}
+			}
+			
+			function confirming() {		
+				confirmed = confirm("Voulez-vous valider votre commande?");
+			
+				if(confirmed)
+					window.location = "././index.php?section=chefCaisse&page=commandeCarte";
+				else
+					return false;
 			}
 	
 		</script>
@@ -71,7 +80,7 @@
 					</td>
 				</tr>
 			</table>
-			<input id="envoyer" type="submit" value="Envoyer" />
+			<input id="envoyer" type="submit" value="Envoyer" onclick="javascript:confirming()" />
 		</form>
 		
 	</body>

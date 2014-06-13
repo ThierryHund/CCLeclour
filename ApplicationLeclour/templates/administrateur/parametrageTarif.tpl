@@ -1,6 +1,6 @@
 <H1>Paramétrage des tarifs</H1>
 			
-			<h2>Entrez les dates et le nombre de plages (dates au format AAAA-MM-JJ)</h2>
+			<h2>Entrez les dates et le nombre de plages (dates au format (AAAA-MM-JJ)</h2>
 			<div class="centre">			
 				<form id="parametrageTarif" method="POST" action="././index.php?section=administrateur&page=parametrageTarif">
 					<label for="dateDebut" >Date de début</label> 

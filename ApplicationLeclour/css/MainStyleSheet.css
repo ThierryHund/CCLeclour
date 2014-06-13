@@ -131,8 +131,13 @@ a.lienmenu:hover {
 }
 
 div.header {
-	background: url(sources/banniere.jpg);
+	background: url(sources/banniere.png);
 	height: 43px;
+	background-repeat:no-repeat;
+	background-position: center center;
+	background-repeat: no-repeat; 
+	background-size: cover; 
+
 }
 
 div.bandeau {
