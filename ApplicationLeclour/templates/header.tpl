@@ -24,18 +24,19 @@
 		{if isset($profil)}
 			{if $profil=='administrateur'}
 					{if isset($smarty.get.page)}
+										{*Creation utilisateur*}
+					{if $smarty.get.page eq 'creationUtilisateur'}
+						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=administrateur&page=creationUtilisateur">Création utilisateur</a></li>
+					{else}
+						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=creationUtilisateur">Création utilisateur</a></li>
+					{/if}
 					{*Gestion utilisateur*}
 					{if $smarty.get.page eq 'gestionUtilisateur'}
 						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=administrateur&page=gestionUtilisateur">Gestion utilisateur</a></li>
 					{else}
 						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=gestionUtilisateur">Gestion utilisateur</a></li>
 					{/if}
-					{*Creation utilisateur*}
-					{if $smarty.get.page eq 'creationUtilisateur'}
-						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=administrateur&page=creationUtilisateur">Création utilisateur</a></li>
-					{else}
-						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=creationUtilisateur">Création utilisateur</a></li>
-					{/if}
+
 					{*Parametrage des Tarifs*}
 					{if $smarty.get.page eq 'parametrageTarif' }
 						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=administrateur&page=parametrageTarif">Paramètrage des tarifs</a></li>
@@ -66,12 +67,7 @@
 					{else}
 						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=gestionCommandes">Gestion des commandes B2B</a></li>
 					{/if}
-					{*Envoi de formulaire de sur-perso*}
-					{if $smarty.get.page eq 'envoiFormulaire'}
-						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=comptable&page=envoiFormulaire">Envoi formulaire sur-perso</a></li>
-					{else}
-						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=envoiFormulaire">Envoi formulaire sur-perso</a></li>
-					{/if}
+					
 					{*Controle facture*}
 					{if $smarty.get.page eq 'controleFacture'}
 						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
@@ -80,7 +76,7 @@
 					{/if}
 					{*Activation plage de carte*}
 					{if $smarty.get.page eq 'activationPlage'}
-						<li class="corpsmenu"><a class="lienmenuacti" href="index.php?section=comptable&page=activationPlage">Activation par plage</a></li>
+						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=comptable&page=activationPlage">Activation par plage</a></li>
 					{else}
 						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=activationPlage">Activation par plage</a></li>
 					{/if}
@@ -117,27 +113,22 @@
 					{else}
 						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=gestionCommandes">Gestion des commandes B2B</a></li>
 					{/if}
-					{*Envoi de formulaire de sur-perso*}
-					{if $smarty.get.page eq 'envoiFormulaire'}
-						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=comptable&page=envoiFormulaire">Envoi formulaire sur-perso</a></li>
-					{else}
-						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=envoiFormulaire">Envoi formulaire sur-perso</a></li>
-					{/if}
+					
 					{*Controle facture*}
 					{if $smarty.get.page eq 'controleFacture'}
-						<li class="corpsmenu"><a class="lienmenuacti" href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
+						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
 					{else}
 						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
 					{/if}
 					{*Activation plage de carte*}
 					{if $smarty.get.page eq 'activationPlage'}
-						<li class="corpsmenu"><a class="lienmenuacti" href="index.php?section=comptable&page=activationPlage">Activation par plage</a></li>
+						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=comptable&page=activationPlage">Activation par plage</a></li>
 					{else}
 						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=activationPlage">Activation par plage</a></li>
 					{/if}
 					{*Identification Carte*}
 					{if $smarty.get.page eq 'identificationCarte'}
-						<li class="corpsmenu"><a class="lienmenuactf" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
+						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					{else}
 						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					{/if}
@@ -164,7 +155,7 @@
 					{/if}
 					{*Identification Carte*}
 					{if $smarty.get.page eq 'identificationCarte'}
-						<li class="corpsmenu"><a class="lienmenuactf" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
+						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					{else}
 						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					{/if}
@@ -177,7 +168,7 @@
 					{if isset($smarty.get.page)}
 					{*Identification Carte*}
 					{if $smarty.get.page eq 'identificationCarte'}
-						<li class="corpsmenu"><a class="lienmenuactf" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
+						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					{else}
 						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					{/if}
