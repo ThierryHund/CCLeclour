@@ -130,7 +130,8 @@ class Utilisateurs {
 		;
 		
 		if (! preg_match ( "/^.{8,25}$/", $password )) {
-			throw new Exception ( "Password non conforme" );
+			if($password!=""){
+			throw new Exception ( "Password non conforme" );}
 		}
 		;
 		

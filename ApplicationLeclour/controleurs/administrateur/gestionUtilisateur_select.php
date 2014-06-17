@@ -14,7 +14,7 @@ if(isset($post ['mdp'])){
 		}
 	} else if(($post ['mdp'] == $post ['mdp_confirm']) && $post ['mdp_confirm'] == "")
 		try {
-
+		
 		Utilisateurs::modifie ( $post ['nom'], $post ['prenom'], $post ['login'], $post ['vieux_login'], $post ['mdp'], $post ['statut'], $post ['profil'], $post ['entite'] );
 	} catch ( Exception $e ) {
 		$parameters ['error'] = ($e->getMessage ());
