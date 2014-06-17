@@ -78,6 +78,12 @@
 					{else}
 						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
 					{/if}
+					{*Activation plage de carte*}
+					{if $smarty.get.page eq 'activationPlage'}
+						<li class="corpsmenu"><a class="lienmenuacti" href="index.php?section=comptable&page=activationPlage">Activation par plage</a></li>
+					{else}
+						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=activationPlage">Activation par plage</a></li>
+					{/if}
 					{*Identification Carte*}
 					{if $smarty.get.page eq 'identificationCarte'}
 						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
@@ -122,6 +128,12 @@
 						<li class="corpsmenu"><a class="lienmenuacti" href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
 					{else}
 						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
+					{/if}
+					{*Activation plage de carte*}
+					{if $smarty.get.page eq 'activationPlage'}
+						<li class="corpsmenu"><a class="lienmenuacti" href="index.php?section=comptable&page=activationPlage">Activation par plage</a></li>
+					{else}
+						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=activationPlage">Activation par plage</a></li>
 					{/if}
 					{*Identification Carte*}
 					{if $smarty.get.page eq 'identificationCarte'}
