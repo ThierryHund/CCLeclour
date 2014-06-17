@@ -2,6 +2,7 @@
 require_once _PATH_ . "modele/groupe.class.php";
 require_once _PATH_ . "modele/magasin.class.php";
 require_once _PATH_ . "modele/utilisateur.class.php";
+if($_SESSION['utilisateur']->getGroupe()==("administrateur")){
 $utilisateur = Utilisateurs::get ( $post ['login'] );
 
 $parameters ['user'] ['nom'] = $post ['nom'];
@@ -32,4 +33,7 @@ if (($post ['mdp'] == $post ['mdp_confirm']) && $post ['mdp_confirm'] != "") {
 }
 
 $smarty->assign ( 'parameters', $parameters );
-
+}
+else {$smarty->display ( _TPL_ . 'error.tpl' );
+die;
+}

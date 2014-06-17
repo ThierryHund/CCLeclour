@@ -2,6 +2,7 @@
 require_once _PATH_ . "modele/groupe.class.php";
 require_once _PATH_ . "modele/magasin.class.php";
 require_once _PATH_ . "modele/utilisateur.class.php";
+if($_SESSION['utilisateur']->getGroupe()==("administrateur")){
 
 if (! empty ( $post )) {
 	
@@ -23,4 +24,8 @@ if (! empty ( $post )) {
 $parameters ['groupes'] = Groupe::getGroupes ();
 $parameters ['magasins'] = Magasin::getMagasins ();
 $smarty->assign ( 'parameters', $parameters );
+}
+else {$smarty->display ( _TPL_ . 'error.tpl' );
+die;
+}
 ?>

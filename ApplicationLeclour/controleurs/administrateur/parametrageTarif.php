@@ -2,6 +2,8 @@
 require_once _PATH_ . "modele/tarif_transaction.class.php";
 require_once _PATH_ . "modele/transaction.class.php";
 
+if($_SESSION['utilisateur']->getGroupe()==("administrateur")){
+
 if (isset($_POST['dateDeb']) && isset($_POST['dateFin']) && isset($_POST['nbPlages'])) {
 	$smarty->assign('dateDeb', $_POST['dateDeb']);
 	$smarty->assign('dateFin', $_POST['dateFin']);
@@ -25,4 +27,8 @@ if (isset($_POST['dateDeb']) && isset($_POST['dateFin']) && isset($_POST['nbPlag
 		$parameters ['error'] = ($e->getMessage ());
 	}
 */
+}
+else {$smarty->display ( _TPL_ . 'error.tpl' );
+die;
+}
 ?>
