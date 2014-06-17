@@ -23,6 +23,9 @@
 					<label for="mdp" >Mot de passe :</label> 
 					<input type="password" name="mdp" id="mdp" onFocus='activateToolTips(this)' onBlur='deactivateTooltips()'/>
 					<span class="tooltip">Format : entre  8 et 25 caractères</span><br/>
+
+					<label for="mdp_confirm" >Confirmation :</label> 
+					<input type="password" name="mdp_confirm" id="mdp_confirm" /><br/>
 					
 					<label for="entite">Entité</label>{*<br/>*}
       				<select name="entite" id="entite">

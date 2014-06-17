@@ -12,7 +12,9 @@ if (!empty ( $post )) {
 	$magasin = intval ( $post ['entite'] );
 	if($nom=="" || $prenom=="" || $login=="" || $mdp==""){
 		$parameters ['error'] = "Tous les champs doivent être remplis";
-	}else{
+	}else 	if (($post ['mdp'] != $post ['mdp_confirm'])) {
+		$parameters ['error'] = "Validation du Mot de passe non conforme";
+	} else{
 		try {
 			Utilisateurs::creer ( $nom, $prenom, $login, $mdp, $groupe, $magasin );
 			$parameters ['creation'] = "reussi";
