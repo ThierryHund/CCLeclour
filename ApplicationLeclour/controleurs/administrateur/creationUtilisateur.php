@@ -10,7 +10,7 @@ if (!empty ( $post )) {
 	$mdp = $post ['mdp'];
 	$groupe = intval ( $post ['profil'] );
 	$magasin = intval ( $post ['entite'] );
-	if($nom=="" || $prenom=="" || $login="" || $mdp==""){
+	if($nom=="" || $prenom=="" || $login=="" || $mdp==""){
 		$parameters ['error'] = "Tous les champs doivent être remplis";
 	}else{
 		try {
