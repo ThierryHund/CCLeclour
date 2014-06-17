@@ -54,13 +54,13 @@ class Utilisateurs {
 			$login = str_replace ( " ", " ", trim ( $login ) );
 		}
 		
-		if (! preg_match ( "/^[A-Z][a-zA-Z]*[ [a-z]*]*$/", $nom )) {
+		if (! preg_match ( "/^[A-Z][a-z]*[ [a-z]*]*$/", $nom )) {
 			throw new Exception ( "nom incorrect" );
 		} else {
 			$nom = str_replace ( " ", " ", trim ( $nom ) );
 		}
 		;
-		if (! preg_match ( "/^[A-Z][a-zA-Z]*[ [a-z]*]*$/", $prenom )) {
+		if (! preg_match ( "/^[A-Z][a-z]*[ [a-z]*]*$/", $prenom )) {
 			throw new Exception ( "prenom incorrect" );
 		} else {
 			$prenom = str_replace ( " ", " ", trim ( $prenom ) );

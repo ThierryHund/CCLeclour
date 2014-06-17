@@ -7,6 +7,7 @@ if (isset ( $_POST ['commandeSurPerso'] )) {
 	echo $_POST['commandeSurPerso'];
 	$smarty->assign ( 'recherche', $_POST ['commandeSurPerso'] );
 } else {
+	
 	$smarty->assign ( 'recherche', 'nul' );
 }
 	

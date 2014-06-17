@@ -18,11 +18,11 @@
 				<form id="formulaire" method="post" action="././index.php?section=administrateur&page=gestionUtilisateur_select">
 					<label for="nom" >Nom :</label> 
 					<input type="text" name="nom" id="nom" onFocus='activateToolTips(this)' onBlur='deactivateTooltips()' value="{$parameters.user.nom}" />
-					<span class="tooltip">Format : Xxxxx Xxxxx</span><br/>
+					<span class="tooltip">Format : Xxxxx xxxxx</span><br/>
 					
 					<label for="prenom" >Prenom :</label> 
 					<input type="text" name="prenom" id="prenom" onFocus='activateToolTips(this)' onBlur='deactivateTooltips()' value="{$parameters.user.prenom}"/>
-					<span class="tooltip">Format : Xxxxx Xxxxx</span><br/>
+					<span class="tooltip">Format : Xxxxx xxxxx</span><br/>
 					
 					<label for="login" >Identifiant :</label> 
 					<input type="text" name="login" id="login" onFocus='activateToolTips(this)' onBlur='deactivateTooltips()' value="{$parameters.user.login}"/>
