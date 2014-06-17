@@ -9,6 +9,12 @@
 			<H1>Gestion des utilisateurs</H1>
 				
 			<div>
+							{if isset($parameters.creation)}
+					<p style="color:green;">Modification réussie</p>
+				{/if}
+				{if isset($parameters.error)}
+					<p style="color:red;">{$parameters.error}</p>
+				{/if}
 				<form id="formulaire" method="post" action="././index.php?section=administrateur&page=gestionUtilisateur_select">
 					<label for="nom" >Nom :</label> 
 					<input type="text" name="nom" id="nom" onFocus='activateToolTips(this)' onBlur='deactivateTooltips()' value="{$parameters.user.nom}" />

@@ -105,8 +105,7 @@ class Utilisateurs {
 				
 				
 				throw new Exception ( "login existant" );
-			} else
-				var_dump ( "login ok)" );
+			} 
 		}
 		
 		if (! preg_match ( "/^[A-Z][a-zA-Z]*[ [a-z]*]*$/", $nom )) {

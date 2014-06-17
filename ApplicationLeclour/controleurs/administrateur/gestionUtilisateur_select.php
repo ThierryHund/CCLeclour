@@ -16,6 +16,7 @@ if(isset($post ['mdp'])){
 		try {
 		
 		Utilisateurs::modifie ( $post ['nom'], $post ['prenom'], $post ['login'], $post ['vieux_login'], $post ['mdp'], $post ['statut'], $post ['profil'], $post ['entite'] );
+		$parameters ['creation'] = "reussi";
 	} catch ( Exception $e ) {
 		$parameters ['error'] = ($e->getMessage ());
 		;
