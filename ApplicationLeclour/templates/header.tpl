@@ -1,7 +1,7 @@
 <html>
 	<head>
-	<link rel="stylesheet" href="./css/MainStyleSheet.css">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" href="./css/MainStyleSheet.css">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	</head>
 	<body>
 		<div class="header">	
@@ -174,6 +174,7 @@
 					{/if}
 			{/if}
 		{/if}
+					<li class="corpsmenu"><a class="lienmenu" href="http://127.0.0.1/webprojet/CCLeclour/ApplicationLeclour/templates/help.html">Aide en ligne</a></li>
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?key=out">Deconnexion</a></li>
 					<li class="botmenu"></li>
 					</ul>
