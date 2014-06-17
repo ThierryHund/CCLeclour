@@ -24,7 +24,7 @@
 		{if isset($profil)}
 			{if $profil=='administrateur'}
 					{if isset($smarty.get.page)}
-										{*Creation utilisateur*}
+					{*Creation utilisateur*}
 					{if $smarty.get.page eq 'creationUtilisateur'}
 						<li class="corpsmenu"><a class="lienmenuactif" href="index.php?section=administrateur&page=creationUtilisateur">Création utilisateur</a></li>
 					{else}
@@ -87,15 +87,17 @@
 						<li class="corpsmenu"><a class="lienmenu" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					{/if}
 					{else}
-					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=gestionUtilisateur">Gestion utilisateur</a></li>
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=creationUtilisateur">Création utilisateur</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=gestionUtilisateur">Gestion utilisateur</a></li>
+
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=administrateur&page=parametrageTarif">Paramétrage des tarifs</a></li>
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=chefCaisse&page=commandeCarte">Commande carte B2C</a></li>
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=chefCaisse&page=gestionCommandes">Gestion des commandes B2C</a></li>
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=commandeCarte">Commande carte B2B</a></li>
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=gestionCommandes">Gestion des commandes B2B</a></li>
-					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=envoiFormulaire">Envoi formulaire sur-perso</a></li>
+					
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=activationPlage">Activation par plage</a></li>
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					{/if}
 				
@@ -135,8 +137,9 @@
 					{else}
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=commandeCarte">Commande carte B2B</a></li>
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=gestionCommandes">Gestion des commandes B2B</a></li>
-					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=envoiFormulaire">Envoi formulaire sur-perso</a></li>
+					
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=controleFacture">Contrôle facture</a></li>
+					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=comptable&page=activationPlage">Activation par plage</a></li>
 					<li class="corpsmenu"><a class="lienmenu" href="index.php?section=personnelAccueil&page=identificationCarte">Identification carte</a></li>
 					{/if}
 			{else if $profil=='chefCaisse'}
