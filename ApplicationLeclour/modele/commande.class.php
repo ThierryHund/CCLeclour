@@ -234,6 +234,27 @@ class Commande {
 		return $return;
 	}
 	
+	// //////////////////////////////
+	// retourne le nom de l'entité
+	// //////////////////////////////
+	public static function getEntite() {
+		$conn = Connection::get ();
+		
+		$select = $conn->query ( "SELECT distinct nom_client FROM client" );
+		
+		while ( $row = $select->fetch () ) {
+			$result [] = $row;
+		}
+		
+		foreach ( $result as $value ) {
+			$return []= array($value['nom_client']);
+
+		}			 
+		//echo var_dump($return);
+		return $return;
+		
+	}
+	
 	// Tous les getters
 	public function getIdCom() {
 		return $this->id_com;

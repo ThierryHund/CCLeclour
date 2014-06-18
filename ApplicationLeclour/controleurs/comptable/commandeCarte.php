@@ -106,6 +106,7 @@ if (! empty ( $post )) {
 */
 $parameters ['theme'] = Commande::getThemes ();
 $parameters ['montant'] = Commande::getMontant ();
+$parameters ['entite'] = Commande::getEntite ();
 
 $smarty->assign ( 'parameters', $parameters );
 ?>

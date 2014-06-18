@@ -16,15 +16,17 @@
 					var nouvelleLigne = obj_tableau.insertRow(nbr_de_lignes-1);
 												
 					var colonne1 = nouvelleLigne.insertCell(0);
-						colonne1.innerHTML = +nbr_de_lignes-1 ;
+						colonne1.innerHTML = "Lot " +i ;
 					var colonne2 = nouvelleLigne.insertCell(1);
-						colonne2.innerHTML = '<select name="lib_theme['+i+']" id="lib_theme">{foreach $parameters.theme as $params}<option VALUE={$params[0]}>{$params[0]}</option>{/foreach}';
+						colonne2.innerHTML = '<select name="entite['+i+']" id="entite">{foreach $parameters.entite as $params}<option VALUE={$params[0]}>{$params[0]}</option>{/foreach}';
 					var colonne3 = nouvelleLigne.insertCell(2);
-						colonne3.innerHTML = '<select name="montant['+i+']" id="montant">{foreach $parameters.montant as $params}<option VALUE={$params[0]}>{$params[0]}</option>{/foreach} ';
+						colonne3.innerHTML = '<select name="lib_theme['+i+']" id="lib_theme">{foreach $parameters.theme as $params}<option VALUE={$params[0]}>{$params[0]}</option>{/foreach}';
 					var colonne4 = nouvelleLigne.insertCell(3);
-						colonne4.innerHTML = '<input type="text" name="quantite['+i+']" value="" />';
-					var colonne5 = nouvelleLigne.insertCell(4); 
-						colonne5.innerHTML = '<input type="checkbox" name="delBox" value="checkbox" />';					
+						colonne4.innerHTML = '<select name="montant['+i+']" id="montant">{foreach $parameters.montant as $params}<option VALUE={$params[0]}>{$params[0]}</option>{/foreach} ';
+					var colonne5 = nouvelleLigne.insertCell(4);
+						colonne5.innerHTML = '<input type="text" name="quantite['+i+']" value="" />';
+					var colonne6 = nouvelleLigne.insertCell(5); 
+						colonne6.innerHTML = '<input type="checkbox" name="delBox" value="checkbox" />';					
 							{*'<input type="button" value="Supprimer" name="chkbox['+i+']" />';*}
 													
 			}
@@ -66,6 +68,7 @@
 								<table border="1" style=" width:90%" id="tableau_commande" >
 								<tr>
 									<th><label for="num_lot">Lot</label></th>
+									<th><label for="entite">Client</label></th>
 									<th><label for="lib_theme">Thème</label></th>
 									<th><label for="montant">Montant</label></th>
 									<th><label for="quantite">Quantité</label></th>
