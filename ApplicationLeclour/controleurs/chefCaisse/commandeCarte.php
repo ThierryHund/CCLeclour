@@ -21,6 +21,7 @@ if (! empty ( $post )) {
 
 	try {
 		Commande::creerCom($id_utilisateur, $date, $heure);
+		
 	} catch ( Exception $e ) {
 		$parameters ['error'] = ($e->getMessage ());
 	}
@@ -37,6 +38,7 @@ if (! empty ( $post )) {
 		
 	try {
 			Commande::creerLot($lib_theme, $montant, $quantite, $taille_array);
+			$parameters ['creation'] = "reussi";
 		} catch ( Exception $e ) {
 			$parameters ['error'] = ($e->getMessage ());
 		}
