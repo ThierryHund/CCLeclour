@@ -4,15 +4,12 @@ require_once _PATH_ . "modele/surperso.class.php";
 
 //affichage de commande selon choix radio button
 if (isset ( $_POST ['commandeSurPerso'] )) {
-	echo $_POST['commandeSurPerso'];
+	//echo $_POST['commandeSurPerso'];
 	$smarty->assign ( 'recherche', $_POST ['commandeSurPerso'] );
 } else {
 	
-	$smarty->assign ( 'recherche', 'nul' );
-	$parameters ['theme'] = Commande::getThemes ();
-	$parameters ['montant'] = Commande::getMontant ();
+	$smarty->assign ( 'recherche', 'nul' );	
 	
-	$smarty->assign ( 'parameters', $parameters );
 }
 	
 
@@ -108,9 +105,9 @@ if (! empty ( $post )) {
 		}
 	}
 }
-
+*/
 $parameters ['theme'] = Commande::getThemes ();
 $parameters ['montant'] = Commande::getMontant ();
 
-$smarty->assign ( 'parameters', $parameters );*/
+$smarty->assign ( 'parameters', $parameters );
 ?>
