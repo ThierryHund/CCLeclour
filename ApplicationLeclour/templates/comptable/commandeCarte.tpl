@@ -49,6 +49,15 @@
 					}
 				}
 			}
+			
+			function confirming() {		
+				confirmed = confirm("Voulez-vous valider votre commande?");
+			
+				if(confirmed)
+					window.location = "././index.php?section=chefCaisse&page=commandeCarte";
+				else
+					return false;
+			}
 		  
 		</script>
 	</head>
@@ -94,8 +103,12 @@
 								</tr>
 							</table>
 					
-					<input id="envoyer" type="submit" value="Envoyer" />
+					<input id="envoyer" type="submit" value="Envoyer" onclick="javascript:confirming()" />
 				</form>				
+			{/if}
+			
+			{if isset($parameters.creation)}
+				<p style="color:green;">Commande effectuée</p>
 			{/if}
 		
 				

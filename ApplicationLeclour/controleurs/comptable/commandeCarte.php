@@ -10,64 +10,55 @@ if (isset ( $_POST ['commandeSurPerso'] )) {
 	$smarty->assign ( 'recherche', 'nul' );
 }
 
-/*
-	if (isset ( $_POST ['nom_client'] )) {
-		
-		$smarty->assign ( 'recherche', $_POST ['nom_client'] );
-	} else {
-		$smarty->assign ( 'recherche', 'nul' );
-	}
-	*/
-
-
-
-/*
 
 //recuperation des donnée du csv dans un tableau
-$array = array ();
-if (! empty ( $post )) {
-	$csvData = file_get_contents ( $files ['file'] ['tmp_name'] );
-	$lines = explode ( PHP_EOL, $csvData );
+if (isset ( $_POST ['formOui'] )) {
+
 	$array = array ();
-	foreach ( $lines as $line ) {
-		$line = utf8_encode ($line);
-		$array [] = str_getcsv ( $line,";" );
-	}
-
-	//recuperation du nom de l'entreprise
-	$entreprise = $array[0][1];
-
-	//recuperation surperso pour chaque carte
-	$surperso = array();
-	for($i=2;$i<count($array);$i++)
-	{
-		if(isset($array[$i][0]) && $array[$i][0]!=""){
-			$surperso[$i-2]['nom']=$array[$i][0];
-			$surperso[$i-2]['prenom']=$array[$i][1];
-			$surperso[$i-2]['montant']=$array[$i][2];
-			$surperso[$i-2]['theme']=$array[$i][4];
-			$surperso[$i-2]['evenement']=$array[$i][5];
-			$surperso[$i-2]['entreprise']=$entreprise;
+	if (! empty ( $post )) {
+		$csvData = file_get_contents ( $files ['file'] ['tmp_name'] );
+		$lines = explode ( PHP_EOL, $csvData );
+		$array = array ();
+		foreach ( $lines as $line ) {
+			$line = utf8_encode ($line);
+			$array [] = str_getcsv ( $line,";" );
 		}
-	}
 
-	
-	//insertion des surperso dans la table surperso
-	foreach($surperso as $value){
-		$info=array();
-				$info['nom'] = $value['nom'];
-				$info['prenom'] = $value['prenom'];
-				$info['evenement'] = $value['evenement'];
-				$info['entreprise'] = $value['entreprise'];
+		//recuperation du nom de l'entreprise
+		$entreprise = $array[0][1];
+
+		//recuperation surperso pour chaque carte
+		$surperso = array();
+		for($i=2;$i<count($array);$i++)
+		{
+			if(isset($array[$i][0]) && $array[$i][0]!=""){
+				$surperso[$i-2]['nom']=$array[$i][0];
+				$surperso[$i-2]['prenom']=$array[$i][1];
+				$surperso[$i-2]['montant']=$array[$i][2];
+				$surperso[$i-2]['theme']=$array[$i][4];
+				$surperso[$i-2]['evenement']=$array[$i][5];
+				$surperso[$i-2]['entreprise']=$entreprise;
+			}
+		}
+
+		
+		//insertion des surperso dans la table surperso
+		foreach($surperso as $value){
+			$info=array();
+					$info['nom'] = $value['nom'];
+					$info['prenom'] = $value['prenom'];
+					$info['evenement'] = $value['evenement'];
+					$info['entreprise'] = $value['entreprise'];
 			
-		Surperso::insererSurperso($info);
+			var_dump($info);			
+			Surperso::insererSurperso($info);
+		}
+		var_dump("voilou");
+
+
+
 	}
-	var_dump("voilou");
-
-
-
-}*/
-
+}
 
 /*echo var_dump($_SESSION['utilisateur']->getNom());
  echo var_dump($_SESSION['utilisateur']->getPrenom());
@@ -105,6 +96,7 @@ if (! empty ( $post['lib_theme'] )) {
 		try {
 			Commande::creerComPerso($id_utilisateur, $date, $heure, $nom_client);
 			Commande::creerLot($lib_theme, $montant, $quantite, $taille_array);
+			$parameters ['creation'] = "reussi";
 		} catch ( Exception $e ) {
 			$parameters ['error'] = ($e->getMessage ());
 		}

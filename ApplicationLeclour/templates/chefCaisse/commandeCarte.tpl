@@ -83,4 +83,7 @@
 			<input id="envoyer" type="submit" value="Envoyer" onclick="javascript:confirming()" />
 		</form>
 		
+		{if isset($parameters.creation)}
+			<p style="color:green;">Commande effectuée</p>
+		{/if}
 	</body>
