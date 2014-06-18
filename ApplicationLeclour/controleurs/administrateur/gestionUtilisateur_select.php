@@ -36,7 +36,7 @@ $parameters ['user'] ['groupe'] =  $utilisateur->getGroupe ();
 
 $parameters ['groupes'] = Groupe::getGroupes ();
 $parameters ['magasins'] = Magasin::getMagasins ();
-var_dump($parameters);
+
 $smarty->assign ( 'parameters', $utilisateur->getNom () );
 $smarty->assign ( 'parameters', $parameters );
 }
