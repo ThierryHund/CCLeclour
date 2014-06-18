@@ -1,5 +1,5 @@
 <?php
-if($_SESSION['utilisateur']->getGroupe()==("administrateur")){
+if($_SESSION['utilisateur']->getGroupe()==("administrateur") && $_SESSION ['utilisateur']->getstatut()=="actif"){
 	$smarty->assign('dateDeb', $_POST['dateDeb']);
 	$smarty->assign('dateFin', $_POST['dateFin']);
 	$smarty->assign('nbPlages', $_POST['nbPlages']);

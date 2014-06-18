@@ -1,7 +1,7 @@
 <?php
 require_once _PATH_ . "modele/groupe.class.php";
 require_once _PATH_ . "modele/magasin.class.php";
-if($_SESSION['utilisateur']->getGroupe()==("administrateur")){
+if($_SESSION['utilisateur']->getGroupe()==("administrateur") && $_SESSION ['utilisateur']->getstatut()=="actif"){
 	if (!empty ( $post )) {
 
 		$nom = $post ['nom'];

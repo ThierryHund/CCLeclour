@@ -2,7 +2,7 @@
 require_once _PATH_ . "modele/tarif_transaction.class.php";
 require_once _PATH_ . "modele/transaction.class.php";
 
-if($_SESSION['utilisateur']->getGroupe()==("administrateur")){
+if($_SESSION['utilisateur']->getGroupe()==("administrateur") && $_SESSION ['utilisateur']->getstatut()=="actif"){
 
 if (isset($_POST['dateDeb']) && isset($_POST['dateFin']) && isset($_POST['nbPlages'])) {
 	$smarty->assign('dateDeb', $_POST['dateDeb']);

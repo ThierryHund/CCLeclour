@@ -2,7 +2,7 @@
 require_once _PATH_ . "modele/groupe.class.php";
 require_once _PATH_ . "modele/magasin.class.php";
 require_once _PATH_ . "modele/utilisateur.class.php";
-if($_SESSION['utilisateur']->getGroupe()==("administrateur")){
+if($_SESSION['utilisateur']->getGroupe()==("administrateur") && $_SESSION ['utilisateur']->getstatut()=="actif"){
 $utilisateur = Utilisateurs::get ( $post ['login'] );
 
 if(isset($post ['mdp'])){
