@@ -74,7 +74,7 @@ class Magasin {
 		$conn = Connection::get ();
 		
 		// requete sql preparé
-		$request = $conn->prepare ( "SELECT lib_mag FROM magasin WHERE id_mag=:id_mag" );
+		$request = $conn->prepare ( "SELECT lib_mag FROM entite WHERE id_mag=:id_mag" );
 		$request->execute ( array (
 				'id_mag' => $id_mag 
 		) );
@@ -82,6 +82,8 @@ class Magasin {
 		while ( $row = $request->fetch () ) {
 			$result [] = $row;
 		}
+		
 		return $result;
+		
 	}
 }

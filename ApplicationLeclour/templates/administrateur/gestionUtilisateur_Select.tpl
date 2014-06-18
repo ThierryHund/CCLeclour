@@ -46,8 +46,8 @@
 					<label for="entite" >Entité :</label>
 					<select name="entite" id="entite">
 						{foreach $parameters.magasins as $params}
-							{if $params[1] == $parameters.user.magasin}
-								<option VALUE={$params[0]} selected="selected">{$params[1]}</option>
+							{if $params[1] == $parameters.user.magasin[0]}
+								<option VALUE={$params[0]} selected>{$params[1]}</option>
 							{else}
 								<option VALUE={$params[0]}>{$params[1]}</option>
 							{/if}
@@ -59,7 +59,7 @@
 					<select name="profil" id="profil">
 						{foreach $parameters.groupes as $params}
 							{if $params[1] == $parameters.user.groupe}
-								<option VALUE={$params[0]} selected="selected" >{$params[1]}</option>
+								<option VALUE={$params[0]} selected>{$params[1]}</option>
 								
 							{else}
 								<option VALUE={$params[0]}>{$params[1]}</option>

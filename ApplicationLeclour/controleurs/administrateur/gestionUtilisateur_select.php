@@ -31,11 +31,12 @@ $parameters ['user'] ['vieux_login'] = $utilisateur->getLogin ();
 $parameters ['user'] ['login'] = $utilisateur->getLogin ();
 // $parameters ['user'] ['password'] = $utilisateur->getPassword ();
 $parameters ['user'] ['statut'] = $utilisateur->getStatut ();
-$parameters ['user'] ['magasin'] = Magasin::getLibById ( $utilisateur->getIdMag () );
-$parameters ['user'] ['groupe'] = Groupe::getLibById ( $utilisateur->getGroupe () );
+$parameters ['user'] ['magasin'] = Magasin::getLibById ( $utilisateur->getIdMag () )[0];
+$parameters ['user'] ['groupe'] =  $utilisateur->getGroupe ();
 
 $parameters ['groupes'] = Groupe::getGroupes ();
 $parameters ['magasins'] = Magasin::getMagasins ();
+var_dump($parameters);
 $smarty->assign ( 'parameters', $utilisateur->getNom () );
 $smarty->assign ( 'parameters', $parameters );
 }
