@@ -45,6 +45,30 @@ class Commande {
 		
 	}
 	
+	public static function creerComPerso($id_utilisateur, $date, $heure, $nom_client) {
+		$conn = Connection::get ();
+		
+		// requete pour obtenir id_client à partir de nom_client 
+		$req1 = $conn->prepare("SELECT id_client FROM client WHERE nom_client =:nom_client");
+		$req1->execute ( array ('nom_client' => $nom_client) );
+		
+		$id_client = $req1->fetch();
+		$id_client = $id_client['id_client'];
+		
+		echo var_dump("nom client: ".$nom_client);
+		echo var_dump("id client: ".$id_client);
+		
+			// requete d'insertion table commande
+		$req2 = $conn->prepare ( "INSERT INTO commande (id_client, date_com, heure_com, id_utilisateur, id_type_com) 
+											VALUES (:id_client, :date_com, :heure_com, :id_utilisateur , 2 )");
+		$req2->execute ( array ('id_client' => $id_client,
+								'date_com' => $date, 
+								'heure_com' => $heure, 
+								'id_utilisateur' => $id_utilisateur, 
+								) );
+		
+	}
+	
 	// //////////////////////////////
 	// Création d'un nouveau lot à partir de l'id de la commande
 	// //////////////////////////////
@@ -235,9 +259,9 @@ class Commande {
 	}
 	
 	// //////////////////////////////
-	// retourne le nom de l'entité
+	// retourne le nom du Client (entreprise commandant les cartes)
 	// //////////////////////////////
-	public static function getEntite() {
+	public static function getNomClient() {
 		$conn = Connection::get ();
 		
 		$select = $conn->query ( "SELECT distinct nom_client FROM client" );

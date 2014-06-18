@@ -18,7 +18,7 @@
 					var colonne1 = nouvelleLigne.insertCell(0);
 						colonne1.innerHTML = "Lot " +i ;
 					var colonne2 = nouvelleLigne.insertCell(1);
-						colonne2.innerHTML = '<select name="entite['+i+']" id="entite">{foreach $parameters.entite as $params}<option VALUE={$params[0]}>{$params[0]}</option>{/foreach}';
+						colonne2.innerHTML = '<select name="nom_client['+i+']" id="entite">{foreach $parameters.nom_client as $params}<option VALUE={$params[0]}>{$params[0]}</option>{/foreach}';
 					var colonne3 = nouvelleLigne.insertCell(2);
 						colonne3.innerHTML = '<select name="lib_theme['+i+']" id="lib_theme">{foreach $parameters.theme as $params}<option VALUE={$params[0]}>{$params[0]}</option>{/foreach}';
 					var colonne4 = nouvelleLigne.insertCell(3);
@@ -57,12 +57,12 @@
 				
 				
 			{if ($recherche == 'oui')}
-						<form id="formOui" action="././index.php?section=comptable&page=commandeNormale" method="post">
+						<form id="formOui" action="././index.php?section=comptable&page=commandeCarte" method="post">
 							<input type="file" name="file" id="file" /><br/>
 							<input type="submit" value="Rechercher"/>
 						</form>
 			{else if ($recherche == 'non')}
-				<form id="formNon" action="././index.php?section=comptable&page=commandeNormale" method="post">
+				<form id="formNon" action="././index.php?section=comptable&page=commandeCarte" method="post">
 										
 						
 								<table border="1" style=" width:90%" id="tableau_commande" >
