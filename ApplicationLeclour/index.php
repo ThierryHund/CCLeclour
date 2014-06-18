@@ -51,13 +51,17 @@ if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_S
 					$_SESSION ['utilisateur'] = Utilisateurs::get ( $value ['login'] );
 						
 					if($_SESSION ['utilisateur']->getstatut()=="bloqué"){
-						$smarty->assign ( 'erreur', 'Utilisateur bloqué, contactez un administrateur' );
+						
+						$parameters ['error'] = "Utilisateur bloqué, contactez un administrateur";
+						$smarty->assign ( 'parameters', $parameters );
 						$smarty->display ( "header.tpl" );
 						$smarty->display ( _TPL_ . 'connexion.tpl' );
 						die;
 					}
 				} else
-					$smarty->assign ( 'erreur', 'Erreur d\'identification' );
+					$parameters ['error'] = "Erreur d'identification";
+					$smarty->assign ( 'parameters', $parameters );
+					
 			}
 				
 		}catch(PDOException $erreur) {
