@@ -46,7 +46,7 @@ require_once _PATH_ . "modele/utilisateur.class.php";
 	}
 	
 		try {
-			$listeCom = Commande::getCommandesBy($id_com, $id_utilisateur, $nom, $prenom, $login, $date_com_deb, $date_com_fin);
+			$listeCom = Commande::getCommandesByB2B($id_com, $id_utilisateur, $nom, $prenom, $login, $date_com_deb, $date_com_fin);
 			$parameters ['commande'] = $listeCom;
 		} catch ( Exception $e ) {
 			$parameters ['error'] = ($e->getMessage ());

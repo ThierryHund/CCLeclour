@@ -60,7 +60,7 @@ class Commande {
 		
 			// requete d'insertion table commande
 		$req2 = $conn->prepare ( "INSERT INTO commande (id_client, date_com, heure_com, id_utilisateur, id_type_com) 
-											VALUES (:id_client, :date_com, :heure_com, :id_utilisateur , 2 )");
+											VALUES (:id_client, :date_com, :heure_com, :id_utilisateur , 1 )");
 		$req2->execute ( array ('id_client' => $id_client,
 								'date_com' => $date, 
 								'heure_com' => $heure, 
@@ -182,6 +182,74 @@ class Commande {
 									AND (DATEDIFF(date_com, '".$date_com_fin."') <=0) )
 									AND utilisateur.id_utilisateur = commande.id_utilisateur									
 									AND id_type_com = 2". $adIdCom. $adIdUtilisateur. $adNom. $adPrenom. $adLogin);
+		
+		}
+		$request->execute($save);
+		$result = array ();
+		while ( $row = $request->fetch () ) {
+			$result [] = $row;
+		}
+		return $result;
+		 
+	}
+	
+	// //////////////////////////////
+	// retourne les commandes selon 1 ou plusieurs parametres
+	// //////////////////////////////
+	public static function getCommandesByB2B($id_com, $id_utilisateur, $nom, $prenom, $login, $date_com_deb, $date_com_fin) {
+		$save;
+		if (isset ( $id_com ) && $id_com != "") {
+			$adIdCom = " AND id_com = :id_com";
+			$save ['id_com'] = $id_com;
+		} else
+			$adIdCom = "";
+		if (isset ( $id_utilisateur ) && $id_utilisateur != "") {
+			$adIdUtilisateur = " AND id_utilisateur = :id_utilisateur";
+			$save ['id_utilisateur'] = $id_utilisateur;
+		} else
+			$adIdUtilisateur = "";
+		if (isset ( $nom ) && $nom != "") {
+			$adNom = " AND nom = :nom";
+			$save ['nom'] = $nom;
+		} else
+			$adNom = "";
+		if (isset ( $prenom ) && $prenom != "") {
+			$adPrenom = " AND prenom = :prenom";
+			$save ['prenom'] = $prenom;
+		} else
+			$adPrenom = "";
+		if (isset ( $login ) && $login != "") {
+			$adLogin = " AND login = :login";
+			$save ['login'] = $login;
+		} else
+			$adLogin = "";
+		if (isset ( $date_com_deb ) && $date_com_deb != "") {
+			$adDateComDeb = " AND date_com_deb = :date_com_deb";
+			$save ['date_com_deb'] = $date_com_deb;
+		} else
+			$adDateComDeb = "";
+		if (isset ( $date_com_fin ) && $date_com_fin != "") {
+			$adDateComFin = " AND date_com_fin = :date_com_fin";
+			$save ['date_com_fin'] = $date_com_fin;
+		} else
+			$adDateComFin = "";
+			
+		$conn = Connection::get ();
+		if ( (!isset($date_com_fin) || $date_com_fin == "") || (!isset($date_com_deb) || $date_com_deb == "") ) {
+			$request = $conn->prepare ( "SELECT  id_com, commande.id_utilisateur, nom, prenom, login, date_com, heure_com
+									FROM commande, utilisateur
+									WHERE utilisateur.id_utilisateur = commande.id_utilisateur									
+									AND id_type_com = 1". $adIdCom. $adIdUtilisateur. $adNom. $adPrenom. $adLogin);
+		
+		}
+		else {
+			$request = $conn->prepare ( "SELECT  id_com, commande.id_utilisateur, nom, prenom, login, date_com, heure_com
+									FROM commande, utilisateur 
+									
+									WHERE ((DATEDIFF(date_com, '".$date_com_deb."') >=0) 
+									AND (DATEDIFF(date_com, '".$date_com_fin."') <=0) )
+									AND utilisateur.id_utilisateur = commande.id_utilisateur									
+									AND id_type_com = 1". $adIdCom. $adIdUtilisateur. $adNom. $adPrenom. $adLogin);
 		
 		}
 		$request->execute($save);
