@@ -32,7 +32,7 @@
 		</script>
 		<h1>Gestion des Commandes B2B</h1>
 			
-				<h2>Recherche des commandes B2C par: </h2>
+				<h2>Recherche des commandes B2B par: </h2>
 				<form id="form1" method="post" action="././index.php?section=comptable&page=gestionCommandes">
 					
 					<input type="checkbox" name="checkbox1" id="checkbox1" value="id_com" >Identifiant commande </br>

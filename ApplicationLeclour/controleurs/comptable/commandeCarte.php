@@ -4,7 +4,7 @@ require_once _PATH_ . "modele/surperso.class.php";
 
 //affichage de commande selon choix radio button
 if (isset ( $_POST ['commandeSurPerso'] )) {
-	echo $_POST['commandeSurPerso'];
+	//echo $_POST['commandeSurPerso'];
 	$smarty->assign ( 'recherche', $_POST ['commandeSurPerso'] );
 } else {
 	$smarty->assign ( 'recherche', 'nul' );
@@ -65,8 +65,8 @@ if (! empty ( $post )) {
  echo var_dump($_SESSION['utilisateur']->getPrenom());
 echo var_dump($_SESSION['utilisateur']->getId());*/
 
-/*
-if (! empty ( $post )) {
+
+if (! empty ( $post['lib_theme'] )) {
 
 	$id_utilisateur = $_SESSION['utilisateur']->getId();
 	$profil = $_SESSION['utilisateur']->getGroupe();
@@ -80,24 +80,27 @@ if (! empty ( $post )) {
 	//echo var_dump("date: ".$date);
 	//echo var_dump("heure: ".$heure);
 
-	try {
+/*	try {
 		Commande::creerCom($id_utilisateur, $date, $heure);
 	} catch ( Exception $e ) {
 		$parameters ['error'] = ($e->getMessage ());
 	}
-
+*/
 	for ($i=1;$i<=$taille_array;$i++){
 		$lot = $i;
 		$lib_theme = $post ['lib_theme'][$i];
 		$quantite = $post ['quantite'][$i];
 		$montant = $post ['montant'][$i];
-		//echo var_dump("lot n°: ".$lot);
-		//echo var_dump("lib_theme: ".$lib_theme);
-		//echo var_dump("quantité: ".$quantite);
-		//echo var_dump("montant: ".$montant);
-
+		$nom_client = $post ['nom_client'][$i];
+	/*	echo var_dump("lot n°: ".$lot);
+		echo var_dump("lib_theme: ".$lib_theme);
+		echo var_dump("quantité: ".$quantite);
+		echo var_dump("montant: ".$montant);
+		echo var_dump("client: ".$nom_client);
+*/
 		try {
-			Commande::creerLot($lib_theme, $montant, $quantite, $taille_array);
+			Commande::creerComPerso($id_utilisateur, $date, $heure, $nom_client);
+			//Commande::creerLot($lib_theme, $montant, $quantite, $taille_array);
 		} catch ( Exception $e ) {
 			$parameters ['error'] = ($e->getMessage ());
 		}
@@ -106,6 +109,7 @@ if (! empty ( $post )) {
 
 $parameters ['theme'] = Commande::getThemes ();
 $parameters ['montant'] = Commande::getMontant ();
+$parameters ['nom_client'] = Commande::getNomClient ();
 
-$smarty->assign ( 'parameters', $parameters );*/
+$smarty->assign ( 'parameters', $parameters );
 ?>
