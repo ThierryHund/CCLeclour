@@ -34,7 +34,7 @@
 					<input type="password" name="mdp" id="mdp" onFocus='activateToolTips(this)' onBlur='deactivateTooltips()'/>
 					<span class="tooltip">Format : entre  8 et 25 caractères</span><br/>
 					
-					<label for="mdp_confirm" >Confirmation mot de passe :</label> 
+					<label for="mdp_confirm" >Confirmation mot de passe :</label>  
 					<input type="password" name="mdp_confirm" id="mdp_confirm" /><br/><br/>
 					
 					<label for="statut" >Statut :</label> 
