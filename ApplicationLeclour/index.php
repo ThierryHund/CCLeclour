@@ -51,12 +51,14 @@ if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_S
 					$_SESSION ['utilisateur'] = Utilisateurs::get ( $value ['login'] );
 						
 					if($_SESSION ['utilisateur']->getstatut()=="bloqué"){
+						
 						$smarty->assign ( 'erreur', 'Utilisateur bloqué, contactez un administrateur' );
 						$smarty->display ( "header.tpl" );
 						$smarty->display ( _TPL_ . 'connexion.tpl' );
 						die;
 					}
 				} else
+				
 					$smarty->assign ( 'erreur', 'Erreur d\'identification' );
 			}
 				
@@ -65,7 +67,7 @@ if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_S
 			$smarty->assign ( 'parameters', $parameters );
 		}
 	}
-}else if (! empty ( $_POST ['login'] ) || ! empty ( $_POST ['pswd'] )){
+}else if (empty ( $_POST ['login'] ) || empty ( $_POST ['pswd'] )){
 	$parameters ['error'] = "Chaque champ doit etre rempli";$smarty->assign ( 'parameters', $parameters );
 }
 
