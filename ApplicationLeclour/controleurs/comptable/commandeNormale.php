@@ -9,6 +9,10 @@ if (isset ( $_POST ['commandeSurPerso'] )) {
 } else {
 	
 	$smarty->assign ( 'recherche', 'nul' );
+	$parameters ['theme'] = Commande::getThemes ();
+	$parameters ['montant'] = Commande::getMontant ();
+	
+	$smarty->assign ( 'parameters', $parameters );
 }
 	
 

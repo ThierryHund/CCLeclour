@@ -49,10 +49,17 @@ if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_S
 				if ($value ['login'] == $_POST ['login'] && crypt ( $_POST ['pswd'], $value ['mdp'] ) == $value ['mdp']) {
 					$_SESSION ['connecte'] = true;
 					$_SESSION ['utilisateur'] = Utilisateurs::get ( $value ['login'] );
-				} else {
+						
+					if($_SESSION ['utilisateur']->getstatut()=="bloqué"){
+						$smarty->assign ( 'erreur', 'Utilisateur bloqué, contactez un administrateur' );
+						$smarty->display ( "header.tpl" );
+						$smarty->display ( _TPL_ . 'connexion.tpl' );
+						die;
+					}
+				} else
 					$smarty->assign ( 'erreur', 'Erreur d\'identification' );
-				}
 			}
+				
 		}catch(PDOException $erreur) {
 			$parameters ['error'] = "probleme d'acces BDD contactez un administrateur";
 			$smarty->assign ( 'parameters', $parameters );

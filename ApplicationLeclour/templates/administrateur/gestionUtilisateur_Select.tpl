@@ -7,6 +7,7 @@
 		<div>
 
 			<H1>Gestion des utilisateurs</H1>
+			Vous pouvez modifier l'utilisateur, si le mot de passe est laissé vide, l'ancien mot de passe sera conservé.<br/><br/>
 				
 			<div>
 							{if isset($parameters.creation)}
@@ -37,7 +38,10 @@
 					<input type="password" name="mdp_confirm" id="mdp_confirm" /><br/>
 					
 					<label for="statut" >Statut :</label> 
-					<input type="text" name="statut" value="{$parameters.user.statut}" id="statut" /><br/>
+					<select name="statut" id="statut" />
+					<option VALUE="actif" {if "actif" == $parameters.user.statut}selected{/if}>actif </option>
+					<option VALUE="bloqué" {if "bloqué" == $parameters.user.statut}selected{/if}>bloqué </option>
+					</select><br/>
 					
 					<label for="entite" >Entité :</label>
 					<select name="entite" id="entite">
