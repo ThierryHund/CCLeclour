@@ -9,7 +9,15 @@ if (isset ( $_POST ['commandeSurPerso'] )) {
 } else {
 	$smarty->assign ( 'recherche', 'nul' );
 }
-	
+
+/*
+	if (isset ( $_POST ['nom_client'] )) {
+		
+		$smarty->assign ( 'recherche', $_POST ['nom_client'] );
+	} else {
+		$smarty->assign ( 'recherche', 'nul' );
+	}
+	*/
 
 
 
@@ -80,12 +88,7 @@ if (! empty ( $post['lib_theme'] )) {
 	//echo var_dump("date: ".$date);
 	//echo var_dump("heure: ".$heure);
 
-/*	try {
-		Commande::creerCom($id_utilisateur, $date, $heure);
-	} catch ( Exception $e ) {
-		$parameters ['error'] = ($e->getMessage ());
-	}
-*/
+
 	for ($i=1;$i<=$taille_array;$i++){
 		$lot = $i;
 		$lib_theme = $post ['lib_theme'][$i];
@@ -98,13 +101,15 @@ if (! empty ( $post['lib_theme'] )) {
 		echo var_dump("montant: ".$montant);
 		echo var_dump("client: ".$nom_client);
 */
+	
 		try {
 			Commande::creerComPerso($id_utilisateur, $date, $heure, $nom_client);
-			//Commande::creerLot($lib_theme, $montant, $quantite, $taille_array);
+			Commande::creerLot($lib_theme, $montant, $quantite, $taille_array);
 		} catch ( Exception $e ) {
 			$parameters ['error'] = ($e->getMessage ());
 		}
 	}
+	
 }
 
 $parameters ['theme'] = Commande::getThemes ();

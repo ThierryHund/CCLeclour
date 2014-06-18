@@ -6,7 +6,9 @@
 			var create_champ = function(){
 											
 				i++;	
-																	
+					
+						
+					
 					var obj_tableau = document.getElementById("tableau_commande"); 
 												
 					var arrayLignes = obj_tableau.rows;
@@ -18,7 +20,12 @@
 					var colonne1 = nouvelleLigne.insertCell(0);
 						colonne1.innerHTML = "Lot " +i ;
 					var colonne2 = nouvelleLigne.insertCell(1);
-						colonne2.innerHTML = '<select name="nom_client['+i+']" id="entite">{foreach $parameters.nom_client as $params}<option VALUE={$params[0]}>{$params[0]}</option>{/foreach}';
+					
+					{*if(i >= 2){
+						colonne2.innerHTML = <select disabled>;
+					}else{*}
+						colonne2.innerHTML = '<select name="nom_client['+i+']" id="nom_client">{foreach $parameters.nom_client as $params}<option VALUE={$params[0]}>{$params[0]}</option>{/foreach}';
+					
 					var colonne3 = nouvelleLigne.insertCell(2);
 						colonne3.innerHTML = '<select name="lib_theme['+i+']" id="lib_theme">{foreach $parameters.theme as $params}<option VALUE={$params[0]}>{$params[0]}</option>{/foreach}';
 					var colonne4 = nouvelleLigne.insertCell(3);

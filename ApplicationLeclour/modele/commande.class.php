@@ -55,8 +55,8 @@ class Commande {
 		$id_client = $req1->fetch();
 		$id_client = $id_client['id_client'];
 		
-		echo var_dump("nom client: ".$nom_client);
-		echo var_dump("id client: ".$id_client);
+		//echo var_dump("nom client: ".$nom_client);
+		//echo var_dump("id client: ".$id_client);
 		
 			// requete d'insertion table commande
 		$req2 = $conn->prepare ( "INSERT INTO commande (id_client, date_com, heure_com, id_utilisateur, id_type_com) 
