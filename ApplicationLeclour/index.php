@@ -71,7 +71,7 @@ if ((! empty ( $_POST ['login'] ) && ! empty ( $_POST ['pswd'] )) or isset ( $_S
 	}
 }else if ((isset( $_POST ['login'] ) && isset( $_POST ['pswd'] )) && ( empty ( $_POST ['login'] ) || empty ( $_POST ['pswd'] ))){
 	
-	$parameters ['error'] = "Chaque champ doit etre rempli";$smarty->assign ( 'parameters', $parameters );
+	$parameters ['error'] = "Chaque champs doit être rempli";$smarty->assign ( 'parameters', $parameters );
 }
 
 // //////////////////////////////

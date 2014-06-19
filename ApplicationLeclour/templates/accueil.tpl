@@ -5,6 +5,6 @@
 		Bienvenue sur l'application CCLeclour
 		</p>
 		<p>
-		Choisissez ce que vous souhaitez faire au moyen du menu
+		Choisissez ce que vous souhaitez faire à l'aide du menu
 		</p>
 	</div>
