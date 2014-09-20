@@ -103,7 +103,7 @@
 								</tr>
 							</table>
 					
-					<input id="envoyer" type="submit" value="Envoyer" onclick="javascript:confirming()" />
+					<input id="envoyer" type="submit" value="Envoyer" />
 				</form>				
 			{/if}
 			
